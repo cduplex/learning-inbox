@@ -63,6 +63,18 @@ class CollectionContractTests(unittest.TestCase):
         )
         self.assertEqual(validator.validate_repository(root), [])
 
+    def test_rejects_muse_card_with_non_deterministic_filename(self):
+        root = self.make_root()
+        (root / "data" / "muse-instagram" / "reels" / "notes.md").write_text(
+            "# Test\n\n"
+            "## Source\n- Original: https://www.instagram.com/reel/abc123/\n- Platform: Instagram Reel\n\n"
+            "## Tags\nAI\n\n## Core components\n- Example\n\n"
+            "## Derived summary\nA summary.\n\n## Practical takeaways\n- Apply carefully.\n\n"
+            "## Notes\nDerived from a private Muse record.\n",
+            encoding="utf-8",
+        )
+        self.assertIn("muse_card_invalid_filename:notes.md", validator.validate_repository(root))
+
     def test_rejects_muse_card_with_unsafe_source_url(self):
         root = self.make_root()
         (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(

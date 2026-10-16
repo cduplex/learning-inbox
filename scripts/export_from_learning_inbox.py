@@ -75,6 +75,12 @@ def slugify(value: str) -> str:
     return normalized[:72] or "untitled"
 
 
+def card_filename(title: str, item_id: str, fallback_id: str = "record") -> str:
+    """Return a flat, safe card filename from untrusted record metadata."""
+    suffix = slugify(item_id)[-8:] or slugify(fallback_id)[-8:] or "record"
+    return f"{slugify(title)}-{suffix}.md"
+
+
 def parse_record(path: Path) -> dict[str, Any]:
     match = STRUCTURED_EVIDENCE.search(path.read_text(encoding="utf-8"))
     if not match:
@@ -178,7 +184,7 @@ def main() -> int:
             skipped.append(f"- `{path.name}`: {error}")
             continue
         item_id = scalar(record.get("item_id"))
-        filename = f"{slugify(title)}-{item_id[-8:] if item_id else path.stem[-8:]}.md"
+        filename = card_filename(title, item_id, path.stem)
         (cards_dir / filename).write_text(card, encoding="utf-8")
         derived_value = record.get("derived")
         derived = derived_value if isinstance(derived_value, dict) else {}

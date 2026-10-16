@@ -23,6 +23,7 @@ SENSITIVE_URL_KEYS = {
     "key", "password", "secret", "secret_key", "signature", "token",
     "x-amz-credential", "x-amz-security-token", "x-amz-signature",
 }
+MAX_CARD_CHARACTERS = 10_000
 MUSE_CARD_FILENAME = re.compile(
     r"^\d{4}-\d{2}-\d{2}--[a-z0-9]+(?:-[a-z0-9]+)*--[a-z0-9][a-z0-9_-]*\.md$"
 )
@@ -139,7 +140,13 @@ def validate_repository(root: Path) -> list[str]:
     for markdown in data.rglob("*.md"):
         relative = markdown.relative_to(root).as_posix()
         if relative == "data/INDEX.md" or allowed_collection_file(relative):
-            errors.extend(unsafe_content_errors(relative, markdown.read_text(encoding="utf-8")))
+            text = markdown.read_text(encoding="utf-8")
+            if (
+                relative.startswith("data/learning-inbox/cards/")
+                or relative.startswith("data/muse-instagram/reels/")
+            ) and len(text) > MAX_CARD_CHARACTERS:
+                errors.append(f"oversized_card:{relative}")
+            errors.extend(unsafe_content_errors(relative, text))
     if (data / "cards").exists():
         errors.append("legacy_shared_cards_directory")
 

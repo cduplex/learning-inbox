@@ -13,10 +13,14 @@ SPEC.loader.exec_module(sync)
 
 
 class SyncSafetyTests(unittest.TestCase):
-    def test_only_generated_knowledge_paths_are_publishable(self):
-        self.assertTrue(sync.only_generated_paths(["data/INDEX.md", "data/cards/one.md"]))
-        self.assertFalse(sync.only_generated_paths(["README.md"]))
-        self.assertFalse(sync.only_generated_paths(["data/cards/one.md", "scripts/tool.py"]))
+    def test_only_learning_inbox_collection_paths_are_publishable(self):
+        self.assertTrue(sync.only_generated_paths([
+            "data/learning-inbox/INDEX.md",
+            "data/learning-inbox/cards/one.md",
+        ]))
+        self.assertFalse(sync.only_generated_paths(["data/INDEX.md"]))
+        self.assertFalse(sync.only_generated_paths(["data/muse-instagram/reels/one.md"]))
+        self.assertFalse(sync.only_generated_paths(["data/learning-inbox/cards/one.md", "scripts/tool.py"]))
         self.assertFalse(sync.only_generated_paths([]))
 
     def test_selects_exactly_one_open_automation_pr(self):
@@ -57,7 +61,10 @@ class SyncSafetyTests(unittest.TestCase):
             },
             "user": {"login": "cduplex"},
         }
-        files = [{"filename": "data/INDEX.md"}, {"filename": "data/cards/note.md"}]
+        files = [
+            {"filename": "data/learning-inbox/INDEX.md"},
+            {"filename": "data/learning-inbox/cards/note.md"},
+        ]
         self.assertEqual(
             sync.validate_pr_payload(pr, files, "cduplex/learning-inbox", "cduplex", pr["head"]["ref"]),
             "a" * 40,

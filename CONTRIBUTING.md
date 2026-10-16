@@ -1,8 +1,16 @@
 # Updating the knowledgebase
 
+## Collection ownership
+
+- Learning Inbox automation owns only `data/learning-inbox/**`.
+- Muse owns only `data/muse-instagram/**`; follow [`MUSE-PUBLISHING.md`](MUSE-PUBLISHING.md).
+- The top-level `data/INDEX.md` is a collection directory. Do not overwrite it from a pipeline exporter.
+
+## Learning Inbox updates
+
 1. Keep the raw Learning Inbox archive outside this repository.
-2. Run `scripts/export_from_learning_inbox.py` against the saved Markdown evidence directory.
-3. Inspect `git diff -- data/` for accuracy, relevance, and accidental sensitive material.
-4. Commit only the generated cards and index after review.
+2. Run `scripts/export_from_learning_inbox.py` against the saved Markdown evidence directory with `--output data/learning-inbox`.
+3. Inspect `git diff -- data/learning-inbox/` for accuracy, relevance, and accidental sensitive material.
+4. Commit only the generated Learning Inbox cards and collection index after review.
 
 Do not add transcripts, source HTML, SQLite files, message-delivery state, provider responses, `.env` files, credentials, or unredacted backups.

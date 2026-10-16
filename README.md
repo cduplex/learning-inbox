@@ -6,8 +6,9 @@ Each note preserves the useful layer of an intake: a canonical source link, deri
 
 ## Use it
 
-- Start at [`data/INDEX.md`](data/INDEX.md).
-- Browse notes in [`data/cards/`](data/cards/).
+- Start at [`data/INDEX.md`](data/INDEX.md) to choose a collection.
+- Browse Learning Inbox notes in [`data/learning-inbox/cards/`](data/learning-inbox/cards/).
+- Muse's Reel pipeline uses [`data/muse-instagram/`](data/muse-instagram/) under the contract in [`MUSE-PUBLISHING.md`](MUSE-PUBLISHING.md).
 - Use GitHub search for topics, tools, or tags.
 - Treat every note as a derived aid. Open the original source before relying on a consequential claim.
 

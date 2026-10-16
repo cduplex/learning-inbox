@@ -42,6 +42,30 @@ def safe_url(value: str) -> bool:
     return True
 
 
+def allowed_collection_file(relative: str) -> bool:
+    return (
+        relative == "data/learning-inbox/INDEX.md"
+        or (relative.startswith("data/learning-inbox/cards/") and relative.endswith(".md"))
+        or relative == "data/muse-instagram/INDEX.md"
+        or relative == "data/muse-instagram/reels/.gitkeep"
+        or (relative.startswith("data/muse-instagram/reels/") and relative.endswith(".md"))
+    )
+
+
+def validate_changed_paths(paths: list[str], branch: str) -> list[str]:
+    if branch.startswith("sync/learning-inbox-"):
+        allowed = lambda path: path == "data/learning-inbox/INDEX.md" or (
+            path.startswith("data/learning-inbox/cards/") and path.endswith(".md")
+        )
+    elif branch.startswith("sync/muse-instagram-"):
+        allowed = lambda path: path == "data/muse-instagram/INDEX.md" or (
+            path.startswith("data/muse-instagram/reels/") and path.endswith(".md")
+        )
+    else:
+        return []
+    return [f"publisher_changed_path_not_allowed:{path}" for path in paths if not allowed(path)]
+
+
 def source_url(card: str) -> str | None:
     in_source = False
     for line in card.splitlines():
@@ -66,6 +90,11 @@ def validate_repository(root: Path) -> list[str]:
     for index in expected_indexes:
         if not index.is_file():
             errors.append(f"missing_index:{index.relative_to(root)}")
+    for collection in (data / "learning-inbox", data / "muse-instagram"):
+        if collection.is_dir():
+            for item in collection.rglob("*"):
+                if item.is_file() and not allowed_collection_file(item.relative_to(root).as_posix()):
+                    errors.append(f"unexpected_collection_file:{item.relative_to(root).as_posix()}")
     if (data / "cards").exists():
         errors.append("legacy_shared_cards_directory")
 
@@ -88,14 +117,21 @@ def validate_repository(root: Path) -> list[str]:
         original = source_url(card)
         if original is None or not safe_url(original):
             errors.append(f"muse_card_unsafe_source_url:{card_path.name}")
+        elif urlsplit(original).hostname not in {"instagram.com", "www.instagram.com"}:
+            errors.append(f"muse_card_non_instagram_source_url:{card_path.name}")
     return errors
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).parents[1])
+    parser.add_argument("--branch", default="")
+    parser.add_argument("--changed-paths-file", type=Path)
     args = parser.parse_args()
     errors = validate_repository(args.root.resolve())
+    if args.changed_paths_file is not None:
+        paths = [line.strip() for line in args.changed_paths_file.read_text(encoding="utf-8").splitlines() if line.strip()]
+        errors.extend(validate_changed_paths(paths, args.branch))
     if errors:
         print("Knowledgebase collection validation failed:")
         print("\n".join(f"- {error}" for error in errors))

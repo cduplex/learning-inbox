@@ -14,10 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
       - name: Run collection contract validation
-        run: python3 scripts/validate_collections.py
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.sha }}" > changed-paths.txt
+            python3 scripts/validate_collections.py \
+              --branch "${{ github.head_ref }}" \
+              --changed-paths-file changed-paths.txt
+          else
+            python3 scripts/validate_collections.py
+          fi
       - name: Run regression tests
         run: python3 -m unittest discover -s tests -v

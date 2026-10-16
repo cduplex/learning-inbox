@@ -95,6 +95,35 @@ class CollectionContractTests(unittest.TestCase):
         )
         self.assertIn("muse_card_invalid_filename:notes.md", validator.validate_repository(root))
 
+    def test_rejects_non_card_files_inside_owned_collections(self):
+        root = self.make_root()
+        (root / "data" / "learning-inbox" / "runtime.sqlite").write_text("not allowed", encoding="utf-8")
+        (root / "data" / "muse-instagram" / "private-session-cookie.txt").write_text("not allowed", encoding="utf-8")
+        errors = validator.validate_repository(root)
+        self.assertIn("unexpected_collection_file:data/learning-inbox/runtime.sqlite", errors)
+        self.assertIn("unexpected_collection_file:data/muse-instagram/private-session-cookie.txt", errors)
+
+    def test_rejects_muse_card_with_non_instagram_source_url(self):
+        root = self.make_root()
+        (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(
+            "# Test\n\n## Source\n- Original: https://example.com/reel/abc123/\n\n"
+            "## Tags\nAI\n\n## Core components\n- Example\n\n"
+            "## Derived summary\nA summary.\n\n## Practical takeaways\n- Apply carefully.\n\n"
+            "## Notes\nDerived from a private Muse record.\n",
+            encoding="utf-8",
+        )
+        self.assertIn(
+            "muse_card_non_instagram_source_url:2026-10-16--test--abc123.md",
+            validator.validate_repository(root),
+        )
+
+    def test_rejects_publisher_branch_changed_paths_outside_its_collection(self):
+        errors = validator.validate_changed_paths(
+            ["data/muse-instagram/INDEX.md", "data/learning-inbox/INDEX.md"],
+            "sync/muse-instagram-20261016T000000Z",
+        )
+        self.assertIn("publisher_changed_path_not_allowed:data/learning-inbox/INDEX.md", errors)
+
     def test_rejects_muse_card_with_unsafe_source_url(self):
         root = self.make_root()
         (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(

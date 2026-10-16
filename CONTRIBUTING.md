@@ -8,7 +8,7 @@
 
 ## Pull-request gate
 
-`main` requires the GitHub Actions `validate` check for every pull request. Run `python3 scripts/validate_collections.py` locally first, then wait for the matching remote `validate` check to succeed before merging. Do not bypass the check or push directly to `main`. Changes to CI, scripts, tests, and publishing contracts also require review from the `@cduplex` code owner; routine generated collection-card updates do not.
+`main` requires the GitHub Actions `validate` check for every pull request. Run `python3 scripts/validate_collections.py` locally first, then wait for the matching remote `validate` check to succeed before merging. Do not bypass the check or push directly to `main`. `CODEOWNERS` routes CI, scripts, tests, and publishing-contract changes to `@cduplex`; review is advisory because the repository intentionally keeps zero generic required approvals so generated collection-card sync can remain autonomous.
 
 ## Learning Inbox updates
 

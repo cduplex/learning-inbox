@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit
 
@@ -21,6 +22,9 @@ SENSITIVE_URL_KEYS = {
     "key", "password", "secret", "secret_key", "signature", "token",
     "x-amz-credential", "x-amz-security-token", "x-amz-signature",
 }
+MUSE_CARD_FILENAME = re.compile(
+    r"^\d{4}-\d{2}-\d{2}--[a-z0-9]+(?:-[a-z0-9]+)*--[a-z0-9][a-z0-9_-]*\.md$"
+)
 
 
 def safe_url(value: str) -> bool:
@@ -70,6 +74,9 @@ def validate_repository(root: Path) -> list[str]:
         errors.append("missing_muse_reels_directory")
         return errors
     for card_path in sorted(reels.glob("*.md")):
+        if not MUSE_CARD_FILENAME.fullmatch(card_path.name):
+            errors.append(f"muse_card_invalid_filename:{card_path.name}")
+            continue
         card = card_path.read_text(encoding="utf-8")
         if not card.startswith("# ") or any(section not in card for section in REQUIRED_MUSE_SECTIONS):
             errors.append(f"muse_card_missing_required_sections:{card_path.name}")

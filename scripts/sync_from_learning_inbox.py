@@ -43,7 +43,11 @@ class SyncConfig:
 
 def only_generated_paths(paths: Sequence[str]) -> bool:
     """Allow commits only to generated knowledge data, never repository tooling."""
-    return bool(paths) and all(path == "data/INDEX.md" or path.startswith("data/cards/") for path in paths)
+    return bool(paths) and all(
+        path == "data/learning-inbox/INDEX.md"
+        or path.startswith("data/learning-inbox/cards/")
+        for path in paths
+    )
 
 
 def as_mapping(value: object) -> dict[str, Any]:
@@ -280,7 +284,14 @@ def create_and_merge_sync_pr(config: SyncConfig, identity: GitHubIdentity) -> tu
     if not exporter.is_file():
         raise SyncError("exporter_missing")
     _run(
-        [sys.executable, str(exporter), "--source-records", str(config.source_records), "--output", str(config.worktree / "data")],
+        [
+            sys.executable,
+            str(exporter),
+            "--source-records",
+            str(config.source_records),
+            "--output",
+            str(config.worktree / "data" / "learning-inbox"),
+        ],
         cwd=config.worktree,
     )
     paths = changed_paths(config.worktree)
@@ -308,7 +319,7 @@ def create_and_merge_sync_pr(config: SyncConfig, identity: GitHubIdentity) -> tu
         "--title",
         "chore(data): sync Learning Inbox",
         "--body",
-        "Automated export of saved Learning Inbox evidence and derived summaries. Raw evidence, database files, delivery state, and credentials are excluded.",
+        "Automated export of saved Learning Inbox evidence and derived summaries into the Learning Inbox collection. Raw evidence, database files, delivery state, and credentials are excluded.",
     )
     pr = _gh_json(config, "pr", "view", branch, "--repo", config.repo, "--json", "number")
     if not isinstance(pr, dict) or not isinstance(pr.get("number"), int):

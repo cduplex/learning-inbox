@@ -8,7 +8,7 @@
 
 ## Pull-request gate
 
-`main` requires the GitHub Actions `validate` check for every pull request. Run `python3 scripts/validate_collections.py` locally first, then wait for the matching remote `validate` check to succeed before merging. Do not bypass the check or push directly to `main`. `CODEOWNERS` routes CI, scripts, tests, and publishing-contract changes to `@cduplex`; review is advisory because the repository intentionally keeps zero generic required approvals so generated collection-card sync can remain autonomous.
+`main` requires the GitHub Actions `validate` check for every pull request. Run `python3 scripts/validate_collections.py` locally first, then wait for the matching remote `validate` check to succeed before merging. Do not bypass the check or push directly to `main`. `CODEOWNERS` routes CI, scripts, tests, and publishing-contract changes to `@cduplex`; review is advisory because the repository intentionally keeps zero generic required approvals so generated collection-card sync can remain autonomous. Dependabot checks the pinned GitHub Actions weekly and opens a pull request when an update is available.
 
 ## Learning Inbox updates
 

@@ -1,0 +1,13 @@
+# Never commit raw intake evidence, runtime state, or credentials.
+/raw-records/
+/private/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Python build artifacts
+*.pyc

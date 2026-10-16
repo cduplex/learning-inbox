@@ -1,0 +1,28 @@
+# Learning Inbox Knowledgebase
+
+A private, Git-backed library of concise learning notes from videos and webpages.
+
+Each note preserves the useful layer of an intake: a canonical source link, derived summary, tags, practical applications, and a small set of evidence anchors. This repository intentionally does **not** contain raw transcripts, full webpages, SQLite databases, message-delivery state, runtime logs, or credentials.
+
+## Use it
+
+- Start at [`data/INDEX.md`](data/INDEX.md).
+- Browse notes in [`data/cards/`](data/cards/).
+- Use GitHub search for topics, tools, or tags.
+- Treat every note as a derived aid. Open the original source before relying on a consequential claim.
+
+## Updating the library
+
+The checked-in exporter turns saved Learning Inbox evidence records into safe, readable cards. It reads raw records from a path outside this repository and emits only the curated layer described above:
+
+```bash
+python3 scripts/export_from_learning_inbox.py \
+  --source-records /path/to/private/library/records \
+  --output data
+```
+
+Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text.
+
+## Data boundary
+
+GitHub is the versioned knowledge layer, not the raw archive. Keep original evidence and the live search database in their protected local backup location.

@@ -26,6 +26,13 @@ SENSITIVE_URL_KEYS = {
 MUSE_CARD_FILENAME = re.compile(
     r"^\d{4}-\d{2}-\d{2}--[a-z0-9]+(?:-[a-z0-9]+)*--[a-z0-9][a-z0-9_-]*\.md$"
 )
+URL_RE = re.compile(r"https?://[^\s<>\])}]+", re.IGNORECASE)
+TOKEN_PATTERNS = (
+    re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
+    re.compile(r"\b(?:sk|rk|pk)_[A-Za-z0-9_-]{16,}\b", re.IGNORECASE),
+    re.compile(r"\bAIza[\w-]{20,}\b"),
+    re.compile(r"(?i)\b(?:bearer|token)\s+[A-Za-z0-9._~-]{20,}\b"),
+)
 
 
 def safe_url(value: str) -> bool:
@@ -62,10 +69,18 @@ def muse_source_id(canonical_url: str) -> str:
 def allowed_collection_file(relative: str) -> bool:
     return (
         relative == "data/learning-inbox/INDEX.md"
-        or (relative.startswith("data/learning-inbox/cards/") and relative.endswith(".md"))
+        or (
+            relative.startswith("data/learning-inbox/cards/")
+            and relative.endswith(".md")
+            and relative.count("/") == 3
+        )
         or relative == "data/muse-instagram/INDEX.md"
         or relative == "data/muse-instagram/reels/.gitkeep"
-        or (relative.startswith("data/muse-instagram/reels/") and relative.endswith(".md"))
+        or (
+            relative.startswith("data/muse-instagram/reels/")
+            and relative.endswith(".md")
+            and relative.count("/") == 3
+        )
     )
 
 
@@ -81,6 +96,15 @@ def validate_changed_paths(paths: list[str], branch: str) -> list[str]:
     else:
         return []
     return [f"publisher_changed_path_not_allowed:{path}" for path in paths if not allowed(path)]
+
+
+def unsafe_content_errors(relative: str, text: str) -> list[str]:
+    errors: list[str] = []
+    if any(not safe_url(match.group(0)) for match in URL_RE.finditer(text)):
+        errors.append(f"unsafe_content_url:{relative}")
+    if any(pattern.search(text) for pattern in TOKEN_PATTERNS):
+        errors.append(f"token_shaped_content:{relative}")
+    return errors
 
 
 def source_url(card: str) -> str | None:
@@ -112,6 +136,10 @@ def validate_repository(root: Path) -> list[str]:
             for item in collection.rglob("*"):
                 if item.is_file() and not allowed_collection_file(item.relative_to(root).as_posix()):
                     errors.append(f"unexpected_collection_file:{item.relative_to(root).as_posix()}")
+    for markdown in data.rglob("*.md"):
+        relative = markdown.relative_to(root).as_posix()
+        if relative == "data/INDEX.md" or allowed_collection_file(relative):
+            errors.extend(unsafe_content_errors(relative, markdown.read_text(encoding="utf-8")))
     if (data / "cards").exists():
         errors.append("legacy_shared_cards_directory")
 

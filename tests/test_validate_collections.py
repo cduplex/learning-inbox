@@ -115,6 +115,27 @@ class CollectionContractTests(unittest.TestCase):
         )
         self.assertIn("muse_card_invalid_filename:notes.md", validator.validate_repository(root))
 
+    def test_rejects_unsafe_url_inside_learning_inbox_card_body(self):
+        root = self.make_root()
+        (root / "data" / "learning-inbox" / "cards" / "bad.md").write_text(
+            "# Card\n\n## Derived summary\nSee https://token@example.com/private\n",
+            encoding="utf-8",
+        )
+        self.assertIn(
+            "unsafe_content_url:data/learning-inbox/cards/bad.md",
+            validator.validate_repository(root),
+        )
+
+    def test_rejects_nested_muse_reel_markdown(self):
+        root = self.make_root()
+        nested = root / "data" / "muse-instagram" / "reels" / "nested"
+        nested.mkdir()
+        (nested / "raw.md").write_text("unvalidated", encoding="utf-8")
+        self.assertIn(
+            "unexpected_collection_file:data/muse-instagram/reels/nested/raw.md",
+            validator.validate_repository(root),
+        )
+
     def test_rejects_non_card_files_inside_owned_collections(self):
         root = self.make_root()
         (root / "data" / "learning-inbox" / "runtime.sqlite").write_text("not allowed", encoding="utf-8")

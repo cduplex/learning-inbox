@@ -11,6 +11,12 @@ Each note preserves the useful layer of an intake: a canonical source link, deri
 - Use GitHub search for topics, tools, or tags.
 - Treat every note as a derived aid. Open the original source before relying on a consequential claim.
 
+## Automatic synchronization
+
+A Hermes no-agent job runs once per minute. When a saved evidence record or its derived summary changes, it exports the safe knowledge layer into a dedicated worktree, opens a `sync/learning-inbox-*` pull request, squash-merges it into `main`, and removes the branch. Idle runs do nothing. If a prior automation PR is still open, the next run resumes that PR rather than creating a duplicate.
+
+The synchronizer can only stage `data/INDEX.md` and `data/cards/*`; it rejects any other changed path. Its source is [`scripts/sync_from_learning_inbox.py`](scripts/sync_from_learning_inbox.py). The installed scheduler wrapper supplies the profile-local archive and isolated worktree paths.
+
 ## Updating the library
 
 The checked-in exporter turns saved Learning Inbox evidence records into safe, readable cards. It reads raw records from a path outside this repository and emits only the curated layer described above:

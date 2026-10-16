@@ -1,0 +1,7 @@
+# Human review is required for code, CI policy, and publishing contracts.
+/.github/ @cduplex
+/scripts/ @cduplex
+/tests/ @cduplex
+/README.md @cduplex
+/CONTRIBUTING.md @cduplex
+/MUSE-PUBLISHING.md @cduplex

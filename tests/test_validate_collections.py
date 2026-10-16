@@ -51,7 +51,7 @@ class CollectionContractTests(unittest.TestCase):
 
     def test_accepts_muse_card_with_safe_source_and_contract_sections(self):
         root = self.make_root()
-        (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(
+        (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--bd0c1402e605.md").write_text(
             "# Test\n\n"
             "## Source\n- Original: https://www.instagram.com/reel/abc123/\n- Platform: Instagram Reel\n\n"
             "## Tags\nAI, workflows\n\n"
@@ -63,10 +63,30 @@ class CollectionContractTests(unittest.TestCase):
         )
         (root / "data" / "muse-instagram" / "INDEX.md").write_text(
             "# Muse Instagram Reels Index\n\n"
-            "- [Test](reels/2026-10-16--test--abc123.md) · AI · Instagram Reel · saved\n",
+            "- [Test](reels/2026-10-16--test--bd0c1402e605.md) · AI · Instagram Reel · saved\n",
             encoding="utf-8",
         )
         self.assertEqual(validator.validate_repository(root), [])
+
+    def test_rejects_muse_card_with_source_id_not_derived_from_canonical_url(self):
+        root = self.make_root()
+        filename = "2026-10-16--test--aaaaaaaaaaaa.md"
+        (root / "data" / "muse-instagram" / "reels" / filename).write_text(
+            "# Test\n\n"
+            "## Source\n- Original: https://www.instagram.com/reel/abc123/\n- Platform: Instagram Reel\n\n"
+            "## Tags\nAI\n\n## Core components\n- Example\n\n"
+            "## Derived summary\nA summary.\n\n## Practical takeaways\n- Apply carefully.\n\n"
+            "## Notes\nDerived from a private Muse record.\n",
+            encoding="utf-8",
+        )
+        (root / "data" / "muse-instagram" / "INDEX.md").write_text(
+            f"# Muse Instagram Reels Index\n\n- [Test](reels/{filename}) · AI · Instagram Reel · saved\n",
+            encoding="utf-8",
+        )
+        self.assertIn(
+            f"muse_card_source_id_mismatch:{filename}",
+            validator.validate_repository(root),
+        )
 
     def test_rejects_muse_card_missing_from_collection_index(self):
         root = self.make_root()

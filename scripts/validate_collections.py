@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import re
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit
@@ -40,6 +41,22 @@ def safe_url(value: str) -> bool:
         if key.lower().replace("-", "_") in {item.replace("-", "_") for item in SENSITIVE_URL_KEYS}:
             return False
     return True
+
+
+def canonical_muse_reel_url(value: str) -> str | None:
+    """Normalize an Instagram Reel URL so its source-derived ID is reproducible."""
+    parsed = urlsplit(value)
+    host = (parsed.hostname or "").lower()
+    parts = [part for part in parsed.path.split("/") if part]
+    if host not in {"instagram.com", "www.instagram.com"} or len(parts) != 2:
+        return None
+    if parts[0] not in {"reel", "reels"} or not re.fullmatch(r"[A-Za-z0-9_-]+", parts[1]):
+        return None
+    return f"https://www.instagram.com/reel/{parts[1]}/"
+
+
+def muse_source_id(canonical_url: str) -> str:
+    return hashlib.sha256(canonical_url.encode("utf-8")).hexdigest()[:12]
 
 
 def allowed_collection_file(relative: str) -> bool:
@@ -117,8 +134,14 @@ def validate_repository(root: Path) -> list[str]:
         original = source_url(card)
         if original is None or not safe_url(original):
             errors.append(f"muse_card_unsafe_source_url:{card_path.name}")
-        elif urlsplit(original).hostname not in {"instagram.com", "www.instagram.com"}:
+            continue
+        canonical = canonical_muse_reel_url(original)
+        if canonical is None:
             errors.append(f"muse_card_non_instagram_source_url:{card_path.name}")
+            continue
+        source_id = card_path.stem.rsplit("--", 1)[-1]
+        if source_id != muse_source_id(canonical):
+            errors.append(f"muse_card_source_id_mismatch:{card_path.name}")
     return errors
 
 

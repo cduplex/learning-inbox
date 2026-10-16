@@ -149,6 +149,7 @@ def validate_repository(root: Path) -> list[str]:
     if not reels.is_dir():
         errors.append("missing_muse_reels_directory")
         return errors
+    seen_muse_source_ids: set[str] = set()
     for card_path in sorted(reels.glob("*.md")):
         if not MUSE_CARD_FILENAME.fullmatch(card_path.name):
             errors.append(f"muse_card_invalid_filename:{card_path.name}")
@@ -170,6 +171,10 @@ def validate_repository(root: Path) -> list[str]:
         source_id = card_path.stem.rsplit("--", 1)[-1]
         if source_id != muse_source_id(canonical):
             errors.append(f"muse_card_source_id_mismatch:{card_path.name}")
+        elif source_id in seen_muse_source_ids:
+            errors.append(f"duplicate_muse_source_id:{source_id}")
+        else:
+            seen_muse_source_ids.add(source_id)
     return errors
 
 

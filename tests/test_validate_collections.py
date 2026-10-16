@@ -61,7 +61,27 @@ class CollectionContractTests(unittest.TestCase):
             "## Notes\nDerived from a private Muse record.\n",
             encoding="utf-8",
         )
+        (root / "data" / "muse-instagram" / "INDEX.md").write_text(
+            "# Muse Instagram Reels Index\n\n"
+            "- [Test](reels/2026-10-16--test--abc123.md) · AI · Instagram Reel · saved\n",
+            encoding="utf-8",
+        )
         self.assertEqual(validator.validate_repository(root), [])
+
+    def test_rejects_muse_card_missing_from_collection_index(self):
+        root = self.make_root()
+        (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(
+            "# Test\n\n"
+            "## Source\n- Original: https://www.instagram.com/reel/abc123/\n- Platform: Instagram Reel\n\n"
+            "## Tags\nAI\n\n## Core components\n- Example\n\n"
+            "## Derived summary\nA summary.\n\n## Practical takeaways\n- Apply carefully.\n\n"
+            "## Notes\nDerived from a private Muse record.\n",
+            encoding="utf-8",
+        )
+        self.assertIn(
+            "muse_card_missing_from_index:2026-10-16--test--abc123.md",
+            validator.validate_repository(root),
+        )
 
     def test_rejects_muse_card_with_non_deterministic_filename(self):
         root = self.make_root()

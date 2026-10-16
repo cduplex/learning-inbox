@@ -242,8 +242,29 @@ def validate_pull_request(
     return validate_pr_payload(pr, list_pr_files(config, number), config.repo, identity.login, expected_branch)
 
 
-def merge_pr(config: SyncConfig, number: int, branch: str, identity: GitHubIdentity) -> None:
+def validate_check_passed(check_runs: Sequence[dict]) -> bool:
+    """Return true only when the required CI job completed successfully."""
+    return any(
+        check.get("name") == "validate"
+        and check.get("status") == "completed"
+        and check.get("conclusion") == "success"
+        for check in check_runs
+        if isinstance(check, dict)
+    )
+
+
+def list_check_runs(config: SyncConfig, sha: str) -> list[dict]:
+    """Read all check runs for the pinned PR head, failing closed on malformed data."""
+    response = _gh_json(config, "api", f"repos/{config.repo}/commits/{sha}/check-runs?per_page=100")
+    if not isinstance(response, dict) or not isinstance(response.get("check_runs"), list):
+        raise SyncError("invalid_check_runs")
+    return [check for check in response["check_runs"] if isinstance(check, dict)]
+
+
+def merge_pr(config: SyncConfig, number: int, branch: str, identity: GitHubIdentity) -> bool:
     sha = validate_pull_request(config, number, identity, branch)
+    if not validate_check_passed(list_check_runs(config, sha)):
+        return False
     response = _gh_json(
         config,
         "api",
@@ -263,6 +284,7 @@ def merge_pr(config: SyncConfig, number: int, branch: str, identity: GitHubIdent
     if not isinstance(readback, dict) or readback.get("merged_at") is None:
         raise SyncError("pull_request_merge_readback_failed")
     _git(config.worktree, "push", "origin", "--delete", branch)
+    return True
 
 
 def changed_paths(worktree: Path) -> list[str]:
@@ -324,7 +346,8 @@ def create_and_merge_sync_pr(config: SyncConfig, identity: GitHubIdentity) -> tu
     pr = _gh_json(config, "pr", "view", branch, "--repo", config.repo, "--json", "number")
     if not isinstance(pr, dict) or not isinstance(pr.get("number"), int):
         raise SyncError("pull_request_create_readback_failed")
-    merge_pr(config, pr["number"], branch, identity)
+    if not merge_pr(config, pr["number"], branch, identity):
+        return None
     return pr["number"], len(paths)
 
 
@@ -348,7 +371,10 @@ def synchronize(config: SyncConfig) -> str | None:
             branch = pending.get("head", {}).get("ref") if isinstance(pending.get("head"), dict) else None
             if not isinstance(number, int) or not isinstance(branch, str):
                 raise SyncError("invalid_pending_pull_request")
-            merge_pr(config, number, branch, identity)
+            if not merge_pr(config, number, branch, identity):
+                return None
+            refresh_main(config)
+            return None
         refresh_main(config)
         created = create_and_merge_sync_pr(config, identity)
     if created is None:

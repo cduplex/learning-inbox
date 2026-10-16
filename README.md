@@ -28,7 +28,7 @@ python3 scripts/export_from_learning_inbox.py \
   --output data/learning-inbox
 ```
 
-Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Run `python3 scripts/validate_collections.py` before opening any PR; the same validation runs in GitHub Actions for pull requests.
+Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Cards must stay at or below 10,000 characters, which keeps raw transcript-scale material outside this repository. Run `python3 scripts/validate_collections.py` before opening any PR; the same validation runs in GitHub Actions for pull requests.
 
 ## Data boundary
 

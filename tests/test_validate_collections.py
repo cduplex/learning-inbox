@@ -135,6 +135,16 @@ class CollectionContractTests(unittest.TestCase):
         )
         self.assertIn("muse_card_invalid_filename:notes.md", validator.validate_repository(root))
 
+    def test_rejects_oversized_owned_card(self):
+        root = self.make_root()
+        (root / "data" / "learning-inbox" / "cards" / "oversized.md").write_text(
+            "x" * (validator.MAX_CARD_CHARACTERS + 1), encoding="utf-8"
+        )
+        self.assertIn(
+            "oversized_card:data/learning-inbox/cards/oversized.md",
+            validator.validate_repository(root),
+        )
+
     def test_rejects_unsafe_url_inside_learning_inbox_card_body(self):
         root = self.make_root()
         (root / "data" / "learning-inbox" / "cards" / "bad.md").write_text(

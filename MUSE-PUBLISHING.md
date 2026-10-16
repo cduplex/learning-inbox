@@ -56,7 +56,7 @@ tag-one, tag-two, tag-three
 This card is derived from a private Muse processing record. Verify important claims against the original source.
 ```
 
-Omit unavailable fields rather than inventing them. Keep quotations short and preserve timestamps only when available. Redact token-like strings and omit unsafe URLs.
+Omit unavailable fields rather than inventing them. Keep quotations short and preserve timestamps only when available. Redact token-like strings and omit unsafe URLs. Keep each card at or below 10,000 characters; use a concise derived summary rather than a transcript.
 
 ## Index
 

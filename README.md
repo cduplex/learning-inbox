@@ -25,10 +25,10 @@ The checked-in exporter turns saved Learning Inbox evidence records into safe, r
 ```bash
 python3 scripts/export_from_learning_inbox.py \
   --source-records /path/to/private/library/records \
-  --output data
+  --output data/learning-inbox
 ```
 
-Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text.
+Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Run `python3 scripts/validate_collections.py` before opening any PR; the same validation runs in GitHub Actions for pull requests.
 
 ## Data boundary
 

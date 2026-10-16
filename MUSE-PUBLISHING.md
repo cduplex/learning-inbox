@@ -67,8 +67,9 @@ Update `data/muse-instagram/INDEX.md` with every changed card. Each entry must i
 1. Fetch `origin/main`, then create `sync/muse-instagram-<UTC timestamp>`.
 2. Stage only allowed Muse paths.
 3. Review the complete diff for source accuracy and sensitive material.
-4. Open a PR to `main` titled `chore(data): sync Muse Instagram Reels`.
-5. Merge only the exact PR created from the generated commit after confirming its changed-file list is limited to the Muse collection.
-6. Squash merge, read back the merged PR, then delete the branch.
+4. Run `python3 scripts/validate_collections.py` from the repository root and correct every reported violation.
+5. Open a PR to `main` titled `chore(data): sync Muse Instagram Reels`.
+6. Merge only the exact PR created from the generated commit after confirming its changed-file list is limited to the Muse collection.
+7. Squash merge, read back the merged PR, then delete the branch.
 
 Do not push directly to `main`, resume another automation's PR, or merge a PR with files outside the Muse collection.

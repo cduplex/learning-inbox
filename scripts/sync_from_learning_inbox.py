@@ -19,11 +19,17 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterator, Sequence
+from typing import Any, Iterator, Sequence
 
 
 class SyncError(RuntimeError):
     """A deliberately non-sensitive synchronization failure."""
+
+
+@dataclass(frozen=True)
+class GitHubIdentity:
+    login: str
+    noreply_email: str
 
 
 @dataclass(frozen=True)
@@ -40,9 +46,18 @@ def only_generated_paths(paths: Sequence[str]) -> bool:
     return bool(paths) and all(path == "data/INDEX.md" or path.startswith("data/cards/") for path in paths)
 
 
+def as_mapping(value: object) -> dict[str, Any]:
+    return value if isinstance(value, dict) else {}
+
+
 def select_open_sync_pr(prs: Sequence[dict], branch_prefix: str) -> dict | None:
     """Return the one resumable automation PR, rejecting ambiguous recovery."""
-    matching = [pr for pr in prs if str(pr.get("headRefName", "")).startswith(branch_prefix)]
+    matching = []
+    for pr in prs:
+        head = as_mapping(pr.get("head"))
+        branch = pr.get("headRefName") or head.get("ref")
+        if isinstance(branch, str) and branch.startswith(branch_prefix):
+            matching.append(pr)
     if len(matching) > 1:
         raise SyncError("multiple_open_sync_prs")
     return matching[0] if matching else None
@@ -110,12 +125,17 @@ def ensure_worktree(config: SyncConfig) -> None:
     _run(["git", "clone", f"https://github.com/{config.repo}.git", str(config.worktree)])
 
 
-def configure_commit_identity(config: SyncConfig) -> None:
+def configure_commit_identity(config: SyncConfig) -> GitHubIdentity:
     account = _gh_json(config, "api", "user")
     if not isinstance(account, dict) or not isinstance(account.get("id"), int) or not isinstance(account.get("login"), str):
         raise SyncError("github_identity_unavailable")
+    identity = GitHubIdentity(
+        login=account["login"],
+        noreply_email=f"{account['id']}+{account['login']}@users.noreply.github.com",
+    )
     _git(config.worktree, "config", "user.name", "Learning Inbox Sync")
-    _git(config.worktree, "config", "user.email", f"{account['id']}+{account['login']}@users.noreply.github.com")
+    _git(config.worktree, "config", "user.email", identity.noreply_email)
+    return identity
 
 
 def refresh_main(config: SyncConfig) -> None:
@@ -126,14 +146,100 @@ def refresh_main(config: SyncConfig) -> None:
         raise SyncError("worktree_not_clean")
 
 
+def list_open_prs(config: SyncConfig) -> list[dict]:
+    """Read every open PR so a stale automation branch cannot be skipped by page size."""
+    result: list[dict] = []
+    for page in range(1, 101):
+        response = _gh_json(
+            config,
+            "api",
+            f"repos/{config.repo}/pulls?state=open&per_page=100&page={page}",
+        )
+        if not isinstance(response, list):
+            raise SyncError("invalid_pr_list")
+        if not response:
+            return result
+        result.extend(pr for pr in response if isinstance(pr, dict))
+        if len(response) < 100:
+            return result
+    raise SyncError("open_pr_pagination_limit")
+
+
 def open_sync_pr(config: SyncConfig) -> dict | None:
-    prs = _gh_json(config, "pr", "list", "--repo", config.repo, "--state", "open", "--limit", "100", "--json", "number,headRefName")
-    if not isinstance(prs, list):
-        raise SyncError("invalid_pr_list")
-    return select_open_sync_pr(prs, config.branch_prefix)
+    return select_open_sync_pr(list_open_prs(config), config.branch_prefix)
 
 
-def merge_pr(config: SyncConfig, number: int, branch: str) -> None:
+def list_pr_files(config: SyncConfig, number: int) -> list[dict]:
+    """Read every changed file before granting the automation merge capability."""
+    result: list[dict] = []
+    for page in range(1, 101):
+        response = _gh_json(
+            config,
+            "api",
+            f"repos/{config.repo}/pulls/{number}/files?per_page=100&page={page}",
+        )
+        if not isinstance(response, list):
+            raise SyncError("invalid_pr_file_list")
+        if not response:
+            return result
+        result.extend(file for file in response if isinstance(file, dict))
+        if len(response) < 100:
+            return result
+    raise SyncError("pull_request_file_pagination_limit")
+
+
+def validate_pr_payload(
+    pr: dict,
+    files: Sequence[dict],
+    repo: str,
+    expected_login: str,
+    expected_branch: str,
+) -> str:
+    """Fail closed unless the exact trusted data-only PR is still mergeable."""
+    base = as_mapping(pr.get("base"))
+    head = as_mapping(pr.get("head"))
+    author = as_mapping(pr.get("user"))
+    head_repo = as_mapping(head.get("repo"))
+    head_owner = as_mapping(head.get("user"))
+    sha = head.get("sha")
+    if (
+        pr.get("state") != "open"
+        or base.get("ref") != "main"
+        or head.get("ref") != expected_branch
+        or head_repo.get("full_name") != repo
+        or head_owner.get("login") != expected_login
+        or author.get("login") != expected_login
+        or not isinstance(sha, str)
+        or len(sha) != 40
+        or any(character not in "0123456789abcdef" for character in sha.lower())
+    ):
+        raise SyncError("untrusted_pull_request")
+    for file in files:
+        filename = file.get("filename") if isinstance(file, dict) else None
+        previous = file.get("previous_filename") if isinstance(file, dict) else None
+        if not isinstance(filename, str) or not only_generated_paths([filename]):
+            raise SyncError("untrusted_pull_request_path")
+        if previous is not None and (not isinstance(previous, str) or not only_generated_paths([previous])):
+            raise SyncError("untrusted_pull_request_path")
+    if not files:
+        raise SyncError("empty_pull_request")
+    return sha
+
+
+def validate_pull_request(
+    config: SyncConfig,
+    number: int,
+    identity: GitHubIdentity,
+    expected_branch: str,
+) -> str:
+    pr = _gh_json(config, "api", f"repos/{config.repo}/pulls/{number}")
+    if not isinstance(pr, dict):
+        raise SyncError("invalid_pull_request")
+    return validate_pr_payload(pr, list_pr_files(config, number), config.repo, identity.login, expected_branch)
+
+
+def merge_pr(config: SyncConfig, number: int, branch: str, identity: GitHubIdentity) -> None:
+    sha = validate_pull_request(config, number, identity, branch)
     response = _gh_json(
         config,
         "api",
@@ -144,6 +250,8 @@ def merge_pr(config: SyncConfig, number: int, branch: str) -> None:
         "merge_method=squash",
         "-f",
         f"commit_title=chore(data): sync Learning Inbox (#{number})",
+        "-f",
+        f"sha={sha}",
     )
     if not isinstance(response, dict) or response.get("merged") is not True:
         raise SyncError("pull_request_not_merged")
@@ -167,7 +275,7 @@ def changed_paths(worktree: Path) -> list[str]:
     return paths
 
 
-def create_and_merge_sync_pr(config: SyncConfig) -> tuple[int, int] | None:
+def create_and_merge_sync_pr(config: SyncConfig, identity: GitHubIdentity) -> tuple[int, int] | None:
     exporter = config.worktree / "scripts" / "export_from_learning_inbox.py"
     if not exporter.is_file():
         raise SyncError("exporter_missing")
@@ -205,7 +313,7 @@ def create_and_merge_sync_pr(config: SyncConfig) -> tuple[int, int] | None:
     pr = _gh_json(config, "pr", "view", branch, "--repo", config.repo, "--json", "number")
     if not isinstance(pr, dict) or not isinstance(pr.get("number"), int):
         raise SyncError("pull_request_create_readback_failed")
-    merge_pr(config, pr["number"], branch)
+    merge_pr(config, pr["number"], branch, identity)
     return pr["number"], len(paths)
 
 
@@ -222,12 +330,16 @@ def synchronize(config: SyncConfig) -> str | None:
     """Resume a prior PR if needed, then publish and merge one fresh data update."""
     with sync_lock(config.worktree):
         ensure_worktree(config)
-        configure_commit_identity(config)
+        identity = configure_commit_identity(config)
         pending = open_sync_pr(config)
         if pending is not None:
-            merge_pr(config, pending["number"], pending["headRefName"])
+            number = pending.get("number")
+            branch = pending.get("head", {}).get("ref") if isinstance(pending.get("head"), dict) else None
+            if not isinstance(number, int) or not isinstance(branch, str):
+                raise SyncError("invalid_pending_pull_request")
+            merge_pr(config, number, branch, identity)
         refresh_main(config)
-        created = create_and_merge_sync_pr(config)
+        created = create_and_merge_sync_pr(config, identity)
     if created is None:
         return None
     number, files = created

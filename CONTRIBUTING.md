@@ -6,6 +6,10 @@
 - Muse owns only `data/muse-instagram/**`; follow [`MUSE-PUBLISHING.md`](MUSE-PUBLISHING.md).
 - The top-level `data/INDEX.md` is a collection directory. Do not overwrite it from a pipeline exporter.
 
+## Pull-request gate
+
+`main` requires the GitHub Actions `validate` check for every pull request. Run `python3 scripts/validate_collections.py` locally first, then wait for the matching remote `validate` check to succeed before merging. Do not bypass the check or push directly to `main`.
+
 ## Learning Inbox updates
 
 1. Keep the raw Learning Inbox archive outside this repository.

@@ -25,7 +25,7 @@ Create one card per Reel at:
 data/muse-instagram/reels/YYYY-MM-DD--short-slug--stable-id.md
 ```
 
-`stable-id` must be the first 12 lowercase hexadecimal characters of the SHA-256 hash of the canonical Reel URL: `https://www.instagram.com/reel/<reel-id>/`. Normalize `instagram.com` and `www.instagram.com` to that canonical form, discard query/fragment text, and do not use a random ID. This makes duplicate detection reproducible across runs.
+`stable-id` must be the first 12 lowercase hexadecimal characters of the SHA-256 hash of the canonical Reel URL: `https://www.instagram.com/reel/<reel-id>/`. Normalize `instagram.com` and `www.instagram.com` to that canonical form, discard query/fragment text, and do not use a random ID. This makes duplicate detection reproducible across runs. Do not create a second card with an existing `stable-id`; update the existing card instead.
 
 ```markdown
 # Exact Reel title or concise descriptive title

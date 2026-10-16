@@ -88,6 +88,26 @@ class CollectionContractTests(unittest.TestCase):
             validator.validate_repository(root),
         )
 
+    def test_rejects_duplicate_muse_source_id_across_cards(self):
+        root = self.make_root()
+        source = "https://www.instagram.com/reel/abc123/"
+        first = "2026-10-16--first--bd0c1402e605.md"
+        second = "2026-10-17--second--bd0c1402e605.md"
+        content = (
+            "# Test\n\n"
+            f"## Source\n- Original: {source}\n- Platform: Instagram Reel\n\n"
+            "## Tags\nAI\n\n## Core components\n- Example\n\n"
+            "## Derived summary\nA summary.\n\n## Practical takeaways\n- Apply carefully.\n\n"
+            "## Notes\nDerived from a private Muse record.\n"
+        )
+        reels = root / "data" / "muse-instagram" / "reels"
+        (reels / first).write_text(content, encoding="utf-8")
+        (reels / second).write_text(content, encoding="utf-8")
+        self.assertIn(
+            "duplicate_muse_source_id:bd0c1402e605",
+            validator.validate_repository(root),
+        )
+
     def test_rejects_muse_card_missing_from_collection_index(self):
         root = self.make_root()
         (root / "data" / "muse-instagram" / "reels" / "2026-10-16--test--abc123.md").write_text(

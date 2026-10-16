@@ -69,6 +69,8 @@ def validate_repository(root: Path) -> list[str]:
     if (data / "cards").exists():
         errors.append("legacy_shared_cards_directory")
 
+    muse_index = data / "muse-instagram" / "INDEX.md"
+    muse_index_text = muse_index.read_text(encoding="utf-8") if muse_index.is_file() else ""
     reels = data / "muse-instagram" / "reels"
     if not reels.is_dir():
         errors.append("missing_muse_reels_directory")
@@ -77,6 +79,8 @@ def validate_repository(root: Path) -> list[str]:
         if not MUSE_CARD_FILENAME.fullmatch(card_path.name):
             errors.append(f"muse_card_invalid_filename:{card_path.name}")
             continue
+        if f"reels/{card_path.name}" not in muse_index_text:
+            errors.append(f"muse_card_missing_from_index:{card_path.name}")
         card = card_path.read_text(encoding="utf-8")
         if not card.startswith("# ") or any(section not in card for section in REQUIRED_MUSE_SECTIONS):
             errors.append(f"muse_card_missing_required_sections:{card_path.name}")

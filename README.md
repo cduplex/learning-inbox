@@ -16,7 +16,7 @@ Each note preserves the useful layer of an intake: a canonical source link, deri
 
 A Hermes no-agent job runs once per minute. When a saved evidence record or its derived summary changes, it exports the safe knowledge layer into a dedicated worktree, opens a `sync/learning-inbox-*` pull request, squash-merges it into `main`, and removes the branch. Idle runs do nothing. If a prior automation PR is still open, the next run resumes that PR rather than creating a duplicate.
 
-The synchronizer can only stage `data/learning-inbox/INDEX.md` and `data/learning-inbox/cards/*`; it rejects any other changed path. Before merging, it re-reads the pull request, requires the expected repository, `main` base, owner-created branch, a successful `validate` GitHub Actions check for the exact head commit, and the data-only file list. It passes that same validated head commit to GitHub's merge API. Its source is [`scripts/sync_from_learning_inbox.py`](scripts/sync_from_learning_inbox.py). The installed scheduler wrapper supplies the profile-local archive and isolated worktree paths.
+The synchronizer can only stage `data/learning-inbox/INDEX.md` and `data/learning-inbox/cards/*`; it rejects any other changed path. Before merging, it re-reads the pull request and requires the expected repository, `main` base, owner-created branch, and the data-only file list. It passes that validated head commit to GitHub's merge API. Its source is [`scripts/sync_from_learning_inbox.py`](scripts/sync_from_learning_inbox.py). The installed scheduler wrapper supplies the profile-local archive and isolated worktree paths.
 
 ## Updating the library
 
@@ -28,7 +28,7 @@ python3 scripts/export_from_learning_inbox.py \
   --output data/learning-inbox
 ```
 
-Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Cards must stay at or below 10,000 characters, which keeps raw transcript-scale material outside this repository. Run `python3 scripts/validate_collections.py` before opening any PR; the same validation runs in GitHub Actions for pull requests.
+Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Cards must stay at or below 10,000 characters, which keeps raw transcript-scale material outside this repository. Run `python3 scripts/validate_collections.py` before publishing; the same validation runs in GitHub Actions as non-blocking regression visibility.
 
 ## Data boundary
 

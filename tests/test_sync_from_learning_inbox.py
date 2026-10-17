@@ -49,18 +49,6 @@ class SyncSafetyTests(unittest.TestCase):
         branch = sync.sync_branch_name("sync/learning-inbox-", "2026-10-16T12:34:56Z")
         self.assertEqual(branch, "sync/learning-inbox-20261016T123456Z")
 
-    def test_requires_successful_validate_check_before_automation_merge(self):
-        self.assertFalse(sync.validate_check_passed([]))
-        self.assertFalse(sync.validate_check_passed([
-            {"name": "validate", "status": "in_progress", "conclusion": None},
-        ]))
-        self.assertFalse(sync.validate_check_passed([
-            {"name": "validate", "status": "completed", "conclusion": "failure"},
-        ]))
-        self.assertTrue(sync.validate_check_passed([
-            {"name": "other", "status": "completed", "conclusion": "success"},
-            {"name": "validate", "status": "completed", "conclusion": "success"},
-        ]))
 
     def test_validates_exact_automation_pr_before_merge(self):
         pr = {

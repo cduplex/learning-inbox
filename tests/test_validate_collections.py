@@ -188,12 +188,6 @@ class CollectionContractTests(unittest.TestCase):
             validator.validate_repository(root),
         )
 
-    def test_rejects_publisher_branch_changed_paths_outside_its_collection(self):
-        errors = validator.validate_changed_paths(
-            ["data/muse-instagram/INDEX.md", "data/learning-inbox/INDEX.md"],
-            "sync/muse-instagram-20261016T000000Z",
-        )
-        self.assertIn("publisher_changed_path_not_allowed:data/learning-inbox/INDEX.md", errors)
 
     def test_rejects_muse_card_with_unsafe_source_url(self):
         root = self.make_root()

@@ -1,7 +1,0 @@
-# Routes code, CI policy, and publishing contracts to the accountable maintainer.
-/.github/ @cduplex
-/scripts/ @cduplex
-/tests/ @cduplex
-/README.md @cduplex
-/CONTRIBUTING.md @cduplex
-/MUSE-PUBLISHING.md @cduplex

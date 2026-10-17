@@ -1,4 +1,5 @@
 # Muse Instagram Reels Index
+- [Amboras: AI store builder demoed as a full Shopify replacement](reels/2026-10-14--amboras-ai-store-builder-vs-shopify--d8a4ee4a0491.md) - Creator: @benjidoesecom - Tags: ai-ecommerce, shopify-alternatives, store-builder, claude, automation, product-demos - Platform: Instagram Reel - Status: processed
 - [Karpathy's AI adoption funnel: 6 billion barely touched it](reels/2026-10-16--karpathy-ai-adoption-funnel--aec3b2f87d30.md) - Creator: @yourdadgpt (Brian Lee | Dad GPT) - Tags: ai-adoption, karpathy, llm-usage, strategy, ai-literacy - Platform: Instagram Reel - Status: processed
 - [How Duolingo engineers retention: churn prediction and behavioral tracking](reels/2026-10-10--duolingo-retention-reverse-engineering--a68ec7385139.md) - Creator: @ayoships (Ayo Omolewa) - Tags: retention, growth, mobile-apps, analytics, behavioral-data - Platform: Instagram Reel - Status: processed
 - [Kick off meetings like a senior leader: Big Goal, Little Goal](reels/2026-10-08--big-goal-little-goal-meetings--b0dd3b294da2.md) - Creator: @theartofspeakingup (Jess Guzik, JD | Career Coach) - Tags: meetings, leadership, communication, executive-presence, careers - Platform: Instagram Reel - Status: processed
@@ -19,10 +20,5 @@
 - [Chasing last year's top S&P 500 stock vs. the index: a 20-year experiment](reels/2026-09-01--chasing-top-stock-vs-index--00dc363c8758.md) - Creator: @the.steady.investor (Ricky | Investing for Parents) - Tags: investing, momentum-strategy, index-funds, sp500, finance - Platform: Instagram Reel - Status: processed
 - [Claude Code Concise output style and DevSwarm's parallel agent IDE](reels/2026-08-21--claude-code-concise-output-devswarm--562d4d8fb2f9.md) - Creator: @codenameposhan (Codename Poshan) - Tags: claude-code, output-style, developer-tools, multi-agent, productivity - Platform: Instagram Reel - Status: processed
 - [Claude Code's hidden simple mode: delete the system prompts and the model gets smarter](reels/2026-08-18--claude-code-simple-mode-prompt-ablation--7fee674838bf.md) - Creator: @foundedceo (FOUNDED CEO) - Tags: claude-code, system-prompts, prompt-engineering, ablation-testing, ai-tools - Platform: Instagram Reel - Status: processed
-
-Muse owns this collection:
-
 - Cards: `reels/*.md`
 - Index: `INDEX.md`
-
-See [`MUSE-PUBLISHING.md`](../../MUSE-PUBLISHING.md) for the publishing contract.

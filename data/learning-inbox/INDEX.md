@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-18 from 13 saved records.
+Generated 2026-10-18 from 14 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, workflow automation, orchestration, small business · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflow, voice dictation, meeting transcription, automation, visualization, requirements elicitation · saved
@@ -11,6 +11,7 @@ Generated 2026-10-18 from 13 saved records.
 - [Matt Pocock: The Most Valuable Skill to Learn in the Age of AI](cards/matt-pocock-the-most-valuable-skill-to-learn-in-the-age-of-ai-20cb2ca0.md) · AI agents, agent workflows, software engineering, communication, requirements elicitation, verification · saved
 - [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · browser support, Facebook, software update, mobile access · saved
 - [Pi Durable PROACTIVE Agents: Jev Triggers My ON-CALL Pi Agent](cards/pi-durable-proactive-agents-jev-triggers-my-on-call-pi-agent-009e8e6b.md) · durable-agents, Pi-Durable, agentic-engineering, proactive-agents, incident-response, shared-state · saved
+- [How the Top 1% Use Claude Differently (per Anthropic's Lead Engineer)](cards/how-the-top-1-use-claude-differently-per-anthropic-s-lead-engineer-cf9dc48d.md) · AI agents, prompting, outcome-oriented work, expert validation, multi-agent workflows, self-efficacy · saved
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, web development, mobile apps · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local-ai, Mac-Mini, Apple-silicon, Hermes-Desktop, Qwen, LLM · saved

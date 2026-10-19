@@ -1,11 +1,12 @@
 # Learning Inbox Index
 
-Generated 2026-10-19 from 16 saved records.
+Generated 2026-10-19 from 17 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, workflow automation, orchestration, small business · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflow, voice dictation, meeting transcription, automation, visualization, requirements elicitation · saved
 - [I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.](cards/i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know-b344aaa8.md) · AI agents, reverse engineering, software development, requirements specification, feature analysis, testing · saved
 - [How the Claude Code team uses Claude Code](cards/how-the-claude-code-team-uses-claude-code-7803091c.md) · AI-assisted software development, agent workflows, code review, verification, cloud agents, product development · saved
+- [These 30 Jev AI + Claude Use Cases Are INSANE (free prompts)](cards/these-30-jev-ai-claude-use-cases-are-insane-free-prompts-f68442c2.md) · system-one models, AI workflows, lead scoring, CRM automation, computer use, knowledge graphs · saved
 - [Is Hermes Bot Mode Worth It? 🧠 My Best Practices (So Far)](cards/is-hermes-bot-mode-worth-it-my-best-practices-so-far-4b6a7e6b.md) · Hermes, multi-agent systems, agent orchestration, specialist agents, tool permissions, memory management · saved
 - [Use Claude Code Like a CTO](cards/use-claude-code-like-a-cto-412dce0f.md) · AI coding agents, agent orchestration, long-horizon tasks, developer workflows, context engineering, verification · saved
 - [Grok Made Me $10K In 14 Days: How To Build A One-Person Business With Grok Bot (3 Step Framework)](cards/grok-made-me-10k-in-14-days-how-to-build-a-one-person-business-with-grok-66363414.md) · untagged · summary-exhausted

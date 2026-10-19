@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-19 from 15 saved records.
+Generated 2026-10-19 from 16 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, workflow automation, orchestration, small business · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflow, voice dictation, meeting transcription, automation, visualization, requirements elicitation · saved
@@ -10,6 +10,7 @@ Generated 2026-10-19 from 15 saved records.
 - [Use Claude Code Like a CTO](cards/use-claude-code-like-a-cto-412dce0f.md) · AI coding agents, agent orchestration, long-horizon tasks, developer workflows, context engineering, verification · saved
 - [Grok Made Me $10K In 14 Days: How To Build A One-Person Business With Grok Bot (3 Step Framework)](cards/grok-made-me-10k-in-14-days-how-to-build-a-one-person-business-with-grok-66363414.md) · untagged · summary-exhausted
 - [Matt Pocock: The Most Valuable Skill to Learn in the Age of AI](cards/matt-pocock-the-most-valuable-skill-to-learn-in-the-age-of-ai-20cb2ca0.md) · AI agents, agent workflows, software engineering, communication, requirements elicitation, verification · saved
+- [Hark vs Muse vs Dots vs Grok Bot: Which AI Agent Should You Use?](cards/hark-vs-muse-vs-dots-vs-grok-bot-which-ai-agent-should-you-use-437a2adf.md) · untagged · extracted
 - [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · browser support, Facebook, software update, mobile access · saved
 - [Pi Durable PROACTIVE Agents: Jev Triggers My ON-CALL Pi Agent](cards/pi-durable-proactive-agents-jev-triggers-my-on-call-pi-agent-009e8e6b.md) · durable-agents, Pi-Durable, agentic-engineering, proactive-agents, incident-response, shared-state · saved
 - [How the Top 1% Use Claude Differently (per Anthropic's Lead Engineer)](cards/how-the-top-1-use-claude-differently-per-anthropic-s-lead-engineer-cf9dc48d.md) · AI agents, prompting, outcome-oriented work, expert validation, multi-agent workflows, self-efficacy · saved

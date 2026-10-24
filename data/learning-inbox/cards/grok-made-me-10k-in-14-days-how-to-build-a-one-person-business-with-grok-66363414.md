@@ -159,7 +159,7 @@ AI agents, automation, solopreneurship, multi-agent systems, workflow design, go
 - [01:13:10] The guest gives an unfinished example: during their own AI-only challenge, they asked the system to search prior emails for every advertiser ad read and write a new ad read in their voice; the supplied source ends mid-example.
 
 ## AI-agent workflow example [01:13:39]
-- **Source-attribution note:** This is a consecutive closing section of a conversation. Workflow outcomes and AI capability claims are speakers’ claims, not independently verified.
+**Source-attribution note:** This is a consecutive closing section of a conversation. Workflow outcomes and AI capability claims are speakers’ claims, not independently verified.
 - [01:13:39] The speaker says the agent observed how they send an ad read.
 - [01:13:42] According to the speaker, the observed workflow was: create a Google Doc, make it commentable, obtain its link, place that link into an email draft, and put the draft into a folder.
 - [01:13:51] The speaker says the agent formatted the output exactly as they normally send ad reads to recipients.

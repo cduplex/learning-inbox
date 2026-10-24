@@ -5,13 +5,12 @@
 - Type: webpage
 
 ## Tags
-browser support, Facebook, software update, mobile access
+source-unavailable
 
 ## Derived summary
-The supplied passage is a Facebook browser-support notice stating that the current browser is unsupported, recommending updated versions of Google Chrome or Mozilla Firefox, and promoting Facebook phone access.
+### Original post unavailable
 
-## Practical applications
-- Suggestion: Use this as a reminder to verify browser compatibility when a website displays an unsupported-browser notice.
+The archived extraction contains only a Facebook unsupported-browser notice, not the submitted Instagram reel. Detailed notes about the reel cannot be generated from this evidence. No claims about its content have been inferred.
 
 ## Notes
 This card is derived from a private Learning Inbox evidence record. Verify important claims against the original source.

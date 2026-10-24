@@ -14,7 +14,7 @@ Generated 2026-10-24 from 24 saved records.
 - [OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again) | Tibo Sottiaux](cards/openais-head-of-chatgpt-were-entering-a-new-era-of-ai-again-tibo-sottiau-59997221.md) · AI agents, agentic products, multimodal interfaces, voice interaction, product design, developer ecosystem · saved
 - [Hark vs Muse vs Dots vs Grok Bot: Which AI Agent Should You Use?](cards/hark-vs-muse-vs-dots-vs-grok-bot-which-ai-agent-should-you-use-437a2adf.md) · AI assistants, personal agents, email triage, automation, privacy, agentic workflows · saved
 - [Turn Claude Into a One Person Marketing Team in 38 Mins](cards/turn-claude-into-a-one-person-marketing-team-in-38-mins-f45a6714.md) · AI marketing, Claude Code, Higgsfield, brand strategy, creative production, marketing operations · saved
-- [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · browser support, Facebook, software update, mobile access · saved
+- [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · source-unavailable · source-unavailable
 - [Top Tech Investor Explains The Best AI Assistants in 16 Minutes — Kevin Rose](cards/top-tech-investor-explains-the-best-ai-assistants-in-16-minutes-kevin-ro-697e0a9f.md) · AI assistants, agentic AI, personal data access, privacy, security, AI commerce · saved
 - [Andrew Ng on Coding Agents and Deciding What to Build](cards/andrew-ng-on-coding-agents-and-deciding-what-to-build-7eb21c87.md) · AI engineering, coding agents, software engineering, AI applications, evaluation loops, product development · saved
 - [Pi Durable PROACTIVE Agents: Jev Triggers My ON-CALL Pi Agent](cards/pi-durable-proactive-agents-jev-triggers-my-on-call-pi-agent-009e8e6b.md) · durable-agents, Pi-Durable, agentic-engineering, proactive-agents, incident-response, shared-state · saved
@@ -24,5 +24,5 @@ Generated 2026-10-24 from 24 saved records.
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted development, code review, software delivery, automated testing, risk-based approvals, rollback · saved
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, web development, mobile apps · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
-- [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local-ai, Mac-Mini, Apple-silicon, Hermes-Desktop, Qwen, LLM · saved
+- [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
 - [Grok Bot just built me an autonomous business...](cards/grok-bot-just-built-me-an-autonomous-business-8bba48fe.md) · AI agents, agentic business, microbusiness, automation, SEO, newsletter · saved

@@ -12,7 +12,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 ## Derived summary
 # Study Notes
 
-## 00:00–03:03 : Model lineup, size, parameters, and compute
+
+## Model lineup, size, parameters, and compute (00:00:00)
 
 - **[00:00:00]** The presenter frames Claude as a configurable host of models rather than one AI, claiming effective use depends on selecting an appropriate model and effort level. *This framing is the presenter's claim and is not independently verified.*
 - **[00:00:21]** The presenter says the video will first establish the four-model lineup, their origin story, and how they work.
@@ -38,7 +39,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:02:50]** Citing an Anthropic price sheet, the presenter claims Haiku is about **40× cheaper than Opus** and about **100× cheaper than Fable**. *Pricing and comparative figures are source claims, not independently verified.*
 - **[00:02:56]** The building analogy is restated: processing through the Fable “skyscraper” costs more compute than processing through the Haiku “10-person office.”
 
-## 03:03–06:36 : Haiku, Sonnet, Opus, and release types
+
+## Haiku, Sonnet, Opus, and release types (00:03:12)
 
 - **[00:03:12]** Haiku is described as an “intern worker bee,” designed for speed and cost-effectiveness.
 - **[00:03:19]** The stated Haiku tradeoff is depth: the presenter says it will not handle tasks requiring substantial judgment.
@@ -71,7 +73,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:06:07]** The presenter calls the alleged updated Opus pricing/capability balance a “Goldilocks zone”: not as cheap as Haiku, but not overkill like Fable.
 - **[00:06:24]** For most people, the presenter recommends using the newest open/default model rather than overthinking model selection; at recording, the cited default is Opus 5.5. *This is a presenter recommendation, not an established fact.*
 
-## 06:36–08:30 : Transformer claim and sponsor segment
+
+## Transformer claim and sponsor segment (00:06:43)
 
 - **[00:06:43]** The presenter says every Claude model is a transformer model.
 - **[00:06:46]** Transformers are simplistically described as models trained to guess the next word in a sequence.
@@ -90,7 +93,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:08:12]** The presenter says an uploaded script can run through the same pipeline. *Not independently verified.*
 - **[00:08:24]** The sponsor call-to-action mentions a first description link, code **Austin**, free starting access, and **10 additional credits** at sign-up. *Promotional claim, not independently verified.*
 
-## 08:30–10:16 : Fable, Mythos, stamina, and model-selection examples
+
+## Fable, Mythos, stamina, and model-selection examples (00:08:33)
 
 - **[00:08:33]** The presenter returns to Fable and effort level after the sponsor segment.
 - **[00:08:39]** Fable is characterized as a specialist that can be left to work independently.
@@ -113,7 +117,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:10:55]** The presenter attributes a task split to Anthropic: unconstrained/open-ended work versus constrained/routine work.
 - **[00:11:02]** The presenter says open-ended work should bias toward larger models, while routine work should bias toward smaller models.
 
-## 11:09–13:53 : Automation optimization, planning, and effort settings
+
+## Automation optimization, planning, and effort settings (00:11:09)
 
 - **[00:11:09]** For Claude routine automations, the presenter says a matching prompt can help identify a task’s **minimum viable model**.
 - **[00:11:19]** The minimum viable model is defined as the model that completes the job while saving the most tokens.
@@ -135,7 +140,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:13:37]** Ultra code is described as a separate Claude Code mode that distributes a large job across agents working in parallel and checking each other’s work. *Not independently verified.*
 - **[00:13:46]** Suggested Ultra code use cases are auditing an entire codebase and deep research; the presenter warns it consumes substantial usage.
 
-## 13:57–15:48 : Misconceptions, tradeoffs, and diagnostic test
+
+## Misconceptions, tradeoffs, and diagnostic test (00:13:57)
 
 - **[00:13:57]** The presenter introduces three misconceptions about effort level.
 - **[00:14:05]** Misconception 1: max effort upgrades a model into a better model.
@@ -156,7 +162,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:15:35]** Diagnostic question 2: did the model skip a file, skip a test, or stop halfway through the process?
 - **[00:15:39]** If yes, the presenter says it did not try hard enough, so increase effort.
 
-## 15:50–16:22 : Channel promotion
+
+## Channel promotion (00:15:50)
 
 - **[00:15:50]** The video includes an “anti-slop agreement” described as content built by humans for humans.
 - **[00:15:56]** The presenter asks viewers to subscribe and enable post notifications.
@@ -164,7 +171,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:16:12]** SV2 Dev is described as building an agent-first CMS sync service.
 - **[00:16:15]** The presenter says viewers can enter the giveaway by commenting on what they are building and problems they face.
 
-## 16:22–19:37 : Forecast, distillation, Jevons paradox, and recap
+
+## Forecast, distillation, Jevons paradox, and recap (00:16:22)
 
 - **[00:16:22]** The presenter turns to a forecast about future model and effort controls.
 - **[00:16:27]** Manual selection of model and effort is compared with manually driving a car and changing gears.
@@ -197,7 +205,8 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:19:22]** The presenter says token limits remain a problem regardless of model and effort selection.
 - **[00:19:27]** The closing promotion directs viewers to another video about free AI tools to save time, money, and tokens.
 
-## Source-grounded recap
+
+## Source-grounded recap (00:19:13)
 
 - **[00:19:13]** The source’s central operational distinction is between model capability (“who you hire”) and effort allowance (“hours approved”).
 - **[00:19:17]** The source’s troubleshooting rule is to increase model capability for knowledge/capability shortfalls and increase effort for incomplete execution.

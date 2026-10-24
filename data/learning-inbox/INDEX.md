@@ -3,9 +3,9 @@
 Generated 2026-10-24 from 24 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, workflow automation, orchestration, small business · saved
-- [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflow, voice dictation, meeting transcription, automation, visualization, requirements elicitation · saved
-- [I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.](cards/i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know-b344aaa8.md) · AI agents, reverse engineering, software development, requirements specification, feature analysis, testing · saved
-- [How the Claude Code team uses Claude Code](cards/how-the-claude-code-team-uses-claude-code-7803091c.md) · AI-assisted software development, agent workflows, code review, verification, cloud agents, product development · saved
+- [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
+- [I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.](cards/i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know-b344aaa8.md) · reverse engineering, AI agents, software development, product requirements, feature analysis, testing · saved
+- [How the Claude Code team uses Claude Code](cards/how-the-claude-code-team-uses-claude-code-7803091c.md) · Claude Code, Claude Tag, AI agents, software engineering, agent workflows, code review · saved
 - [These 30 Jev AI + Claude Use Cases Are INSANE (free prompts)](cards/these-30-jev-ai-claude-use-cases-are-insane-free-prompts-f68442c2.md) · system-one models, AI workflows, lead scoring, CRM automation, computer use, knowledge graphs · saved
 - [Is Hermes Bot Mode Worth It? 🧠 My Best Practices (So Far)](cards/is-hermes-bot-mode-worth-it-my-best-practices-so-far-4b6a7e6b.md) · Hermes, multi-agent systems, agent orchestration, specialist agents, tool permissions, memory management · saved
 - [Use Claude Code Like a CTO](cards/use-claude-code-like-a-cto-412dce0f.md) · AI coding agents, agent orchestration, long-horizon tasks, developer workflows, context engineering, verification · saved
@@ -20,9 +20,9 @@ Generated 2026-10-24 from 24 saved records.
 - [Pi Durable PROACTIVE Agents: Jev Triggers My ON-CALL Pi Agent](cards/pi-durable-proactive-agents-jev-triggers-my-on-call-pi-agent-009e8e6b.md) · durable-agents, Pi-Durable, agentic-engineering, proactive-agents, incident-response, shared-state · saved
 - [How the Top 1% Use Claude Differently (per Anthropic's Lead Engineer)](cards/how-the-top-1-use-claude-differently-per-anthropic-s-lead-engineer-cf9dc48d.md) · AI agents, prompting, outcome-oriented work, expert validation, multi-agent workflows, self-efficacy · saved
 - [Build Your Own AI Software Factory with Claude Code](cards/build-your-own-ai-software-factory-with-claude-code-34d9c9d4.md) · agentic software factory, Claude Code, subagents, code review, human approval, Git worktrees · saved
-- [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
+- [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · وكلاء الذكاء الاصطناعي, Claude, OpenAI, Codex, Grokbot, واجهات المستخدم التوليدية · saved
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted development, code review, software delivery, automated testing, risk-based approvals, rollback · saved
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, video editing, web development · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
-- [Grok Bot just built me an autonomous business...](cards/grok-bot-just-built-me-an-autonomous-business-8bba48fe.md) · AI agents, agentic business, microbusiness, automation, SEO, newsletter · saved
+- [Grok Bot just built me an autonomous business...](cards/grok-bot-just-built-me-an-autonomous-business-8bba48fe.md) · AI agents, autonomous business, agentic income, micro-business, SEO, chatbot optimization · saved

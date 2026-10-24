@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-24 from 24 saved records.
+Generated 2026-10-24 from 25 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
@@ -18,6 +18,7 @@ Generated 2026-10-24 from 24 saved records.
 - [Top Tech Investor Explains The Best AI Assistants in 16 Minutes — Kevin Rose](cards/top-tech-investor-explains-the-best-ai-assistants-in-16-minutes-kevin-ro-697e0a9f.md) · AI assistants, agentic AI, personal productivity, privacy, memory and context, agentic commerce · saved
 - [Andrew Ng on Coding Agents and Deciding What to Build](cards/andrew-ng-on-coding-agents-and-deciding-what-to-build-7eb21c87.md) · AI engineering, coding agents, software engineering, developer skills, AI applications, product development · saved
 - [Pi Durable PROACTIVE Agents: Jev Triggers My ON-CALL Pi Agent](cards/pi-durable-proactive-agents-jev-triggers-my-on-call-pi-agent-009e8e6b.md) · Pi Durable, durable agents, agentic engineering, proactive agents, incident response, shared application state · saved
+- [Grok Bot INSANE updates (Learn These NOW!)](cards/grok-bot-insane-updates-learn-these-now-aa90b2e5.md) · untagged · extracted
 - [How the Top 1% Use Claude Differently (per Anthropic's Lead Engineer)](cards/how-the-top-1-use-claude-differently-per-anthropic-s-lead-engineer-cf9dc48d.md) · AI agents, Claude, prompting, agentic AI, business workflows, outcome-oriented prompting · saved
 - [Build Your Own AI Software Factory with Claude Code](cards/build-your-own-ai-software-factory-with-claude-code-34d9c9d4.md) · software factory, Claude Code, agent orchestration, subagents, code review, Git worktrees · saved
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved

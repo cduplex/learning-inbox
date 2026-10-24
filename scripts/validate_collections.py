@@ -23,7 +23,8 @@ SENSITIVE_URL_KEYS = {
     "key", "password", "secret", "secret_key", "signature", "token",
     "x-amz-credential", "x-amz-security-token", "x-amz-signature",
 }
-MAX_CARD_CHARACTERS = 10_000
+MAX_LEARNING_INBOX_CARD_CHARACTERS = 100_000
+MAX_MUSE_CARD_CHARACTERS = 10_000
 MUSE_CARD_FILENAME = re.compile(
     r"^\d{4}-\d{2}-\d{2}--[a-z0-9]+(?:-[a-z0-9]+)*--[a-z0-9][a-z0-9_-]*\.md$"
 )
@@ -130,8 +131,11 @@ def validate_repository(root: Path) -> list[str]:
             text = markdown.read_text(encoding="utf-8")
             if (
                 relative.startswith("data/learning-inbox/cards/")
-                or relative.startswith("data/muse-instagram/reels/")
-            ) and len(text) > MAX_CARD_CHARACTERS:
+                and len(text) > MAX_LEARNING_INBOX_CARD_CHARACTERS
+            ) or (
+                relative.startswith("data/muse-instagram/reels/")
+                and len(text) > MAX_MUSE_CARD_CHARACTERS
+            ):
                 errors.append(f"oversized_card:{relative}")
             errors.extend(unsafe_content_errors(relative, text))
     if (data / "cards").exists():

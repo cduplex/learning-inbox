@@ -1,8 +1,8 @@
 # Learning Inbox Knowledgebase
 
-A private, Git-backed library of concise learning notes from videos and webpages.
+A private, Git-backed library of detailed learning study notes from videos and webpages.
 
-Each note preserves the useful layer of an intake: a canonical source link, derived summary, tags, practical applications, and a small set of evidence anchors. This repository intentionally does **not** contain raw transcripts, full webpages, SQLite databases, message-delivery state, runtime logs, or credentials.
+Each Learning Inbox note preserves the useful layer of an intake: a canonical source link, detailed derived study notes with topic headings and substantive bullets, examples and caveats, tags, practical applications, and timestamped evidence anchors where available. This repository intentionally does **not** contain raw transcripts, full webpages, SQLite databases, message-delivery state, runtime logs, or credentials.
 
 ## Use it
 
@@ -28,7 +28,7 @@ python3 scripts/export_from_learning_inbox.py \
   --output data/learning-inbox
 ```
 
-Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Cards must stay at or below 10,000 characters, which keeps raw transcript-scale material outside this repository. Run `python3 scripts/validate_collections.py` before publishing; the same validation runs in GitHub Actions as non-blocking regression visibility.
+Review the generated diff before committing. The exporter skips credential-bearing source URLs and redacts token-shaped strings from generated text. Learning Inbox derived study-note cards may contain up to 100,000 characters; Muse Reel cards retain their 10,000-character limit. Both collections remain subject to unsafe URL and token checks, and raw transcripts and full webpages remain outside this repository. Run `python3 scripts/validate_collections.py` before publishing; the same validation runs in GitHub Actions as non-blocking regression visibility.
 
 ## Data boundary
 

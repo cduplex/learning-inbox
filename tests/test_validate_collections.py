@@ -135,15 +135,55 @@ class CollectionContractTests(unittest.TestCase):
         )
         self.assertIn("muse_card_invalid_filename:notes.md", validator.validate_repository(root))
 
-    def test_rejects_oversized_owned_card(self):
-        root = self.make_root()
-        (root / "data" / "learning-inbox" / "cards" / "oversized.md").write_text(
-            "x" * (validator.MAX_CARD_CHARACTERS + 1), encoding="utf-8"
+    def test_learning_inbox_card_character_limit(self):
+        for size in (10_000, 10_001, 25_000, 100_000, 100_001):
+            with self.subTest(size=size):
+                root = self.make_root()
+                relative = "data/learning-inbox/cards/detailed.md"
+                (root / relative).write_text("x" * size, encoding="utf-8")
+                expected = [f"oversized_card:{relative}"] if size > 100_000 else []
+                self.assertEqual(validator.validate_repository(root), expected)
+
+    def test_muse_card_character_limit_remains_10000(self):
+        for size in (10_000, 10_001):
+            with self.subTest(size=size):
+                root = self.make_root()
+                filename = "2026-10-16--test--bd0c1402e605.md"
+                relative = f"data/muse-instagram/reels/{filename}"
+                content = (
+                    "# Test\n\n"
+                    "## Source\n- Original: https://www.instagram.com/reel/abc123/\n\n"
+                    "## Tags\nAI\n\n## Core components\n- Example\n\n"
+                    "## Derived summary\nA summary.\n\n"
+                    "## Practical takeaways\n- Apply carefully.\n\n## Notes\n"
+                )
+                (root / relative).write_text(
+                    content + "x" * (size - len(content)), encoding="utf-8"
+                )
+                (root / "data/muse-instagram/INDEX.md").write_text(
+                    f"# Muse Instagram Reels Index\n\n- [Test](reels/{filename})\n",
+                    encoding="utf-8",
+                )
+                expected = [f"oversized_card:{relative}"] if size > 10_000 else []
+                self.assertEqual(validator.validate_repository(root), expected)
+
+    def test_detailed_learning_inbox_cards_still_reject_unsafe_content(self):
+        cases = (
+            ("https://token@example.com/private", "unsafe_content_url"),
+            ("https://example.com/?access_token=private", "unsafe_content_url"),
+            ("ghp_" + "a" * 30, "token_shaped_content"),
         )
-        self.assertIn(
-            "oversized_card:data/learning-inbox/cards/oversized.md",
-            validator.validate_repository(root),
-        )
+        for content, error in cases:
+            with self.subTest(error=error, content=content):
+                root = self.make_root()
+                relative = "data/learning-inbox/cards/detailed.md"
+                (root / relative).write_text(
+                    "# Detailed study notes\n" + "x" * 25_000 + "\n" + content,
+                    encoding="utf-8",
+                )
+                self.assertEqual(
+                    validator.validate_repository(root), [f"{error}:{relative}"]
+                )
 
     def test_rejects_unsafe_url_inside_learning_inbox_card_body(self):
         root = self.make_root()

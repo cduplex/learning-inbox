@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-25 from 28 saved records.
+Generated 2026-10-25 from 29 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
@@ -25,6 +25,7 @@ Generated 2026-10-25 from 28 saved records.
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted software engineering, code review, agent workflows, CI/CD, risk-based approvals, feature flags · saved
 - [The NEW Way to Build a Second Brain w/ Claude (2027)](cards/the-new-way-to-build-a-second-brain-w-claude-2027-ae49dc0c.md) · personal knowledge base, second brain, retrieval-augmented generation, RAG, recency weighting, context rot · saved
+- [How I’m Actually Using Claude Duet (After 10 Hours of Testing)](cards/how-im-actually-using-claude-duet-after-10-hours-of-testing-805e1546.md) · untagged · extracted
 - [Grok Bot Tutorial: Best Use Cases + How to Make It Actually Creative](cards/grok-bot-tutorial-best-use-cases-how-to-make-it-actually-creative-1443e36e.md) · AI agents, workflow automation, agent orchestration, knowledge graphs, research synthesis, competitor analysis · saved
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, video editing, web development · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved

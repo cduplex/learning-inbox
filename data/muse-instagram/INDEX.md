@@ -22,5 +22,6 @@
 - [Karpathy's AI adoption funnel: 6 billion barely touched it](reels/2026-10-16--karpathy-ai-adoption-funnel--aec3b2f87d30.md) - Creator: @yourdadgpt (Brian Lee | Dad GPT) - Tags: ai-adoption, karpathy, llm-usage, strategy, ai-literacy - Platform: Instagram Reel - Status: processed
 - [Amboras: AI store builder demoed as a full Shopify replacement](reels/2026-10-14--amboras-ai-store-builder-vs-shopify--d8a4ee4a0491.md) - Creator: @benjidoesecom - Tags: ai-ecommerce, shopify-alternatives, store-builder, claude, automation, product-demos - Platform: Instagram Reel - Status: processed
 - [Be more ambitious with AI: Felix Rieseberg's four-knob framework](reels/2026-10-16--be-more-ambitious-with-ai-four-knobs--da24b53f8cc3.md) - Creator: @chase.h.ai (Chase AI) - Tags: ai-prompting, claude, prompt-engineering, ai-workflow, meta-prompting, productivity - Platform: Instagram Reel - Status: processed
+- [Ask your AI for your intelligence percentile, then ask why](reels/2026-10-07--ask-ai-intelligence-percentile-why--359d3622b603.md) - Creator: @nate.b.jones (Nate B. Jones) - Tags: ai-prompts, self-assessment, meta-prompting, personal-growth, ai-feedback, reasoning - Platform: Instagram Reel - Status: processed
 - Cards: `reels/*.md`
 - Index: `INDEX.md`

@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-26 from 34 saved records.
+Generated 2026-10-26 from 35 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
@@ -32,6 +32,7 @@ Generated 2026-10-26 from 34 saved records.
 - [Grok Bot Tutorial: Best Use Cases + How to Make It Actually Creative](cards/grok-bot-tutorial-best-use-cases-how-to-make-it-actually-creative-1443e36e.md) · AI agents, workflow automation, agent orchestration, knowledge graphs, research synthesis, competitor analysis · saved
 - [Vercel's CEO Just Unveiled The Greatest AI Coding Workflow Ever](cards/vercel-s-ceo-just-unveiled-the-greatest-ai-coding-workflow-ever-81c87c97.md) · AI agents, AI-assisted software development, product management, MVP validation, requirements drift, security debt · saved
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, video editing, web development · saved
+- [I Built My Own TV Operating System With Claude Code](cards/i-built-my-own-tv-operating-system-with-claude-code-b30a0f91.md) · smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
 - [Claude 2.0 is Insane (All Updates Explained)](cards/claude-2-0-is-insane-all-updates-explained-94b68fc5.md) · Claude Code, AI productivity, desktop app, projects, nested sessions, side chats · saved

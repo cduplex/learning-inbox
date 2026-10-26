@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-26 from 33 saved records.
+Generated 2026-10-26 from 34 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
@@ -8,6 +8,7 @@ Generated 2026-10-26 from 33 saved records.
 - [How the Claude Code team uses Claude Code](cards/how-the-claude-code-team-uses-claude-code-7803091c.md) · Claude Code, Claude Tag, AI agents, software engineering, agent workflows, code review · saved
 - [These 30 Jev AI + Claude Use Cases Are INSANE (free prompts)](cards/these-30-jev-ai-claude-use-cases-are-insane-free-prompts-f68442c2.md) · AI agents, system-one models, lead scoring, computer use, knowledge graphs, RAG · saved
 - [Is Hermes Bot Mode Worth It? 🧠 My Best Practices (So Far)](cards/is-hermes-bot-mode-worth-it-my-best-practices-so-far-4b6a7e6b.md) · Hermes, multi-agent systems, agent orchestration, bot mode, research workflow, tool permissions · saved
+- [The New Way To Use Claude For Regular People](cards/the-new-way-to-use-claude-for-regular-people-7fca115f.md) · Claude Code, Claude, AI assistants, custom software, vibe coding, projects · saved
 - [Run Your AI Software Factory Like a Real Engineering Org (Here's How)](cards/run-your-ai-software-factory-like-a-real-engineering-org-here-s-how-eab40e1b.md) · AI software factory, agentic engineering, software delivery, human in the loop, agent registry, skill registry · saved
 - [Use Claude Code Like a CTO](cards/use-claude-code-like-a-cto-412dce0f.md) · AI coding agents, Claude Code, Codex, agent orchestration, long-horizon tasks, software engineering · saved
 - [Grok Made Me $10K In 14 Days: How To Build A One-Person Business With Grok Bot (3 Step Framework)](cards/grok-made-me-10k-in-14-days-how-to-build-a-one-person-business-with-grok-66363414.md) · AI agents, automation, solopreneurship, multi-agent systems, workflow design, goal setting · saved

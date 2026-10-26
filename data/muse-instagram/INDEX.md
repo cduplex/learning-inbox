@@ -25,3 +25,4 @@
 - [Ask your AI for your intelligence percentile, then ask why](reels/2026-10-07--ask-ai-intelligence-percentile-why--359d3622b603.md) - Creator: @nate.b.jones (Nate B. Jones) - Tags: ai-prompts, self-assessment, meta-prompting, personal-growth, ai-feedback, reasoning - Platform: Instagram Reel - Status: processed
 - Cards: `reels/*.md`
 - Index: `INDEX.md`
+- [Vibe coded a TV with Claude: a custom ad-free home screen](reels/2026-10-25--vibe-coded-tv-claude-custom-home-screen--1fb864530395.md) - Creator: @thebathman_ (Samraaj Bath) - Tags: claude-code, vibe-coding, smart-tv, home-automation, custom-launcher, ai-assistant - Platform: Instagram Reel - Status: processed

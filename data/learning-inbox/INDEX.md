@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-27 from 36 saved records.
+Generated 2026-10-27 from 37 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
@@ -15,6 +15,7 @@ Generated 2026-10-27 from 36 saved records.
 - [Matt Pocock: The Most Valuable Skill to Learn in the Age of AI](cards/matt-pocock-the-most-valuable-skill-to-learn-in-the-age-of-ai-20cb2ca0.md) · AI agents, coding agents, software engineering, agent workflows, communication, requirements discovery · saved
 - [OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again) | Tibo Sottiaux](cards/openais-head-of-chatgpt-were-entering-a-new-era-of-ai-again-tibo-sottiau-59997221.md) · AI agents, agentic workflows, human-computer interaction, multimodal AI, voice interfaces, AI product design · saved
 - [Hark vs Muse vs Dots vs Grok Bot: Which AI Agent Should You Use?](cards/hark-vs-muse-vs-dots-vs-grok-bot-which-ai-agent-should-you-use-437a2adf.md) · AI personal assistants, AI agents, OpenAI Dots, Hark, Meta Muse, Grockbot · saved
+- [15 NEW Hermes Agent Skills You Need To Install Today](cards/15-new-hermes-agent-skills-you-need-to-install-today-0ec6a7fe.md) · untagged · extracted
 - [Turn Claude Into a One Person Marketing Team in 38 Mins](cards/turn-claude-into-a-one-person-marketing-team-in-38-mins-f45a6714.md) · Claude Code, Higgsfield, AI marketing, brand context, marketing workflows, generative media · saved
 - [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · source-unavailable · source-unavailable
 - [Top Tech Investor Explains The Best AI Assistants in 16 Minutes — Kevin Rose](cards/top-tech-investor-explains-the-best-ai-assistants-in-16-minutes-kevin-ro-697e0a9f.md) · AI assistants, agentic AI, personal productivity, privacy, memory and context, agentic commerce · saved

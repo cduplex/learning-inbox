@@ -9,6 +9,48 @@
 ## Tags
 Hermes agent, AI agents, agent skills, automation, coding, email triage, research workflows, privacy, price monitoring, computer use
 
+## Learning guide
+**The arc**
+A fresh Hermes agent install ships with 58 local skills while the official directory holds over 200, so the question is which ones are actually worth installing. The creator tested them and ranks a personal top 15, moving from app-shipping and media tools through everyday-life, research and automation skills, up to delegating coding work. Along the way he warns that every installed skill costs context on every message, so install deliberately and prune what you do not use.
+
+**1. Understand and find skills**
+- **Know what a skill is:** A skill is a small plain-English instruction manual in the agent's inventory that it pulls out when a task needs it. Type `/skills` to see what you have.
+- **Look beyond the defaults:** Nous removes skills from default installs when they see no regular use, so older installs had skills new ones lack. Install extras with a command or by pasting the skill link into Hermes.
+- **Write clear instructions:** Because skills are plain English, clearer communication makes them more useful. Design workflows so the AI asks the right questions before answering instead of chasing one perfect prompt.
+
+**2. Ship and test your apps**
+- **Make a launch video with `/brag`:** Point it at a project folder and it reads the code, picks an angle, writes a storyboard and renders a 15 to 25 second launch video with music and sound effects. Choose a tone: cinematic, App Store, deadpan or YC parody.
+- **QA before customers do with Dogfood:** Message the agent "dog food my app" plus the link. It acts like a new user, clicking buttons, filling forms and screenshotting failures, then returns a bug report ranked from critical to minor.
+- **Copy real design systems with Popular Web Designs:** It packages 54 design systems such as Stripe, Linear and Vercel, including colors, fonts, spacing and components. Replace vague prompts like "make it modern" with the brand whose look you want.
+
+**3. Create media**
+- **Turn clips into text art with ASCII Video:** Feed it a video and get a Matrix-like version rebuilt from colored characters, which can react to music. It runs on a normal computer with no graphics card or API key; use it for reels, short-form video or animated websites.
+- **Make a handwriting font with Draw Your Font:** Photograph your handwriting and get an installable font, handy for handwritten-looking thumbnail text.
+
+**4. Handle everyday life**
+- **Find your stuff with Find My:** Ask via Telegram where your AirPods are; the agent opens Find My on a Mac, screenshots it and reads the map, and can track an AirTag over a day. It only works when Hermes runs on a Mac; on a VPS all four Apple-only skills are hidden.
+- **Shop through Shop:** Search Shopify stores for a size and color, get shipping rates, track orders, start returns, or search by photo, and compare open tabs to find the cheapest supplier. The agent must confirm item, price and address before checkout, and autonomous payment needs a spending budget set in the Shop app.
+- **Give the agent a phone with Telephony:** It buys a real number through Twilio, sends and reads texts, and calls you with an AI voice via Bland or Vapi. Twilio and voice providers cost real money; use it for app-break alerts and morning briefings, never spam.
+- **Remove your data with Unbroker:** It has playbooks for 22 data-broker sites including Spokeo, WhitePages and BeenVerified. It finds listings, sends opt-outs, clicks verification emails and rescans on a schedule because listings reappear.
+- **Find places free with Mouse:** It uses OpenStreetMap for places and directions with no API key. Drop a Telegram location pin and ask for the best open coffee within 500 m.
+
+**5. Research and organize knowledge**
+- **Get past blocked pages with Blocked Page Recovery:** When research hits a 403, Cloudflare wall or paywall, it tries Wayback Machine, then Archive.today, then the Gena reader service, then the site's own API. Only if all fail does it open a real browser.
+- **Build an LLM Wiki:** Based on Andrej Karpathy's note, the agent reads documents once and maintains linked wiki pages per person, idea and topic instead of rereading sources for every question. Feed it podcasts, transcripts, PDFs and meeting notes, ask where sources disagree, and open the Markdown files in Obsidian.
+- **Watch rivals with Competitor News Monitor:** Give it a company list and get a Monday digest of meaningful changes with source links.
+
+**6. Automate and delegate**
+- **Track prices with Product Price Monitor:** Give an exact product and the price you would pay; it checks now and sets a cron job to recheck every 6 hours, messaging only when the target hits. Example: Sydney to Nepal return flights, Telegram alert below $1,500.
+- **Control no-API apps with Computer Use:** It reads the screen and clicks in the background without moving your mouse or switching windows, so you can write an email while it fills a spreadsheet. Run `Hermes tools`, choose Computer Use and allow installation; any tool-capable model works.
+- **Create your own skills with `/learn`:** Point it at a website, folder, PDF or book, or do a process once and run `/learn how I just did that`. Expect drafts that still need editing, like the creator's script-writing skill.
+- **Triage email in your voice:** Email Inbox Triage reads 20 to 50 of your sent emails to learn openings, sign-offs, length and refusals, sorts mail into urgent, needs a reply, waiting on someone and noise, and drafts replies without sending. Prompt: "Triage my inbox and draft replies in my voice. Don't send anything." then batch-review and send yourself.
+- **Delegate coding with the Claude Code and Codex skill:** Message Hermes from your phone; it opens Claude Code on a server, assigns and monitors the job and reports back, for example fixing a broken stop button and opening a pull request to review on your phone. It needs a Claude or Codex plan on top of Hermes, so you pay for two agents.
+
+**7. Keep the skill index lean**
+- **Measure and prune:** Every session pays the index, meaning each installed skill's name and one-line description is sent with every message; cutting defaults from 82 to 58 dropped it from about 1,900 to 1,400 tokens. Check with `Hermes prompt size` and disable truly unused skills with `Hermes skills config`.
+
+**Try this first:** Run `Hermes prompt size`, disable unused skills with `Hermes skills config`, then send "Triage my inbox and draft replies in my voice. Don't send anything." and review the drafts.
+
 ## Derived summary
 ## Overview [00:00:00]
 - [00:00:00] The presenter says a new Hermes agent installation has **58 unique skills** available locally, while the official directory has **over 200**; the presenter reviewed them and selected a personal top 15.
@@ -149,14 +191,6 @@ Hermes agent, AI agents, agent skills, automation, coding, email triage, researc
 - [00:19:41] The presenter’s top-15 list emphasizes launch-video creation, media effects, QA, Apple tracking, shopping, telephony, privacy opt-outs, background computer control, design references, research recovery and organization, price monitoring, custom skill creation, email drafting, and remote coding delegation.
 - [00:19:41] A cross-cutting tradeoff is capability versus constraints: platform requirements affect Find My, third-party services add telephony and coding-plan costs, checkout and email have human-approval safeguards, and a larger installed skill index consumes context on every session.
 - [00:19:53] The presenter closes by pointing viewers to a separate video about third-party skills outside the bundled set.
-
-## Practical applications
-- Suggestion: Audit installed skills with the source-mentioned prompt-size and skills-config commands, then disable skills that are genuinely unused to reduce recurring context-index overhead.
-- Suggestion: For app work, combine Dogfood for pre-release user-flow testing with Brag for a short launch asset after the app is stable.
-- Suggestion: Use an approval-first pattern for consequential workflows: retain Shop confirmation requirements, keep Email Inbox Triage in draft-only mode, and review pull requests produced through delegated coding.
-- Suggestion: For personal knowledge management, organize transcripts, PDFs, and meeting notes in LLM Wiki, then query conflicts or disagreements across the collected material.
-- Suggestion: Use Product Price Monitor only for clearly specified products and a defined threshold, so alerts are event-driven rather than continuous manual checking.
-- Suggestion: If creating a recurring workflow, demonstrate it once and use `/learn` to capture the process, while planning to review outputs because the presenter says generated drafts still need editing.
 
 ## Evidence anchors
 - [00:00:00.000] Did you know the second you install

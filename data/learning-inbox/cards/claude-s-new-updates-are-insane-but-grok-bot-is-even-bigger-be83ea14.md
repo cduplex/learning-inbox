@@ -9,6 +9,37 @@
 ## Tags
 AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT, Grokbot, Google Gemini, image generation, AI video editing, personal agents, gaming, weekly roundup
 
+## Learning guide
+**The arc**
+This weekly roundup tracks how AI agents and code-generated tools are starting to replace conventional software, from Claude dashboards and video to ChatGPT mini-apps and coordinator bots. The through-line is that you increasingly talk to a coordinator agent that builds or routes the work for you, instead of opening a dedicated app.
+
+**1. Worth trying now**
+- **Build a Claude Dashboard:** Connect integrations such as Notion, Slack, or Excel and ask Claude to pull the data into a dashboard you can share or make public. For example, if bike-share docks on a hill are empty by 08:15 every workday, have Claude retrieve a full year of warehouse data and chart it to find the root cause. Dashboards are expected to be available on all plans.
+- **Turn data into a story with Claude Motion:** Convert the dashboard into an animated graphic for a team meeting, which Claude generates through code. Refine it by commenting directly on the video, invite colleagues to comment, then export to design tools when ready. Motion is limited to Team and Enterprise plans.
+- **Use a Claude Project as a coordinator:** On paid plans, open a project, state your request, and let the coordinator route it to the right specialized conversation. A request to improve weekly-update text goes to the dedicated "Weekly Updates Calendar" chat instead of the organizer thread, which keeps 35+ website-maintenance conversations organized over a month. Start with the new 4-minute getting-started guide.
+- **Pick cloud or local chats deliberately:** Cloud chats keep running from your phone even when your computer is off. Local chats can be controlled from your phone only while the computer is running.
+- **Switch to Haiku 5.5 in Claude Code:** Use the new Haiku model for lighter tasks to save tokens, which matters most on the $20/month plan.
+- **Edit video with Opus 5.5 and code:** Have Opus 5.5 generate animation, motion design, color correction, and sound design through JavaScript instead of Premiere, DaVinci, or After Effects. Review the output closely because its visual creativity can produce hallucinated material.
+- **Generate mini-apps in ChatGPT with Intelligent UI:** Ask in chat for something like "create a calendar" or a Brooklyn apartment affordability estimate with a quick chart. ChatGPT builds an adaptive interface inside the conversation that you can share for someone else to use.
+- **Edit images with Nano Banana 2.1:** If you have a Gemini account, use it for mask-based editing, consistent subjects, and natural-looking images. It is faster, while a GPT model remains slightly better overall.
+
+**2. Less friction**
+- **Steer Codex mid-task:** Type a command while Codex is working instead of waiting for the next tool call, so you stop wasted token spend early.
+- **Check "28 Days of Codex" daily:** Each day brings either a meaningful Codex improvement or a reset that yields substantially more credit. Releases so far include Composer predictions of what you will type next, a meeting-notes feature, and a decision-making API that is 50% faster than on developer day.
+- **Let Grokbot route to the best model:** Grokbot sends each task to the strongest underlying model or API, such as Claude Opus 5.5, Midjourney, or Suno. If Grok 4.7 is not suited to a hard task, it hands it to Opus 5.5.
+- **Set up a Grokbot Team Bot and main bot:** Add a Team Bot to Slack, give it plugins and skills, and let your whole team use it. Star a main bot to act as chief of staff that delegates, for example passing "improve dark mode and submit a pull request" to a Native Note developer agent.
+
+**3. Small tricks and things to watch**
+- **Try free Adobe alternatives:** One developer released seven free open-source standalone replacements ending in "craft," including Photocraft for Photoshop, Vectorcraft for Illustrator, and Filmcraft, which already works well.
+- **Play games in the browser with Radiant Optimizer:** Run titles like Black Ops Zombies, Skate 3, Halo, and Modern Warfare 2 without installing them, including multiplayer.
+- **Browse OpenAI's math proofs:** Explore the repository at `github.com/openai/math`, where AI solved difficult problems.
+- **Learn Anti Gravity ahead of Arjun:** Download Anti Gravity now so you can test the rumored Gemini model Arjun's limits if it ships.
+- **Track new agent platforms:** Watch Hermes Agent ($90 million raised, essentially an open-source Grokbot with an iOS app planned), Hark/Hark Pro, Tab (about $200 million raised), and a personal-agent wearable. Use the weekly-updates tab and its directory of vibe-coding tools, Slack company agents, and agents with email, credit card, phone, and iMessage access.
+
+**Try this first:** Connect one data source such as Notion, Slack, or Excel to Claude and ask it to build a dashboard that explains one recurring problem in your work.
+
+**Caveat:** Model names, capabilities, speed comparisons, funding figures, and the Arjun model are presenter-reported or rumored and not independently verified, so confirm availability on your plan before relying on them.
+
 ## Derived summary
 ## Source scope and reliability note
 - This is a weekly roundup of AI-agent, model, creative-tool, and gaming claims. Product capabilities, comparisons, funding, view counts, and predictions below are **presenter-reported and not independently verified**. [00:00:00]
@@ -91,14 +122,6 @@ AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT, Grokbot, Google Gemini, im
 - Hermes Agent is said to have raised **$90 million**, to be an open-source version of Grokbot in essence, and to plan an iOS app. The presenter says improved open models may make such agents cheaper or enable switching among models. [00:19:35]
 - Final source recap: the presenter anticipates many new agent platforms and describes a directory containing vibe-coding tools, Slack-oriented company agents, and agents that may be given email, a credit card, phone number, and iMessage access. [00:19:57]
 - The presenter closes by saying the weekly-updates tab contains links discussed in the video. [00:20:35]
-
-## Practical applications
-- Suggestion: Pilot a constrained Claude workflow in which connected operational data becomes a dashboard, then an animated meeting narrative, while validating data access and sharing permissions before use.
-- Suggestion: For multi-threaded work, evaluate a project-and-coordinator structure by defining clear specialist conversations and testing whether routing reliably sends requests to the intended thread.
-- Suggestion: Treat claimed model-routing and agent-platform capabilities as items for hands-on verification. Test model selection, fallback behavior, cost, permission boundaries, and auditability on non-sensitive tasks.
-- Suggestion: When evaluating chat-generated interfaces, test whether the generated mini-app can be reproduced, shared, maintained, and validated before substituting it for a conventional application.
-- Suggestion: For AI-assisted creative work, retain human review for factual accuracy, visual defects, licensing, and hallucinated content, particularly where the presenter himself notes hallucinations.
-- Suggestion: Do not grant a personal agent payment credentials, communications accounts, or other consequential access without explicit scope limits, approval checkpoints, logging, and revocation controls.
 
 ## Evidence anchors
 - [00:00:19.489] أول تحديث هذا الأسبوع

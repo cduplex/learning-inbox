@@ -9,6 +9,51 @@
 ## Tags
 AI agents, autonomous business, agentic income, micro-business, SEO, chatbot optimization, newsletter, sponsorships, Stripe, Vercel, GitHub, Resend, distribution, X
 
+## Learning guide
+**The arc**
+Alex Finn asks whether an AI agent can set up and run a small online business on its own, producing what he calls "agentic income." His central idea is to give a dedicated agent the role of CEO, let it pick a simple problem, build a minimal site fast, and then maintain it through scheduled routines while connected services handle hosting, code, email and payments. He walks from creating the agent to choosing an idea, shipping a first version, assigning recurring duties, wiring up connectors, building distribution on X and collecting sponsorship payments through Stripe.
+
+**1. Create a dedicated CEO agent**
+- **Give the business its own agent:** Create a new bot used only for this one business so its context and duties stay focused. In Grockbot, make a new bot, put it in its own category, give it any name (his live example is "Timothy") and tell it to be CEO of a new agentic business.
+- **Use any capable agent:** The workflow applies to many AI agents, not just Grockbot. He demonstrates with Grockbot because it runs his own site, agentusecases.ai, whose bot is named "Milo."
+
+**2. Pick a simple problem to solve**
+- **Start from a challenge people have:** The best businesses solve a real problem. agentusecases.ai exists because people do not know what to do with AI agents, which his best-performing YouTube videos about AI use cases confirmed.
+- **Keep the scope micro:** Choose simple micro-businesses an agent can fully manage on its own, not large ventures.
+- **Prompt the agent for ideas:** Ask it to design, build and run an autonomous business, starting with idea generation, and give it your audience and interests. His prompt listed AI, AI agents, tech, video games and vibe coding, then asked for simple problems to solve.
+- **Weigh the kinds of ideas it returns:** His candidates were a plain-English fix service for broken vibe-coded apps (submit an error or repo link), an agent that writes X launch posts, a weekly ranked list of AI tools by what each is actually good for, and cheap downloadable agent templates for jobs like email triage or lead research.
+- **Define the product, audience and revenue together:** For the demo he picked an AI-tool directory: users enter a use case and see which tools fit, listed by categories like "best for vibe coding" or "best for video," each with a brief verdict, plus new releases. Revenue comes from paid featured listings at the top, and the audience is vibe coders and builders.
+
+**3. Build before perfecting**
+- **Choose building over research and naming:** When offered competitor research, naming or building, pick building first. A plain name like "AI use cases" is fine, because getting online matters more than being perfect.
+- **Ship so other AIs can find you:** Being live lets other AI agents discover and recommend the site. His first version, built by Cursor cloud agents inside the bot, went live in about two minutes with 33 real tools; polish the look later.
+
+**4. Define autonomous operating duties**
+- **Hand the agent a responsibility list:** Tell it it is the autonomous CEO and must maintain these: monetization when appropriate, SEO optimization, chatbot optimization (so ChatGPT and Claude recommend the site), newsletter creation and maintenance, X feedback monitoring and bug monitoring. Copy the list straight into one instruction.
+- **Treat the newsletter as the core asset:** It brings visitors back repeatedly and builds a marketing list, and the email list is the most valuable part because it is easy to monetize. A bot can run its own newsletter fairly easily; his reached about 2,000 subscribers.
+- **Let it turn duties into routines:** The agent created daily operations and weekly CEO updates. Timothy's schedule: every morning at 7:52 a.m. PT add releases, check bugs, scan X feedback and make one SEO improvement; every Monday at 9:17 send a short progress update; message only when something matters.
+- **Require approval for risky actions:** Have the agent ask before newsletter sends, sponsors or payments. Its first tasks were SEO basics, a page AI chatbots can read and quote, and a newsletter signup.
+- **Answer its requests and choices:** Give it what it asks for, such as a real name, contact email and a Google login to connect Google Search Console. When it offers improvement options, pick one and let it keep building through its daily routines.
+
+**5. Connect the services that make it autonomous**
+- **Vercel for hosting:** His favorite host for autonomous micro-business sites, and usable for free.
+- **GitHub for code:** Stores the code and lets the agent push changes and pull requests.
+- **Resend for email:** A programmatic email service the bot uses to collect addresses and send the newsletter. His newsletter goes out every morning with agent-written content, tracks opens and clicks, and automatically includes that week's sponsor.
+- **Stripe for payments:** Connect Stripe so the bot can create a payment link itself and place it in the site's sponsorship area.
+
+**6. Build distribution**
+- **Treat distribution as the moat:** Software is getting easy to copy, so attention is one of the last defensible advantages and will matter more over time.
+- **Grow on X from zero:** Open an account, post, reply to a few people, build toward 50 followers, then send some of them to the site. He started by posting twice daily between work meetings five years ago and it snowballed; keep posting and periodically promote the business your bot maintains.
+
+**7. Monetize with sponsorships**
+- **Offer a sponsor flow on the site:** Let visitors click a logo and choose "sponsor us," which leads to the Stripe payment link. His sponsors, Pay AI and Lasso, totaled $1,100, with Lasso paying $600 for a site ticker spot plus a newsletter logo.
+- **Sell top placement to tool makers:** In a directory, a sponsorship ranks a tool highly, and AI-tool companies pay because they need distribution. The bot then notifies you when a deal closes.
+- **Aim for several small businesses:** His model is three or four agentic businesses each making 10 to 20k, together enough to live on while you do work you prefer.
+
+**Try this first:** Create a new agent, tell it it is CEO of a new agentic business, and prompt it to propose simple problems to solve for an audience and interests you name.
+
+**Caveat:** The traffic (56,000 visitors), revenue and "zero work" autonomy figures are the creator's own unverified claims, so do not assume similar results.
+
 ## Derived summary
 ## [00:00:00] Thesis and claimed case study
 - [00:00:00] The speaker predicts that, over the next five years, many people will set up autonomous businesses run by AI agents.
@@ -169,13 +214,6 @@ AI agents, autonomous business, agentic income, micro-business, SEO, chatbot opt
 - [00:20:24] The demonstrated workflow is: create a dedicated CEO-style agent, identify a simple problem, build a minimal web product, assign recurring maintenance duties, connect hosting/code/email/payment services, build distribution, and offer sponsorship payments.
 - [00:20:24] The central causal model presented is that automated product maintenance plus SEO, chatbot discoverability, newsletters, social distribution, and sponsored placement can produce “agentic income.”
 - [00:20:24] The source provides a demonstration and the speaker's claims, forecasts, and preferences; it does not independently establish that the cited traffic, revenue, autonomy level, or future profitability will generalize.
-
-## Practical applications
-- Suggestion: Treat the source's workflow as a planning checklist, while independently validating any claimed autonomy, traffic, revenue, platform capabilities, legal obligations, and payment flows before relying on them.
-- Suggestion: For a small directory-style project, define a narrow audience problem, publish a minimal initial version, then document explicit agent routines for content updates, bug checks, feedback review, and approval-required actions.
-- Suggestion: Separate autonomous maintenance from high-impact decisions by requiring human approval for outbound newsletters, sponsor commitments, payments, pricing, and external account access, consistent with the demonstrated approval gate.
-- Suggestion: Use the source's connector categories as an architecture checklist: hosting, source control, email delivery, analytics, search visibility, and payment collection.
-- Suggestion: Measure distribution rather than assume it: track traffic sources, newsletter opens and clicks, sponsor conversions, and recurring maintenance outcomes before expanding to multiple projects.
 
 ## Evidence anchors
 - [00:00:00.080] I think what I'm about to show you is

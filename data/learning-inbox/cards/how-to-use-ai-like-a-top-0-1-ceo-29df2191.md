@@ -9,6 +9,34 @@
 ## Tags
 AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting, critical feedback, capability testing
 
+## Learning guide
+**The arc**
+Nick Saraev starts from the question of how top AI users get far more out of AI than everyone else. His central idea is that the biggest gains come from widening the channels in and out of the model and forcing it to be honest, not from clever wording. He moves from faster input (voice, always-on meeting capture) to richer output (visuals), then to better answers (interviews and critique), and ends with testing capabilities yourself and staying open to new AI interfaces.
+
+**1. Get more information into the AI**
+- **Talk instead of typing:** Use voice to give AI your input. Typing runs about 30 to 50 words per minute while speaking runs 150 to 200, so even imperfect transcription gets far more material in than your fingers can. Google a free voice-dictation tool (no need to pay), or use Hex, which can be trained on your own words and vocabulary.
+- **Run an always-on meeting voice stream:** Keep an assistant listening during recordings and meetings, like an executive assistant who takes notes and turns them into action items or a project file. The goal is that assignments said aloud (tasks for Ashley, Sam and Sarah) get started, and even returned, while the meeting is still going.
+- **Have a frontier model build the meeting system for you:** Ask the best available frontier LLM to build a system that listens to your microphone, optionally takes screenshots of the page and captures system audio. It should transcribe the full meeting and then start real projects in your day-to-day tools, such as Notion or Monday. Expect it to run for roughly $1 to $2 per day, compared with $300 to $400 per day for a competent executive assistant hire.
+
+**2. Get richer output: show, don't tell**
+- **Visualize instead of reading walls of text:** Ask agents to explain things with 3JS, HTML, Unreal Engine or Blender rather than staying in word tokens. A picture is worth a thousand words, and video is worth 24 to 30 pictures per second.
+- **Turn plans into walkable 3D spaces:** For a new office or home, ask AI to turn the floor plan into a 3D visualization with realistic lighting, Google Maps images for the views out of the windows, and you placed inside to walk around. Add real furniture with Amazon checkout links so you can click a piece you like and buy it.
+- **Visualize reports, analytics and explanations:** Have AI render dense, complicated reports and your daily or weekly analytics visually, or produce an animated explainer, instead of reading them as text.
+
+**3. Get better answers out of the model**
+- **Let the AI interview you:** Telling AI what to do often fails because you lack knowledge or can't put what you want into words, like piping the ocean through the straw of your own experience. Instead of specifying everything upfront, say you want it to do X, Y and Z and ask for all the questions it needs answered to find the best way to do it. Styles like "grill me," "interview me" or "roast me" all work.
+- **Ask for flaws, not opinions:** Models trained with RLHF tend to be rewarded for agreeing with you, so they lean positive even when you're wrong. Skip prompts like "What do you think about this?" or "Is this email all right?" and ask what is wrong with the deliverable.
+- **Explicitly authorize negative feedback:** Use prompts such as "What is wrong with my idea?", "Poke holes in my thoughts" or "Roast my essay" so the model knows criticism is wanted. Then judge for yourself whether the negatives outweigh the good.
+
+**4. Keep testing and exploring**
+- **Test capability directly:** When you doubt AI can do something, ask it to do the task instead of trusting opinions online. Capabilities shift daily, and even the same model can gain abilities from a new method or a harness update, so a statement true today may be false tomorrow.
+- **Keep the tools set up and use them hands-on:** Top CEOs keep tools like Claude Code, Codex or Nvidia's Nemotron ready on their own computer and test them constantly with typing and voice. The rule: the best way to learn whether something is possible is to do it at least once.
+- **Stay open to new AI interfaces:** Expect on-screen AI avatars that chat like a coworker and wearables such as pendants, and try them as they appear. Success or failure are both fine because either way you explored the opportunity, while not exploring carries a very high opportunity cost.
+
+**Try this first:** Install a free voice-dictation tool today and do your next AI prompt by speaking it, ending with "Ask me all the questions you need to do this well."
+
+**Caveat:** The cost figures for the meeting assistant ($1 to $2 per day replacing a $300 to $400 per day assistant) and the claims about in-meeting task completion are the creator's own and unverified, so test a small version before relying on it.
+
 ## Derived summary
 ## Source-attribution note
 - [00:00:00] The speaker presents seven AI-workflow upgrades and makes personal, technical, cost, and capability claims that are **not independently verified** in this source.
@@ -119,14 +147,6 @@ AI workflows, voice dictation, meeting automation, AI agents, visualization, pro
 
 ## [00:06:58] Final recap
 - [00:06:58] The video’s practical sequence is: increase input speed with voice; capture and operationalize meeting content; use visual outputs; let AI elicit missing context; solicit criticism; test current capabilities firsthand; and experiment with new AI interfaces.
-
-## Practical applications
-- Suggestion: Compare voice dictation with typing for one complex AI request, then assess whether the greater spoken detail improves the resulting output.
-- Suggestion: Before adopting meeting capture or automation, define consent, audio/screen-capture boundaries, transcript review, task approval, and access permissions for downstream project systems.
-- Suggestion: For an ambiguous project, prompt an AI to interview you for missing requirements before asking it to produce a final deliverable.
-- Suggestion: Add a dedicated critique pass to important AI-assisted work: request specific flaws, unsupported assumptions, missing constraints, and failure modes, then review the critique yourself.
-- Suggestion: Test a narrowly scoped AI capability with a real task instead of relying only on capability claims, and record the result, limitations, and needed human checks.
-- Suggestion: When a decision depends on spatial, analytical, or process complexity, consider requesting a visualization alongside a text explanation.
 
 ## Evidence anchors
 - [00:00:00.080] The smartest people on Earth do not use

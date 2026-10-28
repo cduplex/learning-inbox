@@ -9,6 +9,48 @@
 ## Tags
 local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models, privacy, offline AI, coding agents, LoRA
 
+## Learning guide
+**The arc**
+Alex Finn starts from his prediction that the Mac Mini would become the king of local AI and asks whether a 32 GB Mac Mini can really run a useful model without technical skills. The central idea is that Apple's integrated memory lets an $800 to $900 machine load surprisingly large models for free. He installs Hermes Desktop, downloads a local model, checks chat speed, then escalates to coding tests, and concludes the setup is fast enough to be worth it for cost, privacy, control and learning.
+
+**1. Install the agent**
+- **Use Hermes Desktop as your setup path:** Hermes Agent is a free, open-source agent that runs on your computer as a personal assistant and supports both cloud and local models. It removes the technical work of finding and loading a model. Download Hermes, move the app into the macOS Applications folder, then open it.
+- **Let it prepare itself:** On first launch it downloads and prepares the needed components automatically. Expect this to take about 45 seconds before Hermes Agent opens.
+
+**2. Pick and download a local model**
+- **Go to the local-model setting:** Navigate to **Settings → Providers → Run models locally**. This is where Hermes handles local models for you.
+- **Accept the automatic pick:** Hermes selects what it considers the best model for your machine; on the 32 GB Mac Mini it chose the model transcribed as "Quen 3635B". 32 GB is adequate but not large, and it can run this model.
+- **Click Set up for me:** This starts the download and setup. Free up about 21 GB of disk space and allow roughly 4 minutes.
+- **Know what you get:** Once installed, the model runs without internet access, a cloud subscription or ongoing payment.
+
+**3. Understand the Apple tradeoff**
+- **Count on integrated memory:** Apple's memory is shared between general computing and graphics, so all 32 GB can go toward loading models. That lets bigger models fit than would otherwise, even on a lower-cost computer.
+- **Run AI beside your daily work:** A Mac you already work on can run local AI alongside that work, such as generating images on-device during creative work.
+- **Accept slower speed than Nvidia:** An RTX 5090 setup runs local models extremely quickly, and Apple chips are somewhat slower. The Mac Mini's advantage is price, around $800 to $900.
+
+**4. Load the model and check responsiveness**
+- **Select the local model in the chat:** Pick the local "Quen 3635B" entry from the model selector. Hermes can then answer questions, chat, build things and control the computer using only the local model.
+- **Expect a slow first prompt:** The first prompt takes longer because the model must load into memory. Later prompts are faster.
+- **Let it build memory:** The model offered to create a user profile to become more useful, showed its thinking, and saved information to memory. Answer its follow-up questions so it learns your context.
+- **Measure speed honestly:** Check the timestamps on prompt and answer; in the demo both read 12:34, under a minute, and felt comparable to cloud AI.
+
+**5. Test real capability with coding tasks**
+- **Start with a simple single-file app:** Prompt "build a Snake game in a single HTML file", then open it in a browser. The demo produced 78 lines of working code where the snake collects cookies, grows and shows a score.
+- **Fix flaws with a follow-up prompt:** The Snake title stayed on screen during play. Send another prompt to correct small defects like this.
+- **Escalate to something harder:** Ask for a single-file HTML 3D first-person shooter. The result had a 3D engine, enemies, shooting, reloading, muzzle flash, experience points and a map in the upper right, playable though not pretty.
+- **Read the visible reasoning:** Local models let you inspect their thinking, which cloud models often hide. Use it to see how the model plans the task.
+- **Set expectations:** A modest local model will not match a frontier cloud model, but it is advanced AI running entirely on your desk.
+
+**6. Decide why local is worth it for you**
+- **Run the cost math:** Compare upfront hardware against subscriptions. At $200 per month for ChatGPT, an $800 to $900 Mac Mini pays for itself in about four months if this level of intelligence meets your needs.
+- **Keep sensitive work private:** Cloud prompts travel to data centers, while a local model stays on the device and works offline. Use it for private details and data you do not want in the cloud.
+- **Customize the model:** You can customize a local model or train a LoRA to give it your personal voice.
+- **Value fun and learning, not only ROI:** Owning a private local intelligence is enjoyable and is hands-on education about AI. Running it yourself is a direct way to learn.
+
+**Try this first:** Install Hermes Desktop, go to Settings → Providers → Run models locally, click Set up for me, then ask the model to build a Snake game in a single HTML file and open it in your browser.
+
+**Caveat:** The hardware naming, speed impressions and comparisons to cloud models are the creator's own claims, so test the model on your own tasks before canceling any subscription or buying hardware.
+
 ## Derived summary
 ## [00:00:00] Premise and test scope
 - [00:00:00] The presenter says he previously predicted that the Mac Mini would become the "king" of local AI and that Apple would win the local-AI race; he says this drew social-media criticism.
@@ -101,12 +143,6 @@ local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language 
 - [00:16:24] He invites audience requests for future coverage, including more local AI, coding-related material, and building projects.
 - [00:16:32] **Recap:** The demonstration’s workflow was: install Hermes Desktop, use its local-model provider setting, download an approximately 21 GB selected model, load it, test chat responsiveness, then test generated single-file HTML games.
 - [00:16:32] **Recap:** The presenter’s stated tradeoff is lower speed than a powerful Nvidia system, balanced against integrated-memory capacity, approximate $800 to $900 entry pricing, local operation, privacy, offline use, customization, and educational value.
-
-## Practical applications
-- Suggestion: Evaluate a local-AI setup by separating source-supported factors: available unified memory, at least about 21 GB of free storage for the demonstrated model, upfront hardware cost, expected speed, and whether offline/private processing matters for the intended work.
-- Suggestion: For a low-risk trial of local coding capability, reproduce the source’s progression from a single-file HTML Snake game to a simple 3D first-person-shooter prototype, then document functional defects separately from successful features.
-- Suggestion: Treat the presenter’s subscription payback calculation as a personal comparison only: compare actual monthly cloud spend against the actual device price and verify that the local model’s quality is sufficient for the target tasks.
-- Suggestion: If working with sensitive prompts, assess the local model and agent configuration before use, since the source claims local execution keeps data on-device but does not independently verify the software’s networking, telemetry, or security behavior.
 
 ## Evidence anchors
 - [00:00:00.160] Back in January, I told the world that

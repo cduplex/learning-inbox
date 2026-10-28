@@ -9,6 +9,48 @@
 ## Tags
 Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration, utility skills, marketing, sales, human-in-the-loop, risk management
 
+## Learning guide
+**The arc**
+Austin Marchese starts from Anthropic adding 13 new skills to its free small-business plugin for Claude (now 44 skills, up from 31) and argues that downloading skills alone does not make you faster; how you use them does. The central idea is to separate utility skills from orchestration skills, consolidate instead of piling on, and automate preparation while humans keep decisions. He walks through the plugin department by department (enhancement, sales, marketing, customers, finance, operations), drawing a design lesson from each addition and removal, and ends with three patterns for building your own system.
+
+**1. Get the plugin and learn the skill model**
+- **Install the plugin:** Download the Claude desktop app, open Settings, select Plugins, search for small business, and click Install. It is free and gives you all 44 skills, grouped by department such as sales, marketing, and operations.
+- **Know utility vs. orchestration skills:** A utility skill does one concrete task start to finish on its own; an orchestration skill decides which utility skills to call, in what order, and combines their outputs. Think of a kitchen remodel: the electrician, plumber, and carpenter are utility skills, and the contractor who sequences plumbing before counters and tiling before cabinets is the orchestration skill.
+
+**2. Customize your setup with enhancement skills**
+- **Use build connector for missing integrations:** It builds connections to external tools and is the fallback in 42 plugin skills when a tool lacks a native connector. Reach for it whenever a skill needs a tool Claude cannot connect to yet.
+- **Use build agent to make your own skills:** Despite the name, it creates custom skills, since people ask for agents but what they need is skills. Turn one repeated task into a skill with build agent first, then connect outside tools through build connector.
+- **Capture your brand once with brand style:** It records your style guidelines with little friction so plugin-generated assets and outputs follow them automatically, making outputs look like your business.
+
+**3. Grow sales and handle leads**
+- **Run grow pipeline for prospecting:** It reads the market, finds and ranks prospects, drafts outreach in your voice, and logs everything in your CRM. This category doubled from 4 to 8 skills because about 30% of surveyed owners asked for growth help.
+- **Use speed to lead so no lead waits:** It contacts inbound leads quickly across inboxes, lead forms, and support tickets. It only helps if leads are already arriving, so pair it with a way to generate them.
+- **Ship, learn, and delete:** Anthropic removed CRM cleanup and CRM maintenance instead of waiting for perfection, because action produces information. Make something before perfecting it, and build what customers request rather than what is easiest.
+- **Tie your role to growth:** Ask how your current work can contribute to sales, for example through customer success, customer retention, or generating new leads.
+
+**4. Market consistently and avoid routing collisions**
+- **Treat customer feedback as a growth asset:** The customer feedback skill moved from support to marketing, so act on reviews as marketing material, not just support tickets.
+- **Check your AI search visibility:** SEO AI visibility measures how your business appears in AI-generated answers rather than conventional Google search. Share a public-facing URL with the skill and review what it reports.
+- **Run marketing Monday for a weekly plan:** It breaks the day into buckets and focus areas and produces an action plan. Marketing needs repeated effort to keep new customers coming, which makes it ideal for building and refining skills.
+- **Audit for routing collisions:** A collision happens when two skills could answer the same request, like content strategy ("What should I post?") and social content engine ("What should we post this month?"), or growth pulse and marketing Monday. Unwanted triggers waste tokens and time, so give each skill clear boundaries and have related skills point to each other, for example strategy decisions in one skill and turning that direction into posts in another.
+
+**5. Speed up deals but keep humans on decisions**
+- **Use proposal builder and contract review:** Proposal builder speeds up creating proposals, especially once your proposal process is systematized. For contract review, simply upload a contract and see what it finds.
+- **Automate up to the decision point:** Pricing advice was removed without replacement, signaling limits on handing financial judgment to AI. For money-related or high-cost-of-error work, automate preparation, then stop and bring in a human.
+- **Prefer middle-to-middle augmentation:** Streamline a task in the middle of the workflow instead of removing the human from the whole process end to end.
+
+**6. Run operations with less noise**
+- **Keep one briefing that gets used:** Friday brief and quarterly review were deleted, leaving Monday brief as the only briefing skill, on the logic of less noise, more signal. You can run Monday brief whether or not you have anything configured.
+- **Cut reports, channels, and check-ins:** Resist the urge to add more; reduce your system to a signal you will actually open and act on.
+- **Route high-variance inputs:** Inbox manager is an orchestration skill that sends each email to a specific handling skill instead of one skill doing everything. Split any variable workflow into smaller routed skills the same way.
+
+**7. Apply the three patterns to your own system**
+- **Separate jobs from routing:** Build utility skills for single jobs and orchestration skills that route work to them.
+- **Consolidate over adding:** Delete overlapping and unnecessary skills as you add new ones.
+- **Automate preparation, not decisions:** Let Claude gather, rank, draft, and prepare while a human reviews and decides.
+
+**Try this first:** Install the small business plugin, then use build agent to turn one task you repeat every week into a custom skill.
+
 ## Derived summary
 ## Source notes
 
@@ -128,13 +170,6 @@ Source claims about Anthropic, the plugin, and skill behavior are presented by t
 - Recap pattern 3: **automate preparation, not decisions**. The narrator says Claude can gather, rank, draft, and prepare, while a human reviews and decides. [00:15:09]
 - The narrator says these patterns can inform personal or business systems by clarifying what to keep, what to remove, and where to place the boundary between automation and augmentation. [00:15:18]
 - Closing promotion: the narrator points viewers to another video about how Anthropic creates and optimizes skills. [00:15:35]
-
-## Practical applications
-- Suggestion: Inventory recurring work and distinguish self-contained tasks that could use utility skills from variable workflows that may need an orchestration layer.
-- Suggestion: Write distinct trigger boundaries for each skill, then test overlapping user requests to identify routing collisions before expanding a skill library.
-- Suggestion: For financial or otherwise high-cost-of-error workflows, automate information gathering, ranking, and drafting while retaining human approval at the decision point.
-- Suggestion: Reduce operational reporting to a small number of signals that will be reviewed and acted upon, rather than adding more reports or check-ins.
-- Suggestion: For inbound-lead workflows, separately assess lead generation and lead-response speed, since the source notes that follow-up automation depends on leads already entering the system.
 
 ## Evidence anchors
 - [00:00:00.080] Anthropic just released 13 new skills

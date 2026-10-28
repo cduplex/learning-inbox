@@ -9,6 +9,53 @@
 ## Tags
 AI software factory, agentic engineering, software delivery, human in the loop, agent registry, skill registry, context lake, repository readiness, CI, governance, Port
 
+## Learning guide
+**The arc**
+Cole Medin starts from a problem: an autonomous AI software factory works for one app, but at enterprise scale or across many applications it needs a surrounding wrapper for guardrails, context and observability. His central idea is to keep your custom engineering harness unchanged and wrap it with four components: an agent and skill registry, a context lake, standards applied to every factory, and controls that keep factories aligned. He moves from the core loop, through ownership, context and readiness scorecards, to a CI self-repair workflow, and concludes that maximum autonomy should always keep a human in the loop.
+
+**1. Build the core loop first**
+- **Start simple:** If you are new to this, run only the core loop and skip the enterprise layers. A registry and context layer become important later, once you scale to many factories.
+- **Plan a release with an agent:** Humans and an agent create planning context, such as a PRD, before anything enters the factory. For greenfield work, plan a proof of concept; for brownfield work, plan the next epic or task set.
+- **Size releases at 10 to 20 tickets:** Plan work that can generally be split into that many tickets. This keeps each release manageable for the loop.
+- **Split work and map dependencies:** Have an agent turn the plan into tasks and map which can run in parallel and which must wait. Use roles like a planner that builds the release plan and a backlog splitter that converts it into tickets.
+- **Trigger the loop with a cron job:** A scheduled job picks the next issue by priority and dependency mapping. Each ticket then runs through plan, implement, validate.
+- **Validate through a user journey:** Test each feature by asking how a user would test it, not just with unit checks. This makes validation reflect real application behavior.
+- **Use a separate review agent:** A different agent reviews each pull request. Merge only when both CI checks and that review are green.
+- **Drive every stage with a skill:** Write each stage as an elaborate skill defining the exact process, not a short prompt. Trust in the factory comes from investing effort in the harness, skills and agents.
+
+**2. Ship through staging, not straight to production**
+- **Merge to a staging branch:** Never merge factory output directly to production; merge to a branch deployed to staging. The whole release is assembled there across many ticket loops.
+- **Validate the release in batch:** Review and test the assembled release in staging instead of reviewing every individual issue. This saves human time while keeping oversight.
+- **Feed problems back as issues:** Submit anything wrong in staging as new issues so the factory picks them up. Expect a couple of iterations, then ship to production when staging looks good.
+
+**3. Establish ownership with registries**
+- **Give agents their own identities:** Agents running on an engineer's GitHub account make it ambiguous who is responsible when a production problem traces to a commit. Assign each agent its own identity.
+- **Centralize skills in one registry:** Store every skill used in any factory in one place, with an owner and version control. Watch the count of distinct versions: a high number signals skill drift, so aim for one version of each skill distributed from the registry.
+- **Govern the skill lifecycle:** Track ownership and publish status, recertify skills after updates, reject publication when needed, and deprecate old skills over time.
+- **Inventory every agent role:** For each agent, record its runtime platform (for example Claude Code, Codex, Pi, or enterprise runtimes like GCP Vertex AI and AWS Bedrock), model, permissions and approval status. Permissions should state what the agent may touch and what it may not do.
+- **Assign organizational owners:** Have owners manage creating agents, promoting them and updating permissions for different factories. Factories then pull common skills and agents from the registry while you keep control of how they are defined.
+
+**4. Feed business context through a context lake**
+- **Connect factories to business systems:** Skills and agents define a process but carry no business context. Link factories to GitHub repositories, CI, Jira, Slack, SharePoint and application or feature ownership data.
+- **Use context to decide when humans step in:** Service tier, business domain, blast radius and the right owner for an approval request are not knowable from code alone. Use this context so high-risk work requires human merge approval while low-risk work runs more autonomously.
+- **Pull context into release planning:** Use an MCP server (here, the Port MCP server) during the planning conversation to retrieve repository ownership, available starting templates and repository readiness. Tune what it searches and which systems (GitHub, Jira, Slack) it connects to, then use that context to build the PRD.
+- **Track codebase status centrally:** Keep pull requests, factory status and CI status visible in one place. In the demo, a team knowledge base RAG app with source citations produced 20 pull requests from one PRD, all trackable.
+
+**5. Enforce standards with scorecards and controls**
+- **Score repository readiness before autonomy:** Define a scorecard of prerequisites a repository must meet to become an autonomous factory. Basic checks: a defined owner, a README, a pull-request template, a CI workflow, and CI passing on main.
+- **Fix gaps before switching autonomy on:** Repositories below the target level (such as bronze vs gold) get a list of issues to resolve first. Note the platform cannot check everything, since your engineering loop is your own.
+- **Use standards as ongoing controls:** Grade every merged pull request against the standards, not just at setup. A CI failure should be flagged immediately and drop readiness, for example from gold to silver.
+- **Automate CI repair with an approval step:** When CI fails, have a workflow propose creating a GitHub issue to fix it, wait for human approval, then create it so the next factory loop picks it up. After the fix merges and CI goes green, the scorecard returns to gold.
+- **Make your CI suite comprehensive:** Green CI only means something if the suite actually indicates application health. Flaky tests and breaking changes are common, so invest in CI coverage.
+
+**6. Keep a human in the loop**
+- **Avoid the dark factory:** Do not run with no human planning, no staging, direct production deploys, no approvals for CI changes and no visibility into autonomous changes. Medin moved away from that model deliberately.
+- **Maximize autonomy within reason:** Embed owners, context, planning and approvals by default, then remove approval requirements only where appropriate. Aim for oversight on selected decisions, not lights-out operation.
+
+**Try this first:** Pick one repository and check it against the readiness list: a defined owner, a README, a pull-request template, a CI workflow and passing CI on main. Fix any gaps before letting a factory loop run on it.
+
+**Caveat:** The video was made in partnership with Port, and the registry, context lake, scorecard and workflow features shown are Port's own claims; the concepts apply generally, but the specific capabilities and the 2-day build result are not independently verified.
+
 ## Derived summary
 ## Source attribution
 - The speaker presents personal experience and opinions about an AI software factory and a platform called Port. Product capabilities, results, and suitability claims are speaker or vendor claims and are not independently verified. [00:00:00]
@@ -143,14 +190,6 @@ AI software factory, agentic engineering, software delivery, human in the loop, 
 ## [00:18:09] Sponsored-product aside
 - [00:18:09] The speaker discloses that they worked with Port on the video.
 - [00:18:11] They state that Port is free for up to 15 seats with no credit card required. This promotional availability claim is not independently verified.
-
-## Practical applications
-- Suggestion: Start with the core release-planning, task-splitting, plan-implement-validate loop before adding enterprise governance layers, consistent with the speaker's beginner guidance. [00:03:12]
-- Suggestion: For multiple factories, maintain registries with an owner, version, lifecycle status, platform, model, permissions, and approval status for reusable skills and agents. [00:06:35] [00:07:52] [00:08:25]
-- Suggestion: Build planning and merge-approval decisions from both code and business context, including ownership, service tier, domain, and blast-radius considerations. [00:10:16] [00:10:22] [00:10:30]
-- Suggestion: Define a repository autonomy scorecard with ownership, documentation, pull-request template, CI workflow, and passing CI on the main branch before enabling autonomous changes. [00:13:20] [00:13:32]
-- Suggestion: Route detected standard failures into an approval-gated issue workflow, then let the normal factory loop address approved work. [00:14:10] [00:15:11] [00:16:01]
-- Suggestion: Prefer staging and selective human approvals over a fully lights-out direct-to-production model, especially where changes have higher risk. [00:05:00] [00:17:05] [00:17:28]
 
 ## Evidence anchors
 - [00:00:00.160] My AI software factory is hands down my

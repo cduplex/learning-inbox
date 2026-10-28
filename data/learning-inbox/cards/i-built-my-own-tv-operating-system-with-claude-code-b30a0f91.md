@@ -9,6 +9,55 @@
 ## Tags
 smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging, Magic Path, Mobbin, Rive CLI, UI design, reverse engineering
 
+## Learning guide
+**The arc**
+The video starts from posts showing smart-TV owners using AI to strip ads and build their own TV interfaces, and asks how hard that really is. The central idea is that reverse engineering with Claude Code lets you connect to an Android/Google TV and replace its home screen with your own app in a few prompts. It moves from connecting the TV, to building a basic replacement home screen, to prototyping and polishing designs in Magic Path with Mobbin and Rive CLI, and ends with how to revert everything safely.
+
+**1. Understand what is possible**
+- **Treat it as reverse engineering:** These projects come from giving an AI enough context to inspect and rebuild software, such as a GitHub repository you hand to Claude Code or Codex so it can examine an app down to its binary and explain how a feature works. The same approach produced open source, clonable clones like Photocraft (Photoshop), Vectorcraft (Illustrator) and Filmcraft (Premiere Pro).
+- **Aim for small first wins:** Others removed bloatware and ads, built a minimal UI, or made a screensaver showing revenue, calendar, weather and Stripe payment notifications. The demonstrated after-state took only two or three prompts, so start simple.
+
+**2. Connect Claude Code to your TV**
+- **Use a setup prompt:** Copy a ready-made setup prompt (the creator used one from a Codilla tweet) and paste it into Claude Code. This gives the agent a full plan instead of building one from scratch.
+- **Share one Wi-Fi network:** Put your computer and TV on the same Wi-Fi first. This is how Claude Code finds the TV on the local network.
+- **Photograph the About screen, not the TV:** On the TV go to Settings, then About, and photograph that screen to paste alongside the prompt. It gives the agent real OS context; in the demo it identified a TCL running Android TV OS 14.
+- **Be patient on the first pass:** It took about 3 to 4 minutes before Claude Code returned a list of directions. Follow them with your remote.
+- **Enable and authorize USB debugging:** Turn on USB debugging, tick "always allow from this computer", and press Allow. If you cannot find the setting, search "USB debugging" plus your TV or TV OS name and look for YouTube guides.
+- **Run a test command:** Have Claude Code play a YouTube video on the TV (the demo used Big Buck Bunny). The first run is slow; the second and third get faster.
+
+**3. Speed up repeat commands (optional)**
+- **Add Jev by Type Safe for fixed paths:** For specific commands like opening a particular YouTube channel, preset Claude Code to use Jev so it runs faster. Use the Type Safe skill, log in to Type Safe, copy its prompt, and give that prompt to Claude Code.
+
+**4. Build a replacement home screen**
+- **Ask if it is possible first:** Ask Claude Code whether a custom home screen can work. An Android TV app that declares itself a home screen can replace Google TV Home.
+- **Get a working baseline:** Ask for a new home-screen app with no art direction. Expect it to be a bit janky but functional: you can change channels, select apps and open them.
+- **Experiment boldly:** Try a playful concept to test the limits, like a home UI of a chicken laying eggs where each egg is one of your TV apps. That build took about 5 minutes.
+
+**5. Prototype and remix in Magic Path**
+- **Import the original home screen:** Ask Claude Code to add your TV's original home design into an Open Magic Path project. Magic Path is a canvas where you place designs, remix them and create variants; the import came out as a one-to-one copy you can navigate with arrow keys.
+- **Connect Claude Code once:** In Magic Path, select Claude Code and follow its three or four connection steps the first time.
+
+**6. Borrow proven layouts with Mobbin**
+- **Connect the Mobbin MCP:** Mobbin is a large database of app and website screens, and its MCP lets Claude Code find relevant UI from chat context so you skip manual browsing.
+- **Request remixed variants:** Prompt Claude Code to create two variants that remix the Google TV home component with Mobbin findings, drawing on references like HBO Max, Paramount Plus, Netflix and The New York Times. You can also cherry-pick, such as one feature from Paramount Plus and another from Disney Plus.
+- **Compare the results:** One demo variant kept the layout but added two buttons, image switchers and a "more info" action instead of jumping straight in. The other added a preview-image banner, category selection and a new order: apps, top picks, continue watching, top-selling movies.
+
+**7. Add motion with Rive CLI**
+- **Duplicate your favorite variant first:** Pick the layout you like, duplicate it, then ask Claude Code how Rive CLI could improve the interaction design. This keeps the original safe while you experiment.
+- **Apply its suggestions:** Claude Code proposed a focus frame, hero timer, transitions, Play and More Info buttons, app-launch behavior and small details. The demo got a border that moves between focused items and a text hover animation.
+- **Copy a style from a link:** Paste a reference URL (the creator used community member Jerry's tweet) and ask for its glow effect, then layer extras like particles at the bottom. The result auto-cycles through channels and apps.
+- **Add custom tabs:** The creator added a "cloud" tab that does not work in preview but on the TV opens a browser to log in to Claude and build with Claude on the TV. The real-TV version matched the Magic Path build.
+
+**8. Borrow a style from an article**
+- **Feed Claude Code a write-up:** Paste an article URL, such as Nathan Clark's "I gave my Samsung frame a new home screen", ask Claude Code to read it, and implement that style as a new Magic Path variant. Your earlier apps, including the cloud app, carry over.
+- **Tune it in settings:** Adjust the image (the demo used "desert stars") and options like icon and text, Manro font, glass focus, soft material and text controls. Push the design to the TV whenever you are ready.
+
+**9. Revert and remove access**
+- **Restore the original:** Tell Claude Code "revert back to original home screen for my TV."
+- **Turn off USB debugging:** Disable it on the TV so Claude Code can no longer access it.
+
+**Try this first:** Put your computer and TV on the same Wi-Fi, photograph the Settings > About screen, and paste it with a setup prompt into Claude Code to get your connection directions.
+
 ## Derived summary
 ## [00:00:00] Context: AI-assisted smart-TV customization
 - [00:00:00] The presenter says they have seen X posts about smart-TV owners using AI both to remove ads and to create different TV interfaces.
@@ -88,12 +137,6 @@ smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging, Ma
 
 ## [00:12:24] Final recap
 - [00:12:24] The video’s demonstrated sequence is: connect a computer and Android/Google TV over shared Wi-Fi; enable and authorize USB debugging; use Claude Code to create or replace a home-screen app; prototype and remix layouts in Magic Path; optionally draw on Mobbin and Rive CLI for visual and interaction ideas; and revert by restoring the original home screen and disabling USB debugging. The tool behaviors and outcomes are presenter-reported demonstrations, not independently verified.
-
-## Practical applications
-- Suggestion: Use the video’s workflow as a study checklist for understanding Android TV launcher replacement: shared Wi-Fi, OS-identification screenshot, USB-debugging authorization, custom home-screen app, and final restoration steps.
-- Suggestion: Prototype several home-screen information architectures before deploying one, comparing direct-launch behavior with variants that include image switchers, information pages, category navigation, and ordered content rows.
-- Suggestion: Treat UI references as component-level inspiration: identify a preferred feature from each reference, then request explicitly named remixes rather than copying an entire layout.
-- Suggestion: If trying the reported setup, plan a rollback path in advance by retaining the original home-screen configuration and disabling USB debugging after use.
 
 ## Evidence anchors
 - [00:00:00.080] Hey guys. So recently on X, I've been

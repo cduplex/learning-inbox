@@ -9,6 +9,48 @@
 ## Tags
 Claude Code, Claude, AI assistants, custom software, vibe coding, projects, task orchestration, local execution, mobile access, productivity workflows
 
+## Learning guide
+**The arc**
+The video starts from people who already use Claude or Claude Co-work and want more from it without being technical. The central idea is that Claude Code, once meant for developers, now feels like regular Claude while adding app building, project coordination with parallel threads, and local execution. It moves from the interface, to building custom apps, to everyday outputs, projects and threads, and ends with the tradeoff between local work and mobile access.
+
+**1. Get oriented in the desktop app**
+- **Find the two sections:** In the Claude desktop app, the top level has **Claude** and **Code/Claude Code**. The Claude section now merges the old Chat and Co-work into one prompt box for questions and work requests, while Code is where you go to have work actually done.
+- **Split your usage by task type:** Keep regular Claude chat for basic questions and use Claude Code for anything that requires doing work. This matches the creator's own routine after switching.
+- **Reuse the familiar menu:** The left menu works like Co-work: **New** starts a task, **Search** finds content, **Projects** organizes work, and **Artifacts** lists documents, slides and designs across tasks. Scheduled tasks, skills, connectors and plugins are also available.
+
+**2. Build your own apps by describing them**
+- **Vibe code in plain language:** Write or speak what you want and let Claude Code build it. Asked for a simple menu-bar timer, it created, built and launched the app so it appeared in the menu bar.
+- **Prefer Code over Co-work for apps:** Co-work can write app code but will not build or launch it, leaving you with code you may not be able to use. Claude Code, with computer access, handles building and launching hands-off.
+- **Build only the features you need:** Custom software gives you exactly your workflow without waiting for updates, feature bloat or paywalls. Aim for specifics no general app maker would bother with.
+- **Consolidate scattered tools:** The creator's **Dayboard** app pulls calendar events (like a Tuesday 5:30 workout class), Apple Reminders and video notes from an Obsidian vault into one view, replacing three apps. Double-clicking a video opens it in an Obsidian-like editor.
+- **Add workflow-specific buttons:** Dayboard has a control that copies only the spoken lines of a script, stripping stage directions, so the text pastes cleanly into a teleprompter. It can also assign the next step to yourself, Claude, ChatGPT, Grok Bot or another agent that checks for assignments.
+- **Request new features by describing behavior:** The creator added a creator button that turns on creator mode and blurs or hides sensitive information while recording. A plain-language description of what the button should do was enough.
+- **Automate small watches and fun projects:** One custom app checks iPhone availability every few minutes and notifies when it is back in stock. Games are another option.
+- **Use dictation for app requests:** Create a project, state what to make, and use the dictation button to speak it. The **Tab Over** project produced a custom app switcher that hides unused apps, built in a couple of minutes with exactly the requested scope.
+
+**3. Do your usual Co-work outputs in Claude Code**
+- **Keep making documents and media:** Spreadsheets, presentations, documents and motion graphics can all be made in Claude Code, and it can also manage a whole second brain.
+- **Call skills with a slash:** Type `/` followed by the skill name, just as in regular Claude.
+- **Edit artifacts two ways:** Open a finished output in artifact view to edit it directly, or reopen its thread and ask Claude for changes. Presentations can be clicked through in the same view.
+
+**4. Set up a project per goal**
+- **Create one project per goal or recurring task:** Click the plus icon to make a new project. Projects are shared between Claude and Claude Code.
+- **Name it and state the goal:** Example: a project named **invoices** with the goal "create and track invoices". Optional context can be added or skipped.
+- **Pre-approve a folder:** In project settings, open **Environment** and add a folder (here, the invoices folder) under pre-approved folders. Claude then has access to it whenever you work inside that project.
+
+**5. Delegate through the coordinator and threads**
+- **Brain-dump to the coordinator:** Each project has a coordinator on the left and threads on the right. Send several requests at once, like "create invoices for sponsor one, sponsor two, and sponsor three".
+- **Let it spawn task threads:** The coordinator does not do the work itself; it creates one or more threads depending on complexity. Open any thread to inspect progress and talk to that thread directly.
+- **Bundle different outputs in one request:** A **research** project was asked for a report, a presentation and a motion graphic about Claude Code, producing three threads that each resolved into an artifact.
+
+**6. Choose local or cloud, and stay mobile**
+- **Run locally when files must stay on your machine:** For a new task outside a project, Claude Code lets you run it on your computer instead of the cloud, so files are not uploaded. Regular Claude uploads work to the cloud and Co-work is no longer local, so this restores local operation.
+- **Work inside projects for phone access:** The phone app shows desktop projects with the full coordinator conversation, individual threads and generated presentations. A session started outside a project and run locally cannot be opened on the phone.
+
+**Try this first:** Create a new project in Claude Code, add a working folder under Environment, and dictate one small app you wish existed, like a menu-bar timer.
+
+**Caveat:** The claims about full computer access and local runs not uploading files are not verified; check your actual permissions and settings before pointing Claude Code at sensitive folders.
+
 ## Derived summary
 ## Source framing [00:00:00]
 - [00:00:00] The presenter addresses people who have used Claude or Claude Co-work and want to get more from it without being highly technical.
@@ -118,13 +160,6 @@ Claude Code, Claude, AI assistants, custom software, vibe coding, projects, task
 ## Recap [00:15:06]
 - [00:15:06] The source's central argument is that Claude Code offers a familiar Claude-like interface while adding project coordination, threaded tasks, custom app creation, computer-local execution, and some mobile project access.
 - [00:15:06] The principal tradeoff described is between local work, which the presenter says avoids cloud upload but cannot be accessed on a phone, and project-based work, which is recommended for mobile continuity.
-
-## Practical applications
-- Suggestion: For repeatable work such as invoice creation, define a project with a narrow goal and attach only the relevant pre-approved working folder.
-- Suggestion: Use separate threads for independent deliverables, such as a report, presentation, and motion graphic, then review each artifact or request revisions in its own thread.
-- Suggestion: Before choosing local execution, weigh the source-described privacy benefit against the inability to open that local, outside-project session on a phone.
-- Suggestion: Describe a small custom tool in plain language, specify only the required behavior, and test the resulting workflow before relying on it for sensitive or important tasks.
-- Suggestion: For mobile continuity, organize work inside projects rather than starting standalone local sessions.
 
 ## Evidence anchors
 - [00:00:32.960] up the Claude desktop app, you'll notice

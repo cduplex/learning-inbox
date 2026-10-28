@@ -9,6 +9,49 @@
 ## Tags
 agentic operating system, Claude, AI agents, skills, routines, memory, apps, model routing, prompt cache, workflow automation, micro-apps, Chrome extensions
 
+## Learning guide
+**The arc**
+The creator starts from a growing personal agentic operating system where files, contacts and tasks pile up and become slow and costly for Claude to handle. The central idea is ARMS: organize the system as **Apps, Routines, Memory, Skills**, each improved across three levels. The guide moves bottom-up from skills to apps, ending with a system built on searchable workspace maps, measured token use, feedback-driven improvement and task-specific interfaces.
+
+**1. Skills: choose the right type**
+- **Build database skills for reused knowledge:** A skill can hold knowledge instead of SOP steps, like `/tone` with voice principles, examples and guidelines so agents draft emails and posts consistently. Create one whenever you repeatedly produce or reference the same output type during the week. It also works for non-text assets, like `/thumb` storing file paths to published and inspirational thumbnails.
+- **Add wildcards to avoid overfitting:** A fixed reference set makes the agent imitate it and suppress fresh ideas. Make wildcards a default: for 10 article titles, generate eight from references and two without them, and add good wildcard results back as new references. Define a short `/wildcard` skill so every skill means the same thing when requesting wildcards.
+- **Use artifact skills for non-chat outputs:** Infographics, slide decks and PDFs fit poorly in chat, so create them as HTML, which agents handle well, then export to PDF. Connect the skill to an HTML brand book with colors and fonts for consistency, as `/robo` does as a design system.
+- **Keep an artifact inbox:** Park finished artifacts in one searchable place and search it yourself. This avoids spending tokens asking the model to find an old client deck.
+- **Create self-triggered skills:** Some skills should run outside chat, like `/cleanup` launched when leftover temporary files slow the computer. Trigger Claude with a background prompt (Claude-P), pick model and effort level at launch, and have it return a simple report of fixes.
+
+**2. Skills: route and improve**
+- **Route each skill to the right model:** Do not leave frequent skills on large, expensive models. Send `/grammar`, which only checks spelling, to Haiku for speed and cost, or use a fast classifier model like Jev to decide which model gets each prompt.
+- **Watch a usage dashboard:** Track most-used and highest-spending skills so you can inspect costly ones, like `/animate` which produces many videos.
+- **Make high-use skills self-improving:** In a review tool, pin comments on clips with timestamp and location, copy all comments to Claude, and toggle an instruction that the feedback must update `/cut` and `/animate`. Every review then improves the skill, a simple form of reinforcement learning.
+
+**3. Routines: scheduled work**
+- **Prefer passive routines where possible:** Active routines produce output to review, like a daily inbox digest sent to Telegram; passive ones alert only on findings, like a weekly brand watch for unapproved use of your brand. Fifty active routines means fifty reviews, so make domain scouting, old-file clearing and slow-app flagging passive.
+- **Monitor and cap routine costs:** Every scheduled task uses plan usage or API credits. Sort routines by weekly token use, then ask Claude to optimize an expensive one and set a cap, like cutting a $10 per week routine to $4 by removing unnecessary work.
+- **Let a routine propose routines:** The best candidates are jobs you already do manually without noticing. Run a Friday-morning routine that reviews your sessions, lists repeated jobs as routine ideas in a local micro-app, then before usage resets add good ones to a cart and send the selection to Claude to apply.
+
+**4. Memory: long-term maps**
+- **Judge memory by retrieval speed and cost:** Your second brain is just your workspace files; at around 420,000 files, retrieval structure becomes necessary. A visual graph is optional; the shared principle is giving Claude a map of the whole workspace.
+- **Use `memory.md` as a card catalog:** Claude maintains short remembered items and loads them every chat, so it consults the map before searching the shelves.
+- **Turn `Claude.md` into a router:** Instead of only rules, make it route to departmental files like `business.md`, which route further into subfolders. Put core rules in one central `agents.md` that Claude Code and other AI tools read.
+- **Stick to plain text routing:** Plain-text maps work without vector embeddings or RAG databases. Add metadata for visual assets, and let database skills act as routers to current client info and dashboards.
+
+**5. Memory: short-term context and cache**
+- **Compact with a purpose:** Full chats suffer context rot and get costlier because the whole window is reread. When compacting, state what must survive, such as business decisions or created templates.
+- **Keep the prompt cache warm:** A warm cache makes rereading cost a fraction of normal; after about an hour idle it goes cold, and a chat idle 11.5 hours may need to recache about 600,000 tokens (roughly $5 on Opus). Use a mod that shows cache status without spending tokens, and have sessions self-ping hourly for four hours to extend the cache to four hours.
+- **Treat a second correction as a memory bug:** Use `/note` to log mid-task feedback to a skill-specific file via Haiku without interrupting work, then have Claude apply the backlog before usage resets. Use `/calibrate` to save important feedback, link it to related memories and update the skill, and let a suggestions app propose memory improvements.
+
+**6. Apps: connections and interfaces**
+- **Pick light integrations:** Use `/search connectors` to find options in this order: official connector, open-source CLI, API, community MCP. CLIs are lightest, APIs return lengthy responses Claude must read, and MCPs load all capabilities each new chat, so keep MCP use light.
+- **Mod your daily tools:** Add a usage-bar mod showing weekly and five-hour limits plus cache info. Extend the idea to Chrome with a `/chromify` skill of extension practices, building tools like one that captures a component's code for Claude to reverse-engineer or saves YouTube titles and thumbnails into a database skill.
+- **Load extensions locally:** Local extension code uses no tokens; enable Chrome Developer Mode and load the extension from your computer.
+- **Move recurring heavy work into micro-apps:** When chat is no longer efficient, build local apps, like a clip review editor, a carousel review app, or a Generations app connected to image and video models.
+- **Build a reusable UI component library:** Keep pre-built components in a skill like `/robo` so Claude does not recreate them and team-made interfaces stay consistent and cheaper.
+
+**Try this first:** Rewrite your `Claude.md` as a map that routes to one departmental file such as `business.md`, and move shared rules into `agents.md`.
+
+**Caveat:** The Claude 5.5 model, 1 million-token window, cache timings and dollar savings are the creator's unverified claims, so measure your own costs before relying on them.
+
 ## Derived summary
 ## Source note
 - [00:00:00] The presenter describes a personal "agentic operating system" built mainly with claimed Claude 5.5 models, while saying the architecture could run on other models. Product capabilities, performance figures, and the presenter's results are source claims and are not independently verified.
@@ -142,16 +185,6 @@ agentic operating system, Claude, AI agents, skills, routines, memory, apps, mod
 ## [00:37:38] Final recap
 - [00:37:38] The video concludes that ARMS consists of apps, routines, memory, and skills, with the presented system emphasizing searchable workspace maps, measured token use, feedback-driven improvement, and task-specific interfaces.
 - [00:37:42] **Promotional aside:** the presenter says a downloadable guide contains the prompts and resources mentioned in the video.
-
-## Practical applications
-- Suggestion: Inventory recurring outputs and classify each agent instruction as a database, artifact, or self-triggered skill before building additional automation.
-- Suggestion: For reference-driven creative work, reserve a minority of outputs as explicit wildcards and add only selected successful variants back to the reference set.
-- Suggestion: Review skill and routine usage periodically, route deterministic low-risk tasks to lower-cost models where suitable, and set explicit spending caps for expensive scheduled tasks.
-- Suggestion: Use passive alert-only routines for monitoring work, reserving active routines for outputs that genuinely require regular review.
-- Suggestion: Create a compact workspace map using files such as memory.md, Claude.md, departmental routing files, and database skills; evaluate retrieval speed and cost before adding more complex retrieval infrastructure.
-- Suggestion: For long-running chats, explicitly state what a compaction must preserve and assess cache-expiry behavior before adopting any keep-warm strategy.
-- Suggestion: Move recurring review or approval workflows from chat into a small dedicated interface when visual inspection, structured comments, or searchability are central to the task.
-- Suggestion: Prefer the lightest viable integration method for an external tool, then assess security, permissions, maintenance, and data exposure before connecting it.
 
 ## Evidence anchors
 - [00:01:26.720] Because from this home dashboard I can

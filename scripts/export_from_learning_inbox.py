@@ -2,7 +2,7 @@
 """Export safe, readable knowledge cards from Learning Inbox evidence records.
 
 The source records retain raw evidence and must remain outside this Git repository.
-This exporter emits only source metadata, derived notes, practical applications, and
+This exporter emits only source metadata, derived notes, learning guides, practical applications, and
 up to five brief evidence anchors. It skips credential-bearing source links and
 redacts token-shaped strings in emitted text.
 """
@@ -131,6 +131,7 @@ def render_card(record: dict[str, Any]) -> tuple[str, str, list[str]]:
     published = scalar(metadata.get("published_at") or metadata.get("createdAt"))
     source_type = scalar(source.get("source_type") or metadata.get("type"))
     applications = quoted_bullets(derived.get("applications"))
+    guide = PASSAGE_REFS.sub("", scrub_text(derived.get("learning_guide")))
     anchors = evidence_anchors(derived.get("key_evidence"))
 
     lines = [f"# {title}", "", "## Source"]
@@ -146,8 +147,10 @@ def render_card(record: dict[str, Any]) -> tuple[str, str, list[str]]:
         lines.append(f"- Published: {published}")
     if tags:
         lines.extend(["", "## Tags", ", ".join(tags)])
+    if guide:
+        lines.extend(["", "## Learning guide", guide])
     lines.extend(["", "## Derived summary", summary or "No derived summary is available."])
-    if applications:
+    if applications and not guide:
         lines.extend(["", "## Practical applications", *applications])
     if anchors:
         lines.extend(["", "## Evidence anchors", *anchors])

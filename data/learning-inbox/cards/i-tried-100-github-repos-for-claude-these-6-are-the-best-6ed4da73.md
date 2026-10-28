@@ -9,6 +9,52 @@
 ## Tags
 Claude, GitHub repositories, AI agents, automation, video editing, web development, mobile apps, testing, security, SEO
 
+## Learning guide
+**The arc**
+There are over 100,000 GitHub repositories built for Claude and most are not worth your time, so the creator tried more than 100 and kept 10. The central idea is that the repositories are free; what clients pay for is the solution you build around them. The list moves from tools that help you land a client, to tools for building real client products, then testing and security before delivery, SEO after launch, and finally which token-saving tools to trust.
+
+**1. Land clients with fast, polished deliverables**
+- **Edit video with Hyperframes:** Describe the result in plain language, let Claude build the video with HTML and animations, and Hyperframes renders a real MP4 locally. Give it a raw clip and ask for captions and a title card, or a conversion into an Instagram Reel, and you get a finished file in a few minutes. It is open source with no per-render fees, worked better than Remotion for the creator, and needs no video-editing experience.
+- **Build reusable video skills:** Layer your own skills on Hyperframes for YouTube intros, Instagram Reels, course videos and ads. This turns one-off edits into a repeatable service, such as a monthly package for a gym that wants 20 captioned clips per month.
+- **Automate Google Workspace with the Google Workspace CLI:** It lets Claude work with Drive, Gmail, Calendar, Docs, Sheets and Slides, with formatting handled through the CLI and more than 40 skills included. Unlike Claude's built-in Google connector, which only works in the desktop app and does not cover everything, a CLI works with Claude Code, CodeX or any agent.
+- **Set up the CLI with Claude's help:** You need a Google Cloud project for login; ask Claude to walk you through it step by step and grant access only to the apps you want. Then target small-business chores like weekly reports, invoices and follow-up emails.
+- **Reach blocked web data with the Apify MCP server:** Sites like Instagram and Reddit block access or need JavaScript rendering, so Claude sees an empty page. Apify connects Claude to thousands of ready-made scrapers for Instagram, TikTok, Amazon and more.
+- **Prompt Apify for leads:** For example, ask it to find Chicago bakeries on Instagram, return follower counts, download videos and flag profiles with no website in their bio, and get a spreadsheet in a couple of minutes. The connector is open source but scrapers run in Apify's cloud: the free plan gives $5 of monthly credit and some actors charge per result. Firecrawl is an open-source alternative.
+- **Build immersive sites with Scrollcraft:** A generic Claude request gives a basic page with text fade-ins; Scrollcraft adds a real scroll engine and design rules for Apple-style sites that move like a movie through layered sections. Its checker screenshots scroll states and inspects positions so Claude fixes issues before you flag them.
+- **Use Scrollcraft for taste, not just scrolling:** It also governs depth, layering, spacing, typography and color schemes, so use it on every site even when it is not heavily scroll-driven. Basic AI landing pages are a commodity, while brands still pay for custom experiences that feel good and convert visitors.
+- **Humanize copy with Humanizer:** Paste website copy, a cold email or any draft and ask Claude to humanize it using the repository. It is built on the guide Wikipedia editors use to spot AI text, removing signals like "not this, but that" contrasts, repeated groups of three and over-hyped wording while keeping your message, which makes copy easier to pitch and trust.
+
+**2. Build real client products**
+- **Move the plan into files with Agent Skills (Addy Osmani):** Long sessions get compacted or suffer context rot after an hour or two, so Claude forgets earlier details. Run `/spec` to write a specification collaboratively, `/plan` to split it into small tasks, and `/build` to execute one task at a time with a check for each; when a session gets messy, start fresh from the saved files.
+- **Use the spec to catch edge cases and align the client:** For a cleaning company needing online booking with a deposit, the spec surfaces double bookings, refunds and customers in different time zones; handle these before building. Share the spec with the client before implementation so they know exactly what they will get.
+- **Pick a skill set that fits your level:** Superpowers is still good, but Addy Osmani's skills are easier for newcomers; Matt Pocock's skills help you build with a developer mindset even if you are not one.
+- **Build mobile apps with Expo's official skills:** They include Expo's list of 20 signs an app looks AI-built and current App Store submission rules, and can work from Windows. Tell Claude to use Expo skills by name, since they may not load automatically, and budget $99 per year for an Apple Developer account for TestFlight or App Store.
+- **Sell the missing workflow:** Do not try to replace a shop's existing software like Square; sell the specific workflow it does not handle.
+- **Handle backend with Supabase and Stripe official skills:** For apps with logins, databases or payments, these make Claude follow security rules like restricting users to their own data and verifying a payment really came from Stripe. Install only the "Stripe best practices" skill, not the full plugin, which may push every vendor choice toward Stripe.
+- **Run a data-isolation check before launch:** Set the Supabase connector to read-only, log in as a test user, and confirm that account cannot see another user's data.
+
+**3. Test and secure before delivery**
+- **Never trust "it works" without proof:** Claude may say a feature works without clicking through it, so validate everything you hand to a client or release publicly.
+- **Test like a customer with Playwright CLI:** Microsoft's Playwright CLI opens a real browser, clicks through the app as a customer would, and writes reusable tests you can run repeatedly to find edge cases. As a CLI rather than an MCP, it does not dump the whole page into context, so it is lighter on tokens and faster.
+- **Audit code with Claude Security:** Anthropic's security plugin uses multiple agents to hunt vulnerabilities while other agents challenge their findings. You get a plain-English report of what survives, and it can write and run the patches.
+- **Make testing and security standard:** Clients care that the booking form works and customer data never leaks, so build both into every project.
+
+**4. Get found after launch**
+- **Run SEO audits with Open SEO:** It connects Claude to keyword data, rankings and backlinks and points to the exact page and keyword position instead of generic advice. Use the audit to win a monthly SEO retainer, but note free-trial credits are small and data sits on the provider's server unless you self-host.
+
+**5. Control token spend and avoid bad tools**
+- **Be skeptical of token-saving repos:** In JetBrains tests on real coding tasks, Caveman cut output tokens about 8.5% versus an advertised 65%, RTK saved nothing and cost more at low effort, and Ponytail saved about 10% but has an open Windows bug stalling each message for seconds.
+- **Find waste with Codeburn:** It shows where tokens go and flags waste such as an unused MCP server loaded on every message.
+- **Drop Claude Mem and Context Mode:** Claude Mem sends usage data by default, and Context Mode has an open bug that can consume usage.
+
+**6. Adopt tools and sell the solution**
+- **Add one repository at a time:** Installing everything at once makes it impossible to tell which addition broke things. Choose the one that solves your biggest current problem; if unsure, start with the Google CLI, Apify or Scrollcraft, or Humanizer as the simplest.
+- **Follow the client-acquisition loop:** Find businesses with no website, build one from a sample page, improve the copy, and send them the link. The repos are free to anyone; you are selling the solution built around the client's problem.
+
+**Try this first:** Use Apify to find local businesses on Instagram with no website in their bio, build one a site, run the copy through Humanizer, and send the link.
+
+**Caveat:** The creator built Scrollcraft, one of his top starter recommendations.
+
 ## Derived summary
 ## Overview [00:00:00]
 - [00:00:00] The speaker claims there are over 100,000 GitHub repositories built for Claude, says most are not worthwhile, and presents 10 repositories selected after personally trying more than 100.
@@ -119,13 +165,6 @@ Claude, GitHub repositories, AI agents, automation, video editing, web developme
 - [00:10:07] The speaker's client-acquisition workflow is: identify businesses with no website, build one from a sample page, improve the copy, and send the link.
 - [00:10:13] Final sales principle: repositories themselves are free and broadly installable; the service being sold is the solution built around them for the client's problem.
 - [00:10:20] The speaker says links to every repository covered will be placed in the video's description.
-
-## Practical applications
-- Suggestion: Start with one repository tied to a current bottleneck, rather than installing the full set at once, and isolate changes so failures are easier to trace.
-- Suggestion: For a client build, create a written specification, convert it into small tasks, and retain it in project files so a fresh agent session can resume without relying on chat context.
-- Suggestion: Before launch, use browser-based tests for critical customer paths such as booking and payment, then test data isolation with a separate user account.
-- Suggestion: For a service offering, package a delivered outcome such as captioned clips, a booking workflow, a custom website experience, or an operational automation, rather than selling repository access itself.
-- Suggestion: Evaluate claimed token savings and hosted-service costs against actual project usage, including free-credit limits, per-result charges, data-hosting defaults, and reported platform-specific bugs.
 
 ## Evidence anchors
 - [00:00:00.000] So, there are over 100,000 GitHub repos

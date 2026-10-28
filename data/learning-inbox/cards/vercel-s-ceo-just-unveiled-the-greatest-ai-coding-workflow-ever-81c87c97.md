@@ -9,6 +9,52 @@
 ## Tags
 AI agents, AI-assisted software development, product management, MVP validation, requirements drift, security debt, quality gates, adversarial testing, user experience testing, customer feedback, MCP
 
+## Learning guide
+**The arc**
+Agent work is cheap and fast, so metrics like tokens spent or changes shipped show how much work happens but not whether it moves the product toward its goal. The central idea is to steer agents with checks on direction, safety, quality and real customer outcomes. The guide moves from validating an idea, through keeping the build on plan and safe, to adversarial and first-time-user testing, and ends with fast handling of customer feedback.
+
+**1. Validate the idea before committing**
+- **Test claims yourself:** Spin up a new project for each idea and have an agent check from scratch whether it actually works. Do not judge models or techniques off vibes, like adopting a prompting style from a guide without checking the claimed improvement.
+- **Start with a PRD:** Begin every project with a `specs` folder containing a PRD that lists the app's planned main features. It is the first document you create and becomes the source of intended direction.
+- **Build a disposable MVP first:** Ask Claude Code or another agent to build an MVP with only the basic features from the prompt. Building the full app straight from the PRD hides fundamental problems until late, and early wrong decisions propagate into everything built on them; an MVP lets you drop a bad idea after little effort.
+
+**2. Keep the build pointed at the plan**
+- **Measure direction, not just activity:** Treat tokens and shipped changes as activity metrics only. Because an agent builds whatever you ask, every new idea can become a feature that feels like progress while the app drifts from the plan.
+- **Create a `direction` command:** Make a custom agent command that checks whether built work still matches the plan, and tell it where your plan folder lives. Place it in the `commands` folder inside the Claude folder and run the reload-plugin command in Claude Code to load it into the session.
+- **Structure the check:** Have `direction` review each requirement document with a separate agent, then have the main agent look for changes that appear in no plan. Output an off-course assessment, a scorecard and a list of needed actions.
+- **Resolve drift deliberately:** For intentional drift, update the requirement documents. For changes that strayed too far, remove them.
+
+**3. Control security debt and slop debt**
+- **Treat security debt as real:** Agents write more code than any person can review, and attackers also use cheap, capable models to find holes. Protect code proactively rather than waiting.
+- **Scan after every feature:** Run security scans each time you finish a feature, either with your own checks or with Vercel's DeepSseec. Run `deepseec setup` to create a `deepseec` folder, paste the provided prompt into Claude Code so it writes a short file about the app and its sign-in process, then ask Claude to run the scans and produce a findings report.
+- **Decide where slop is acceptable:** Slop debt is messy code you accept for speed. It matters less in a small app, but critical areas need more care because customers must trust their data is safe.
+- **Use quality gates, not just tests:** Set checks up before implementation. A test says whether something works; a gate also judges whether it is good enough, for example a review agent that holds every change to defined standards, and nothing goes live until it passes all gates.
+
+**4. Define what cannot be traded off**
+- **Agree on tradeoffs upfront:** Agents cannot spend unlimited effort, so they trade things like speed versus safety. Before development, settle what the app must do and how fast it must be, or the model takes the project its own way.
+- **Write a must not trade-off section:** Add it to the project's main `claw.md` file, listing essential properties you will not give up. This gives the agent written rules.
+- **Make every rule testable:** Agents juggle a lot of context and forget rules, so attach a check to each one. Use the `direction` command and write test files committed to Git so the agent cannot skip them.
+
+**5. Attack your own product**
+- **Stress beyond the happy path:** Generated code works when everything goes right but fails when someone skips a step or does two things at once, and an agent testing its own work uses the app exactly as intended. Simulate many simultaneous users, conflicting actions, slowdowns and comparisons with other products.
+- **Create a breaker agent:** Ask your existing agent to build one whose main role is to deliberately break the app like an outsider and report every successful break. Finding it yourself is cheap; someone else finding it first can be costly.
+- **Protect real data:** Run breaker tests against copies of application data so production stays safe. Have Claude run the breaker agent in a separate context window.
+- **Close the loop:** Have the agent fix reported issues and rerun tests to confirm they do not recur. Keep a continuous loop where the breaker finds problems and another agent fixes them.
+
+**6. See the app as a first-time customer**
+- **Track error-free sessions:** Count how many people complete their route through the app without anything going wrong. You cannot be a real first-time user, since you already know where every button is.
+- **Build a blind new-user agent:** Create an agent in Claude Code that knows nothing about the app's purpose and only runs it in a browser to find where newcomers struggle, like a confusing signup request. Block it from reading code with a hook that limits its Bash tool to running the app and stops any edit or deletion, so feedback stays honest.
+- **Test every customer flow end to end:** Add another agent that runs browser tests over each step customers must complete, catching slow, broken or mid-flow failures and writing fixes. Save results in a JSON file and run it before every release.
+
+**7. Shorten report-to-resolution time**
+- **Measure the response loop:** Time everything from an incoming report through replying to the customer, investigating and fixing clear issues.
+- **Split feedback by type:** A screenshot of a nonworking button is a defect to fix fast. Confusion cannot just become a prompt; talk with the customer and understand it before changing the product.
+- **Connect feedback sources via MCP:** Use Gmail MCP to read support emails and Sentry MCP to surface every app error, even unreported ones. Have Claude sort each new report, fix definite defects like a payment failure immediately, and route judgment calls to you.
+
+**Try this first:** Write a `direction` command that reads the PRD in your `specs` folder, run it on your current project, and act on the scorecard by updating the docs or removing drifted features.
+
+**Caveat:** The DeepSseec tool and its `deepseec setup` command are described only by the video and were not independently verified, so confirm the tool exists and works before relying on it for security.
+
 ## Derived summary
 ## Overview [00:00:00]
 - [00:00:00] AI Labs presents seven tips attributed to the CEO of Vercel for working with AI agents. The video’s claims and tool descriptions are source-reported and not independently verified.
@@ -160,14 +206,6 @@ AI agents, AI-assisted software development, product management, MVP validation,
 - [00:13:56] The presenter says the agents and skills shown are available through the AIABS Pro community, which is a promotional offer.
 - [00:14:09] The video closes without adding further educational claims.
 - [00:14:20] Recap: the seven presented practices are MVP validation, direction checking, security and quality controls, explicit non-negotiables, adversarial break testing, first-time-user and end-to-end flow testing, and fast feedback triage and resolution.
-
-## Practical applications
-- Suggestion: Before full implementation, build a minimal working version containing only the proposed core features and use its results to decide whether to continue or stop.
-- Suggestion: Maintain a documented product plan and periodically compare implemented changes against it, explicitly deciding whether to update the plan or remove unintended drift.
-- Suggestion: Define release gates for critical areas, including security scans, standards review, and tests for non-negotiable requirements.
-- Suggestion: Isolate adversarial testing from production data by using copied or test data, then retest after fixes.
-- Suggestion: Run browser-based first-time-user and complete customer-flow tests before releases, with the first-time-user tester restricted from reading or modifying source code.
-- Suggestion: Separate clearly reproducible defects from feedback requiring human interpretation, and track elapsed time from report intake to response, investigation, and resolution.
 
 ## Evidence anchors
 - [00:00:06.400] that most people judge how well they're

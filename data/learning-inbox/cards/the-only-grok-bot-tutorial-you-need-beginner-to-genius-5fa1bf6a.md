@@ -9,6 +9,60 @@
 ## Tags
 AI agents, workflow automation, app integrations, email automation, calendar automation, routines, skills, multi-agent delegation, APIs, coding agents, SEO, mobile productivity
 
+## Learning guide
+**The arc**
+The creator starts from a simple question: how much of your computer work could one AI agent, Grockbot, do for you? The central idea is that a fresh bot is just a chat, but it becomes an employee-like coworker as you connect apps, add routines and skills, split work across specialized bots, plug in APIs, and route heavy tasks to stronger models. The video moves from basic setup to a multi-bot hierarchy and ends with doing most work, from desktop or phone, inside one conversation.
+
+**1. Set up and adopt the right mindset**
+- **Ask "Could Grockbot do this?":** Before any computer task, ask whether the bot could do it instead. This habit is what gradually shifts your work into the agent.
+- **Install the app:** Download it from `x.ai/bot` (or search for it), get the macOS version and open it. The welcome message asks what you want help with.
+- **Expect a weak start:** A new bot behaves like a typical AI chat. It only becomes powerful as you learn it and add capabilities until it works like an employee with a computer.
+
+**2. Level 1: Connect your most-used apps**
+- **Start with email and calendar:** Connect the tools you use most first, beginning with these two. Just ask in plain language, for example "help me connect my email", and follow the instruction card that appears.
+- **Query instead of searching:** Once email is connected, ask questions rather than digging through your inbox. Example: "Was the FEM invoice paid?" and the bot searches your email history for the answer.
+- **Let it schedule for you:** With Google Calendar connected, ask about upcoming events or have it book meetings. Example: "Find time on my and Logan's calendars next week for another video", and it picks a slot and sends the invite.
+- **Keep adding connectors:** Each connection makes the bot more powerful, and the connect-apps panel offers thousands of options such as Canva, OneDrive, Outlook, Figma and Mobbin. Remember every connection grants the bot access to that app's information, so choose deliberately.
+
+**3. Routines: make recurring work happen proactively**
+- **Set a morning inbox routine:** Prompt "Set up a routine to check my inbox every morning and draft replies." In the demo it runs daily at 8:00 a.m., finds unanswered overnight messages and saves replies as Gmail drafts for review instead of sending them.
+- **Add a meeting-prep routine:** Ask it to review your calendar each morning, create a prep document for every meeting, and send it a few minutes before the meeting starts. It pulls context from email and other connected sources so you never walk in without knowing the purpose.
+- **Check the details panel:** Routines appear there by name (for example "morning inbox drafts") so you can confirm what runs and when.
+
+**4. Skills: codify repeatable work and your voice**
+- **Create a writing-style skill first:** Prompt "Create a skill for writing emails and other content like me, using my emails for training." It analyzes your sent mail (120 emails in the demo, taking a minute or two) and produces a style guide used for future emails and documents.
+- **Review and edit the skill:** Each skill has a summary view and an editable full view. The demo's rules read: direct, warm, no padding, length follows content, most emails one to three sentences.
+- **Turn any repeated process into a skill:** Anything you want done consistently should become a skill so you never reteach it.
+- **Remember the basic trio:** Connect as many relevant apps as possible, create routines, design skills.
+
+**5. Specialized bots and delegation**
+- **Give each bot one job:** An agent juggling too many tasks gets confused, overlaps and produces worse results. Create dedicated bots, for example "productivity" for task management and a separate content bot, and switch between them in the sidebar.
+- **Accept suggested routines:** A new bot proposes routines from your first prompt; the demo picked a morning plan and evening review for the productivity bot.
+- **Keep tasks in an external task manager:** Connect one such as Todoist so tasks are easy to check outside the bot, then make the productivity bot track tasks, build the morning plan and run the evening review.
+- **Let bots talk to each other:** The content bot checks in with the productivity bot to learn which content tasks are due this week, generating ideas from Todoist items.
+- **Model your org chart:** The creator runs chief of staff, head of engineering, growth, curriculum, student guide, hiring and content bots.
+
+**6. APIs: add abilities beyond your own data**
+- **Plug specialized APIs into the right bot:** Information connectors (email, calendar, to-dos, Notion, Slack) manage your data; APIs let bots do fuller jobs. The growth bot uses the Virllo API to find viral Grockbot videos across TikTok, Instagram and YouTube and extract patterns like naming each bot and its job, a number in the title and a reason to comment.
+- **Pass research between bots:** Send findings to the bot doing the next step, as the growth bot sent its notes to the chief of staff writing the outline and script.
+- **Skip dashboards:** With SEO data connected, ask the growth bot for the top keywords your site ranks on instead of opening the tool's dashboard.
+- **Treat "no" as a missing API:** If the bot can't do a job, look for a data stream or tool you could connect to make it possible.
+
+**7. Power user: coding environment and stronger models**
+- **Build a bot hierarchy:** The engineering-head bot has eight subordinate bots, each owning one product (site, co-founder app, followers app and more). You give commands only to the head, which delegates.
+- **Delegate to cloud agents with a named model:** Example: tell the engineering head to have the followers bot build Instagram and TikTok tracking using the same API as the growth dashboard and "use Opus 5.5". It hands off to a Cursor cloud agent and checks Linear to avoid duplicate work.
+- **Use stronger models for writing too:** Opus usually writes better than Grock. Ask for a blog post drafted from a Notion outline with Opus 5.5; your writing-style skill and research get included automatically, then tell the bot to publish it.
+- **Inspect agent work in Cursor:** Open Cursor's dashboard, go to the Cloud Agents tab and open an agent to see what it did.
+
+**8. Work from one place, anywhere**
+- **Use the mobile app:** It has the same tools, models and connections, so you can research, write or edit code on the subway (never while driving) and continue the conversation on your computer.
+- **Send outputs directly:** Say "send this research to the growth Slack channel" or "email it to Logan". An editable confirmation card or draft appears before sending, ending copy-and-paste between apps.
+- **Review rather than produce:** Aim for delegated work to arrive mostly finished so your time goes to people, thinking and planning.
+
+**Try this first:** Install Grockbot, connect your email, and prompt "Set up a routine to check my inbox every morning and draft replies."
+
+**Caveat:** The claims that the bot replaces most of a former SEO agency's billed work and delivers 90% to 95% complete output are the creator's personal account and are not independently verified.
+
 ## Derived summary
 ## 00:00:00 | Overview and presenter context
 - [00:00:00] The presenter claims that Grockbot lets them centralize work they formerly performed in separate tools, including Codex and Claude, into one conversational interface.
@@ -167,18 +221,6 @@ AI agents, workflow automation, app integrations, email automation, calendar aut
 - [00:25:18] The presenter characterizes this as freeing because it shifts effort toward work they enjoy and away from manual computer work.
 - [00:25:32] **Promotional aside:** Bot templates can be shared to save other people setup time; the presenter offers their own bot templates to viewers who comment “bots.”
 - [00:25:44] **Promotional aside:** The video ends with a request for comments, subscriptions, and likes, and identifies Founders School as an AI-native high school for entrepreneurs.
-
-## Practical applications
-- Suggestion: Start with only the connections required for a narrow workflow, such as email and calendar, and review the access each connection grants before enabling it.
-- Suggestion: Create a daily inbox-draft routine that saves drafts rather than auto-sending them, so a person retains final review.
-- Suggestion: Create a meeting-preparation routine that gathers relevant calendar and email context shortly before each meeting.
-- Suggestion: Turn a repeated process into an editable skill, such as a writing-style guide or a standard document workflow.
-- Suggestion: Separate bots by bounded responsibility, for example productivity, content, engineering, or hiring, to reduce topic overlap.
-- Suggestion: Keep tasks in an external task manager if independent task visibility and review are useful, while allowing a dedicated bot to assist with planning.
-- Suggestion: When a task seems unavailable to an agent, identify whether a suitable connected data source or API exists before concluding that the task cannot be supported.
-- Suggestion: Use confirmation cards and edit output before sending messages, email, publishing content, or otherwise making external changes.
-- Suggestion: For multi-model workflows, select a model according to the task as claimed in the source, then inspect cloud-agent activity through its dashboard when available.
-- Suggestion: Use mobile access for initiating or reviewing connected workflows while away from the computer, while avoiding unsafe use during driving.
 
 ## Evidence anchors
 - [00:00:00.160] I don't even need to go into Codeex or

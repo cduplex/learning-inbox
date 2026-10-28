@@ -9,6 +9,56 @@
 ## Tags
 Claude Code, Higgsfield, AI marketing, brand context, marketing workflows, generative media, website generation, ad creatives, UGC ads, analytics tracking
 
+## Learning guide
+**The arc**
+Nate Herk starts from a question: how can a nontechnical person with no photo or video editing skills get a full marketing team out of Claude? His central idea is to pair Claude Code's persistent business context, reusable skills and brand guidelines with Higgsfield's many image and video models. He builds a project for Perk Form, a fictional coffee-protein drink, connects Higgsfield, and generates a website and four campaigns in parallel. He finishes by tracking every generation in a spreadsheet so that results can drive the next round.
+
+**1. Define the business before generating anything**
+- **Write the three Ps:** Spell out the pain (the problem), the person (who feels it) and the promise (how you solve it). This gives assets purpose and keeps them from looking like generic AI output. For Perk Form, the person is a busy, fitness-minded professional who rushes breakfast, the pain is needing coffee, a protein shake and something portable, and the promise is coffee and protein in one grab-and-go can.
+- **Lock positioning to block wrong framing:** Have the brand positioning state what you are not. For Perk Form, that means it is not a "gym bro brand" and not a meal replacement.
+
+**2. Set up the Claude Code project**
+- **Install Claude Code desktop:** Search for "Claude Code desktop", install it for your OS and sign in with a subscription. "Code" does not mean you write code. The benefit is working inside folders and projects that build up context over time.
+- **Create and trust a project folder:** Make an empty desktop folder, such as "Perk Form Marketing". In a new chat, choose **Open folder**, select it, then choose **Trust workspace** so Claude can read, add, edit and move files there.
+- **Generate claude.md and context files:** Introduce the business, paste the three Ps, extra facts and marketing angles, and tell Claude it is your marketing team for ads, a website and UGC. Ask it to create `claude.md` plus any other context files it considers relevant.
+- **Use Grill Me when you don't know what to say:** This Markdown skill interviews you one question at a time until Claude shares your understanding, then saves the interview as context. Drag the file into Claude, ask it to install the skill in the project, then run it against your product and marketing.
+- **Know the structure:** `claude.md` is the operating document that tells future sessions what to load and where to look. `context` holds brand positioning, avatar, product facts, voice and copy, message bank, playbooks and landscape. Your materials go in `assets` and deliverables go in `output`. You can watch files appear in the files view under the three-dot menu.
+- **Keep claude.md current:** Update it whenever you learn something important, daily or weekly.
+
+**3. Load your brand assets**
+- **Create starter assets from just a name:** In Higgsfield's image generation area, pick GPT Image 2 and ask for a logo, for example "a logo for Calendly, an online calendar booking SaaS".
+- **Put existing material into assets:** Drag in your logos, your product-shot folder (copying is as good as moving) and a brand guidelines PDF covering colors, purpose, logo system and typography. This gives Claude the "meat" it needs for on-brand work.
+- **Verify access by asking:** The UI can display folders oddly, so ask Claude directly what it can see. Give it a count to check against, for example "Can you see all images in this folder? There should be 11 product shots."
+
+**4. Connect Higgsfield**
+- **Add Higgsfield as a connector:** Get a Higgsfield account and plan, then go to **MCP and CLI** and pick **Claude**, and copy the URL. In Claude, go to **Customize → Connectors → Add a custom connector**, paste the URL, name it Higgsfield, select "connect to Claude", sign in and grant permission.
+- **Let Claude drive:** Once connected, ask in plain language. Claude handles the prompting and interface work across models like GPT Image 2, Nano Banana, C Dance 2.5, Kling and Sora, and can also use Marketing Studio.
+
+**5. Build the website**
+- **Start from a repo:** Give Claude the public Scroll World GitHub repo URL. Tell it to use your logos, brand guidelines and product shots, and ask for a site that is premium, professional, interactive and fun.
+- **Shape copy and structure with the three Ps:** Tell Claude to build the site around the person, their pain and your promise. The result opens on the pain ("Your morning shouldn't require two drinks"), merges coffee and protein into one can on scroll, and adds an "11 minutes before you leave" section. Flavor clips come from C Dance 2.5 and play as you scroll.
+- **Iterate and fill gaps:** Expect the first version to be imperfect and give feedback. Supply any facts you left out, such as the missing nutrition facts.
+- **Publish it:** `localhost:8931` runs only on your computer. To go public, push the codebase to GitHub and then deploy from GitHub to Vercel, which takes about 5 minutes.
+
+**6. Run campaigns in parallel**
+- **Use the four-part request:** State your motivation, the end goal, where to store the output and a requirement to report cost. You can start several tasks in the same chat.
+- **BOGO ads:** Ask for many copy and image variations for testing, using the stored brand context, saved to a "summer BOGO" folder. The run gave 18 creatives for $3.43, plus ad copy, run notes and a V1 backup. Some creatives were left blank so you can add your own copy.
+- **Sizzle reel:** Ask Marketing Studio for a fast, energetic reel with music for your site or social channels. You get vertical and landscape versions, so check details like logos, since one came out wrong.
+- **Instagram carousels:** Ask for carousels on why the product exists, who it serves, the problems it solves, the flavors and posts worth pinning. This produced five carousels of seven to eight slides each for $9.56.
+- **UGC videos:** Ask for vertical videos of people holding and reviewing the product, tied to your target person and pain, with some edited and some raw. The pipeline creates four reusable character images, then storyboards, then videos, then a QA pass that rejects flawed clips. Rapid 1 to 2 second cuts keep videos engaging, or you can request a single 15-second raw selfie video.
+- **Make UGC less salesy:** Have the system analyze real UGC content, or approve scripts and storyboards before any video is generated.
+
+**7. Reuse, track and improve**
+- **Turn winners into skills:** When you like an output, save its process as a skill or style template. Explicitly ban the styles you dislike in future prompts.
+- **Reuse assets per promotion:** Keep each campaign in its own folder. For new promotions, swap the calls to action or copy instead of regenerating everything.
+- **Add your own expertise:** Put what you know about effective ads and copy into your prompts. Volume negates luck, but one prompt will not make content go viral, so you still need your own touch and research.
+- **Build a creative tracker:** Ask Claude for an Excel sheet logging each round with date, generation type, outputs and core angle. Its version, saved in `output/analytics`, also logged model, credits, dollar cost and status, with tabs for angle performance, a copy bank and a cost summary.
+- **Close the loop:** Add views, engagement and conversions to the tracker. Set up automations to update it, and run a weekly review so Claude produces more of what works.
+
+**Try this first:** Create an empty desktop folder, open it in Claude Code with **Trust workspace**, paste your three Ps, and ask Claude to create `claude.md` and the context files it thinks it needs.
+
+**Caveat:** The workflow depends on a paid Higgsfield plan. The costs and model capabilities shown are the presenter's own reports, and he notes Higgsfield is not the cheapest option for every model.
+
 ## Derived summary
 ## Overview and premise [00:00:00]
 - [00:00:00] The presenter says this walkthrough turns Claude into a one-person marketing team for nontechnical users, without photo or video editing skills, by knowing what to ask for.
@@ -208,15 +258,6 @@ Claude Code, Higgsfield, AI marketing, brand context, marketing workflows, gener
 - [00:37:57] The presenter recaps the system: set up a project, establish a brand, connect Higgsfield, generate assets, and manage the results.
 - [00:38:05] The stated central reason to connect Higgsfield to Claude is to combine generation tools with persistent business context, reusable skills, and brand guidelines.
 - [00:38:13] **Promotional aside:** the presenter advertises a free **6-hour** Claude Code course for non-coders.
-
-## Practical applications
-- Suggestion: Define a concise pain-person-promise brief before generating any marketing materials, then store it with brand positioning, product facts, voice, and approved messaging in the project context.
-- Suggestion: Use a project structure with `claude.md`, `context`, `assets`, and `output` folders so source files, instructions, deliverables, and updates remain separable.
-- Suggestion: Before relying on uploaded files, ask the agent to inventory specific expected assets, such as image counts and filenames, when the interface looks inconsistent.
-- Suggestion: For each generation request, specify the campaign goal, target audience, intended channel or format, creative angle, required save location, and request a cost report.
-- Suggestion: Turn approved output patterns into reusable skills, and explicitly record disliked styles so future requests can avoid them.
-- Suggestion: Treat first-pass websites, ads, and videos as reviewable drafts. Supply missing facts, correct inaccurate logos or labels, and give targeted feedback before publishing.
-- Suggestion: Keep a creative tracker with generation IDs, dates, campaign, angle, model, cost, asset links, status, and later performance metrics to support iterative testing.
 
 ## Evidence anchors
 - [00:00:00.000] Today, I'm going to show you guys how

@@ -9,6 +9,56 @@
 ## Tags
 Pi Durable, durable agents, agentic engineering, proactive agents, incident response, shared application state, durable tasks, multi-client agents, agent harnesses, human near the loop
 
+## Learning guide
+**The arc**
+IndyDevDan starts from a question: why does durability matter beyond an agent's ordinary `/resume`? His answer is that durable agents, which persist work, conversations, and application state across failures, clients, and change, let you run proactive agents that start work before you arrive and wait for your review. He walks from a live incident-response demo through sessions, shared state, phased tasks, multi-client access, live reconfiguration, and safety extensions, and concludes that engineers should own this harness and measure success by how many agents do useful work without a human kickoff.
+
+**1. Own the foundation**
+- **Own your agent stack:** Control your agent, harness, and durable-agent infrastructure instead of only renting intelligence. Outsourcing it makes you dependent on technology others can change. Prefer open-source, extensible, controllable tooling like Pi and Pi Durable.
+- **Aim past `/resume`:** Durability means state survives failures, clients, and change, not just reopening a conversation. A standalone stuck session (default Pi, Claude Code, Codex) cannot serve a phone, a website, and a terminal at once.
+
+**2. Build a proactive incident agent**
+- **Classify events cheaply, then trigger:** Stream live events into a cheap classifier model (the demo uses Jev) that detects incidents and triggers an agent with the issue payload, location, and error. The demo reports hundreds of events classified for pennies, which makes always-on watching affordable.
+- **Encode the on-call SOP:** Give the agent the conventional sequence: detect, investigate, find root cause, fix, present for review, deploy. Equip it with tools to update the incident, read logs, and query previous events.
+- **Review before shipping:** Ask the agent for an issue summary and code diff before approving, even when it says it is ready. In the demo a checkout API applying loyalty discounts and taking 100% of traffic failed on a bad null check; avoid a bang/non-null assertion and prefer null coalescing or an explicit safe `if`.
+- **Make deploys run once:** Treat production deployment as a safe, non-replayable operation that can be called only once, so a resumed or retried agent never double-deploys.
+- **Simplify the template when you can:** Skip the classifier and string-check status, or inspect only 4xx and 5xx errors.
+
+**3. Give agents compute, context, and shared state**
+- **Dedicate a machine or sandbox:** Run agents on their own device (he uses an M6 Mac Mini exclusively for agents) or cloud sandboxes like exe.dev. Agents need the same tools as you, potentially a whole computer, to work end to end with high autonomy.
+- **Let compaction run in the background:** Pi Durable forks and compacts the session in the background, and crossing a reserve threshold stops the agent. Tune those thresholds so multiple background activities keep running.
+- **Share durable application state:** Use the `read state` and `update state` tools to keep one shared JSON object across every agent session on a device. Many agents can then debug one issue together, and updates can also render a UI for humans.
+- **Organize by device, workspace, agent:** Use this hierarchy so any device can connect to any agent.
+
+**4. Run durable tasks with a human near the loop**
+- **Package repeatable jobs as tasks:** Tasks are durable jobs made of raw code or code plus agents, such as a workspace snapshot that saves its result to application state, or a "change watch" that sets a folder baseline and loops until stopped manually.
+- **Split long work into phases:** Engineering work naturally falls into chunks, phases, and steps, so build tasks with phases you can rerun individually when one fails. Model incident response this way too: find, approve, then run tests and update state.
+- **Ask for approval, not presence:** In a release check, have a subagent request human approval instead of keeping you continuously in the loop. Observe workflows and intervene only when needed, keeping shipping control through approvals and some review.
+- **Track job status:** Have the agent list durable jobs and check one, showing states like completed, aborted, and last phase.
+- **Test the survival claim yourself:** Close the laptop, refresh, kill the process, or restart the machine and confirm agents return from their last checkpoint.
+
+**5. Detach agents from any one client**
+- **Treat UIs as clients:** Keep agents in sandboxes and connect via browser, terminal UI, custom CLI, `curl`, raw authenticated HTTP, mobile, or product interfaces; some background agents need no interface.
+- **Attach from the terminal:** List durable-agent-network IDs, pick a sandbox, start a terminal UI, and attach with the agent ID. Sessions created in one client (like `T002`) appear in the others instantly.
+- **Go multiplayer:** Let coworkers connect to the same incident agent to review logs and prompt it together.
+- **Set session policies for products:** For a front-end support chatbot, let returning users resume their session and clear it after 6 hours or another chosen policy.
+
+**6. Control tools, safety, and branching live**
+- **Reconfigure mid-session:** Switch an agent to read-only mode from one client and its tool set changes for every client while it runs; other configuration can change live too. Every model call and tool execution is its own task.
+- **Use `handoff` for fresh context:** Start a new model context carrying a handoff when the current one is cluttered.
+- **Gate Bash with an extension:** Pi extensions apply to Pi Durable. A damage-control extension judges every Bash call and blocks irreversible commands like `rm -rf`; it can be turned off, so keep it on for autonomous agents.
+- **Shape behavior with a system-prompt extension:** Define read-only tools, communication rules, operational boundaries, and aliases, for example an alias that condenses responses.
+- **`fork` to explore:** Fork an agent to try a different direction while keeping useful context; forks can retain state, start fresh, or branch from any point in time.
+
+**7. Adopt and measure**
+- **Default to durable for product work:** Build proactive agents that start before you appear and then request approval, moving from in-the-loop toward out-of-loop work ("stay out the loop").
+- **Measure agents working unprompted:** Track the number of agents doing useful work at any moment that started without a human kickoff and are embedded in your work fabric.
+- **Invest in planning and review:** These are the two constraints of agentic coding; attack them with prompt, context, and harness engineering, and spend your own effort deciding what is valuable to build.
+
+**Try this first:** Put one Pi Durable agent on a dedicated machine or sandbox, attach to it from two clients, then kill the process and confirm it resumes from its last checkpoint.
+
+**Caveat:** Pi Durable is experimental; the creator will not deploy it to production without forking and maintaining it while awaiting a stable V1, and the demo cost figures are unverified.
+
 ## Derived summary
 ## Source framing [00:00:00]
 - [00:00:00] Indie Dev Dan introduces a discussion of Pi Durable, described as a release by Pi coding-agent creators/maintainers Mario and Armen.

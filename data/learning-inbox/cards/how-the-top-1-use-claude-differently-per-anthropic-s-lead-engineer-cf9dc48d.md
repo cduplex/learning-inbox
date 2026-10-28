@@ -9,6 +9,39 @@
 ## Tags
 AI agents, Claude, prompting, agentic AI, business workflows, outcome-oriented prompting, expert validation, multi-agent systems, self-efficacy
 
+## Learning guide
+**The arc**
+Most people use Claude for small, narrow tasks while a few are "flying" with it, and Felix Rieseberg (lead engineer on the Claude app) says the difference is being more ambitious, like the student who solved two unsolved statistics problems because he thought they were homework. The video breaks ambition into three types: altitude (ask for the outcome), depth (work like a top expert), and range (pull in perspectives from other fields). It closes by tying all three to self-efficacy, plus a reminder to pace yourself and keep a clear why.
+
+**1. Altitude: ask for the outcome, not the task**
+- **Ask what the task is for:** Before handing Claude a task, ask what you actually want to happen next, or the goal beyond the immediate goal. A task prompt only makes Claude execute your current best guess at reaching the real goal.
+- **Turn one-off fixes into durable workflows:** Instead of asking Claude to fix app crashes one at a time, ask it to keep the apps crash-free. This builds a durable workflow that takes you out of the loop instead of assigning tasks one by one.
+- **Let the goal choose the format:** For a client pitch deck, filling in your slide template works, but if the real goal is to impress the client, ask for that. Claude might then build an explorable 3D world of a venue the client can walk through, or interactive HTML slides that animate and clearly show the planned delivery.
+- **Use altitude for definable outcomes:** It works best when the end state is clear and checkable, like crash-free apps. Goals needing creativity, such as "go make money and not make any mistakes", still need substantial human creativity, though more capable models may handle higher abstraction over time.
+
+**2. Depth: make the work match expert practice**
+- **Don't settle for "act like a professional":** That prompt often changes only vocabulary, adding jargon without changing methods. Push for how experts actually work instead.
+- **Insist on the tools the best practitioners use:** For a company like Acme losing customers to churn before a quarterly review, think of the experts involved: a customer-success manager, a pricing strategist, and for large-scale churn reduction, a data scientist. If Claude jumps to a simple table in chat, challenge it on whether that is really the toolset the best people in the field would use; you don't need to know the toolset yourself, since the model usually does.
+- **Set targets that sound unreasonable:** If a site loads in 10 seconds and the target is 5, ask whether Claude can hit 1 second or even 200 milliseconds. If it says that's impossible, tell it the problem is solvable and to keep going.
+- **Use an outside judge for important work:** Don't let the model grade its own output, because many models are agreeable and can be talked into agreeing with you after a few prompts. Ideally give it a tool to call, like running a speed test after every change; for creative work, use a sub-agent acting as a judge to refine the final output.
+- **Use one prompt to get most of the depth:** Before work begins, ask Claude: what would a top professional do here that I didn't request? What is the rawest material they would start from, and what methods and tools would they use? What, other than me or you, would demonstrate the result is correct? Then have Claude rewrite your original prompt to include those elements.
+
+**3. Range: bring in other fields' perspectives**
+- **Look sideways for unknown unknowns:** Range means viewing the work through other disciplines to surface options you didn't know existed. Felix saw a colleague render interior designs in Blender (free 3D software) and realized he could have Claude build 3D environments for his own website.
+- **Replace nouns with verbs:** From *The Art of Innovation*: describe the output as an action, not an object. A "PowerPoint presentation" for a quarterly review becomes "getting busy people to believe a story about cause and effect and to decide under uncertainty in 30 minutes", which clarifies the goal and reveals useful disciplines.
+- **Assemble the crew:** Like a heist-movie team, tell Claude to bring multiple roles via sub-agents instead of only its own view. For a quarterly review: an analyst, a sales manager, and a graphic designer if it will be presented.
+- **Add a red team:** Include a devil's-advocate perspective whose job is to find holes in the work.
+- **Save crews for what matters:** Deploying many helpers is token-intensive, so reserve it for your most important work.
+- **See it applied end to end:** A real-estate agent whose house sale is crucial to the yearly revenue target swaps "generate a listing" for "help a family imagine life in the house before visiting." That points to an interior designer staging each room, a 3D artist making a walkthrough, and a local who knows nearby restaurants, producing a tailored listing page instead of a generic one.
+
+**4. Self-efficacy: believe you can pull it off**
+- **Believe it's possible:** Self-efficacy is how much you believe you can succeed, and raising it improves your chances, especially with AI. Like the student who solved "homework" that was actually unsolved, start from the assumption that it can be done.
+- **Watch someone else do it:** Nobody ran a sub-4-minute mile until Roger Bannister did in the 1950s, and someone else did it days later. Seek out examples of people achieving what you're attempting.
+- **Give yourself permission to fail:** Ship work, put it out publicly, and improve each round until it succeeds.
+- **Pace yourself and keep your why:** Abilities can now leap every few weeks, but ambition without a clear reason just means accelerating aimlessly. Remember why the work matters and pause when needed.
+
+**Try this first:** Take the next task you were about to give Claude, run the depth prompt (what would a top professional do that I didn't ask for, what raw material and tools would they use, and what outside of us would prove it correct), and have Claude rewrite your request before it starts.
+
 ## Derived summary
 ## Source-attribution note
 - The video presents Jay's summary of ideas attributed largely to Felix Rieseberg, described as Anthropic's lead engineer for the Claude app. Claims about model behavior, research, historical anecdotes, and effectiveness are source claims and are not independently verified here. [00:00:16]
@@ -107,12 +140,6 @@ AI agents, Claude, prompting, agentic AI, business workflows, outcome-oriented p
 - [00:11:42] Felix's concluding view, as relayed by Jay, is that self-efficacy is not new but is more powerful now because human abilities can make leaps every few weeks, enabling greater ambition in what people bring to the world.
 - [00:11:58] Jay adds a counterpoint: AI-related ambition needs pacing and a clear "why," otherwise people may accelerate and become more ambitious without a clear reason.
 - [00:12:12] Final recap: use the techniques to become more ambitious with powerful AI agents, but remember why the work matters and pause when needed.
-
-## Practical applications
-- Suggestion: For a recurring operational problem with a measurable end state, phrase the request as the durable outcome rather than a sequence of individual tasks, then define the outcome clearly enough to assess it.
-- Suggestion: Before delegating a high-stakes task, ask the model to rewrite the request around four checks: unrequested expert actions, raw source material, expert tools and methods, and an external way to validate correctness.
-- Suggestion: For a high-importance deliverable, reframe its output noun as the user-facing action or decision it must enable, then request several distinct specialist and red-team perspectives while accounting for token cost.
-- Suggestion: Pair more ambitious AI use with an explicit reason for the work and a pacing rule, reflecting the video's caution against accelerating without a clear purpose.
 
 ## Evidence anchors
 - [00:00:00.000] In 1939, a student turned up late to a

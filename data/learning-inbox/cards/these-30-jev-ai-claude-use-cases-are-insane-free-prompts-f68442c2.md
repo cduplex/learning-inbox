@@ -9,6 +9,48 @@
 ## Tags
 AI agents, system-one models, lead scoring, computer use, knowledge graphs, RAG, content moderation, marketing automation, agentic routing
 
+## Learning guide
+**The arc**
+The starting question is what to do with a new wave of "system one" models like Jev that do not chat but decide: they rank items, answer yes/no, or pick from options. The central idea is to pair Jev, as fast and cheap "hands" for decisions, with Claude or another frontier LLM as the reasoning "brain," so the LLM only handles the parts that need real thinking or writing. The content moves through business pillars: lead intelligence, computer use, RAG and memory, live moderation, marketing, and finally coding, ending with Jev as a front-door router that sends prompts to the right model or skill.
+
+**1. Find and score leads**
+- **Detect intent on every inbound channel:** Run Jev over website activity, social DMs, WhatsApp, SMS and voicemails to spot warm leads. For the website, connect PostHog to Jev so it evaluates what a user clicks on a checkout page and tags high-intent visitors as warm leads. For messages, rank thousands at once by comparing what a prospect says with what typical customers say.
+- **Tag and filter your whole inbox:** Have a Jev workflow tag each new email as a sponsorship inquiry, lead inquiry or spam. This keeps the inbox sorted automatically as mail arrives.
+- **Score scraped lists against your ICP:** Give Jev your ideal customer profile and a scraped list (the example is 1,000 leads with profile info, location, followers and occupation). Let it score and heavily filter before you write any personalized outreach, so effort goes only to good fits.
+- **Reuse the same ranking for influencers and sponsors:** Rank influencer candidates against the traits of your ideal sponsored influencer, and screen potential sponsors against your desired sponsor traits. It is the same workflow with a different profile.
+- **Push tags into your CRM:** Feed PostHog, DMs, SMS, voicemails and Gmail into the tagging step, then update the CRM. Example: if Daniel in your DMs looks warm, tag Daniel as a warm lead so the rest of the sales pipeline continues from that status.
+- **Use an LLM only for the copy:** Automate finding the user, locating their inbox and sending through a computer-use tool with Jev, and call the LLM only to write the outbound message. A yes/no trigger checks DMs, SMS, emails and calls instantly, and when warm intent is detected and lead details are complete, it fires the next skill that sends the DM. This split is what saves tokens.
+
+**2. Let Jev be the hands for computer use**
+- **Pair a reasoning model with Jev for games:** Jev clicks controls fast but cannot reason through a whole game alone, so put a strong LLM behind it as the brain for 2D games. Alternatively, drive play by probabilities of surviving, winning or hitting another goal, as in Snake, chess or Subway Surfer.
+- **Swarm-test your UI before release:** Have agents click through buttons, record the screen, then send the recording to an AI model for review. Run hundreds of Jev agents at once to get many simulated-user tests and debug faster.
+- **Build a deal-hunting swarm:** Give a computer-use agent a task with filters, like finding a car on Facebook Marketplace. Extend it to finding deals or locating suppliers in China for an e-commerce brand and negotiating down, then hand off to a human once the price hits your target.
+- **Automate desktop cleanup:** Write roughly 100 filtering criteria for where files belong, and combine Jev with a vision model to sort files into folders quickly.
+- **Use Jev plus Claude where there is no API:** For social automation or tasks with no API access, this combo works faster and at lower token cost than older computer-use setups.
+
+**3. Build fast retrieval with a knowledge graph**
+- **Route questions to Obsidian:** Store your data in a knowledge graph such as Obsidian. Jev receives a question, selects Obsidian as the right option, and Obsidian runs the prompt as a query; asking for a book in a category from a stored library returns about 10 recommendations in about 1 second.
+- **Log every expense in the graph:** Extract, tag and store every business bank transaction as an expense, so you can instantly pull expense categories with the verified transaction.
+- **Mine internal data:** Store all sales call transcripts, then study the winning calls to find the tactics your salespeople used.
+- **Connect your media library to editing:** Link a Jev knowledge graph of your media to your video editor so files can be pulled instantly.
+
+**4. Moderate in real time**
+- **Use binary rules for live chat:** Because system-one decisions run in milliseconds, set a stream co-host to watch the feed, ask "is this word present?", and remove the comment if yes. This avoids an LLM deliberating and burning thousands of tokens and credits.
+- **Apply rules to communities:** In Discord or other large chats, ban spammers, block bad content, and time out rude users (examples: 30 minutes for rudeness, five minutes for the f-word).
+
+**5. Research marketing ideas at speed**
+- **Mine viral ideas from feeds:** Have Jev scroll a Twitter feed far faster than you, search keywords and extract matching posts, for example the most-engaged recent posts about a new model release.
+- **Score Reddit for user voice:** Point the agent at chosen subreddits to find the most frequent and most recent questions that match your ICP. Respond with a video idea or a Reddit post that funnels people to your site.
+- **Score Instagram and TikTok videos:** Check what is going viral in your niche with your own scoring template. A strong signal: views exceed the creator's total follower count.
+- **Run a daily blog workflow:** Give Jev the Google Search Console API and about 100 top niche keywords. Each day it checks what ranks, scores how closely that content matches blogs you could recreate, and an LLM rewrites and posts them to your site.
+
+**6. Route your coding agents**
+- **Put Jev at the front door:** Let Jev evaluate each incoming prompt and either pick which model should handle it or skip the model entirely and call the requested skill directly. This speeds up the workflow and cuts token use, including when connected to Claude Code.
+
+**Try this first:** Write a short ICP, export a list of leads or your recent inbound messages, and have Jev rank them against it before writing any outreach.
+
+**Caveat:** The speed, cost and capability figures (such as 1-second retrieval, 1,000x faster scrolling, and 99% of outreach handled by Jev) are the creator's claims, so test them on your own data before relying on them.
+
 ## Derived summary
 ## Source framing [00:00:00]
 - [00:00:00] The speaker says the AI field was recently surprised by a wave of "system one" models that do not converse, instead making decisions by ranking items, returning yes/no answers, or selecting from options.
@@ -135,14 +177,6 @@ AI agents, system-one models, lead scoring, computer use, knowledge graphs, RAG,
 
 ## Recap [00:16:44]
 - [00:16:44] The speaker concludes by characterizing the video as an overview of Jev AI use cases, centered on fast binary decisions, ranking, scoring, retrieval, computer actions, real-time moderation, marketing research, and routing to LLMs or direct skills.
-
-## Practical applications
-- Suggestion: Use a binary intent gate before expensive LLM generation, then route only qualified leads to CRM updates or human-reviewed outreach.
-- Suggestion: Design UI testing as a loop of parallel browser agents, captured recordings, model-based review, and human validation before release.
-- Suggestion: For real-time moderation, define explicit keyword, spam, blocking, and timeout rules, with escalation paths for ambiguous cases.
-- Suggestion: Build retrieval workflows around a curated knowledge graph with tagged transactions, sales transcripts, or media assets, and validate retrieved records before relying on them.
-- Suggestion: Create a marketing research scorecard for Reddit questions, short-form video performance, and ranking blog content before producing new content.
-- Suggestion: Implement agentic routing so simple requests invoke deterministic skills while complex requests are sent to an appropriate LLM.
 
 ## Evidence anchors
 - [00:00:00.080] So last month, the AI world got shocked

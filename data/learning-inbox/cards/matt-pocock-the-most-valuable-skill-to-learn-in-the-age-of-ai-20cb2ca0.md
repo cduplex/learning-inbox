@@ -9,6 +9,52 @@
 ## Tags
 AI agents, coding agents, software engineering, agent workflows, communication, requirements discovery, unknown unknowns, testing, codebase maintenance, domain-driven design, trust and verification, knowledge work, career development, spec-driven development
 
+## Learning guide
+**The arc**
+Matt Pocock coded by hand for years and stayed skeptical of agents until they crossed his personal threshold around December 2025, then asked how to get consistently strong work from them. His central idea is that no model can read your mind: results depend on clearly communicating what you care about and on the quality of the environment the agent works in. He moves from communication and codebase quality, through requirements discovery and skeptical learning, to a gradual trust ladder for adoption, and ends with clear thinking and communication as the most durable career skill.
+
+**1. Tell the agent what you care about**
+- **State your priorities explicitly:** The best way to get strong work is to tell the agent what you value and what outcome you want. However smart the model, it cannot know your priorities until you communicate them, and better models will not remove this gap.
+- **Encode priorities as skills:** Use skills to express your preferences to the model in a reusable way. Some framework or process will stay necessary even as models and harnesses (Claude Code, Claude.ai, Codex) improve.
+- **Think in clear terms and boundaries:** Poor results come from people who cannot clearly describe the task or problem. Practice stating tasks precisely, and write detailed, readable reports of code changes the way top developers do, because clear thinking shows up in the product.
+- **Act as product manager plus developer:** Care about the outputs, inspect them, and add your own taste. Successful products come from that combination, not from handing off and walking away.
+
+**2. Fix the environment, not the model**
+- **Avoid garbage in, garbage out:** A neglected, vibe-coded codebase produces poor agent work, like a dog sitting in a house on fire. If you only care about immediate outputs, the agent will keep producing bad code in that bad environment.
+- **Raise the performance floor:** Treat agents like employees in a 100-person engineering org and ask how to make the weakest one perform better. Use long-established practices such as good tests and checks that prevent classes of bugs and make the codebase improve over time.
+- **Define a good codebase by changeability:** Aim for code where changes are easy and a change cannot unexpectedly break something the agent did not consider. Matt abandoned spec-driven development on his video-editor project after months of watching code quality decline, and progress resumed once he refocused on the code itself.
+- **Give agents data access:** Let the agent run the app, open it in a browser, click through it and take screenshots, as Matt did for his video editor. Better data access gave him a major quality jump that he thinks could work even with an older model.
+- **Use medium or lower effort:** With a strong environment and test suite, agents need less effort to pass tests, which saves tokens and speeds responses. Spend your time improving the environment rather than endlessly comparing models and harnesses.
+- **Use a shared domain language:** From domain-driven design, keep a ubiquitous language so a term like "order" means and looks the same in code, database, UI and client conversations. Iterating on this language aligns what the client wants with what gets built.
+
+**3. Surface unknown unknowns**
+- **Assume your design is incomplete:** Nobody knows exactly what they want, and the key skill is awareness of gaps rather than confidence you captured everything. Otherwise the agent invents details, treats omitted concerns as unimportant, or builds something different.
+- **Use a "Grill Me" skill:** Instruct the agent to interview you relentlessly about what you are building. This gathers context on priorities and exposes missed concerns such as security and deployment.
+- **Grill with docs for language:** Use the "Grill with Docs" variant to develop the shared domain language while you work.
+- **Let code expose weak spots:** Turning a fuzzy idea into executable statements that must connect precisely reveals design weaknesses, so build early to find them.
+- **Plan for production surprises:** Human inputs make systems unpredictable and new failures appear after deployment. Tell clients protections exist but real issues may still arise, then monitor production so failures stay safe.
+
+**4. Learn with agents, but verify**
+- **Stay skeptical of every source:** Do not trust agent teaching blindly; hallucinations are rarer but still happen. Confidence comes from reading the primary source.
+- **Use a teach workflow:** Have the agent fetch high-quality primary sources and break them down with quotes, attribution and links. Treat the session as an introduction that gives you language, then read the original yourself.
+- **Ask agents to teach practices:** Newcomers should learn testing and engineering practices first, asking agents the right questions to learn them.
+
+**5. Climb the trust ladder**
+- **Pick a mainstream harness and start:** Choose Claude Code, Codex or GitHub Copilot without overthinking. Open it, try prompts, start in an empty folder and use VS Code so you can inspect the code.
+- **Learn the brake before the accelerator:** Gain trust progressively, not after one good result. Indiscriminate use burns rate limits, creates unwanted output and stops you developing a feel for the system.
+- **Build toward a concrete idea:** A mission with visible progress creates motivation and tighter feedback loops.
+- **Watch closely:** Observe what the agent does and what the harness provides before scaling, like supervising a child on a bike.
+- **Start with boring, measurable work:** Delegate menial, achievable tasks whose mistakes are easy to inspect and correct, not your most ambitious goals. Matt feeds material to a model for first drafts of writing he disliked, then iterates himself.
+- **Expand gradually:** Once trust grows, move to two agents, custom skills, and connections like Slack, Twitter and Gmail. Matt eventually dictates tasks to his watch into a to-do system an agent triages, and runs four agents on separate long-term projects.
+
+**6. Turn this into career leverage**
+- **Invest in durable skills:** Agents have a learning curve that better models only hide. Learn to decide what to trust, organize agents, control and design the information they receive, choose its data structures, and turn processes into agent-followable workflows.
+- **Target hard-to-verify knowledge work:** Code and math suit agents because they are easy to verify; real-world work is harder. Discover agent-supported processes for knowledge work and bring them to organizations, each of which works differently.
+- **Teach and build:** Uneven adoption creates opportunities in teaching AI tools, building AI-embedded apps, and helping companies improve their systems.
+- **Earn client trust through understanding:** Clients want someone who grasps what they care about and crosses the communication gap. Use quick AI prototypes to show you understand their business and can build something real fast.
+
+**Try this first:** Open a mainstream harness in an empty folder in VS Code, ask it to "grill me" relentlessly about one small, concrete idea, then have it build a boring, easy-to-check piece while you watch every change.
+
 ## Derived summary
 ## Source note
 - **[00:00:00]** This is an interview about using AI coding agents, communication, software-engineering practices, trust, and career opportunities. Statements about models, tools, productivity, and future developments are speaker claims or predictions and are **not independently verified**.
@@ -172,16 +218,6 @@ AI agents, coding agents, software engineering, agent workflows, communication, 
 - **[00:44:23]** The interview’s recurring thesis is that agent effectiveness depends less on treating a model as a mind reader and more on clear communication, explicit priorities, a maintainable and testable environment, and iterative human oversight.
 - **[00:44:23]** The proposed learning path is gradual: begin with small, measurable tasks; inspect outputs and code; use feedback to discover missing requirements; then expand toward custom skills, multiple agents, and connected workflows.
 - **[00:44:23]** The speaker’s career-oriented conclusion is that clear thinking and communication are durable differentiators because they improve both client understanding and the instructions, boundaries, and corrections given to agents.
-
-## Practical applications
-- Suggestion: For an agent-assisted project, write down the outcome, non-negotiable priorities, security and deployment concerns, expected inputs and outputs, and acceptance checks before requesting implementation.
-- Suggestion: Use a requirements-interview prompt that asks follow-up questions until terms, edge cases, constraints, and ownership boundaries are explicit.
-- Suggestion: Start with a small task whose output can be checked quickly, then expand access and autonomy only after repeated satisfactory results.
-- Suggestion: Treat source-backed learning as a two-step workflow: use an agent for orientation, then inspect the cited primary sources before relying on conclusions.
-- Suggestion: Improve the agent’s environment before switching models: maintain tests, make the application runnable, expose inspectable outputs, and keep the codebase easy to change.
-- Suggestion: Create a shared glossary for client, product, interface, database, and code terms so that key concepts have one consistent meaning.
-- Suggestion: Delegate draftable, repetitive, low-risk work first, while keeping human review for strategic choices and corrections.
-- Suggestion: When presenting agent-assisted work to stakeholders, demonstrate understanding of their priorities with a focused prototype and communicate remaining risks and monitoring plans clearly.
 
 ## Evidence anchors
 - [00:01:56.480] really started I was a skeptic for a

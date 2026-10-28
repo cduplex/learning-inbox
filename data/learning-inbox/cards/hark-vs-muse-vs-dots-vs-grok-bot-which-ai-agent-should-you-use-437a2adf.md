@@ -9,6 +9,51 @@
 ## Tags
 AI personal assistants, AI agents, OpenAI Dots, Hark, Meta Muse, Grockbot, agent workflows, computer use, privacy, automation, product comparison
 
+## Learning guide
+**The arc**
+Andrew runs four businesses with AI and asks which of four new personal agents (Meta Muse, Hark, OpenAI Dots, Grockbot) is worth using. His central idea is that each agent fits a different job, and that how well a model fits its harness matters as much as raw model power. He walks through each tool's strengths, limits and price, then shows the real workflow he assigns to each, concluding that powerful agents free you from monotonous tasks so you can focus on creative, human work.
+
+**1. Understand what you are choosing**
+- **Know the core ingredients:** A personal agent is a harness built on top of an AI model that adds memory, access to tools and communications, and the ability to act proactively or on recurring loops. OpenClaw (originally Claudebot, created by Pete) proved the demand, and users accepted setup friction, privacy concessions and security risk to get it.
+- **Judge model and harness together:** The model is the intelligence underneath; the harness elicits that intelligence and gives instructions. Evaluate how well they match, not just how capable the model is, since Muse and its Wonder model appear tuned for each other for personal-agent tasks.
+- **Expect a cloud computer:** All four run tasks on their own cloud-based computer (a VM) with a browser, so work continues even when you are on mobile.
+
+**2. Meta Muse: the best free everyday agent**
+- **Start free with Spark:** The free Spark tier is the best free everyday-life agent he has used, with a generous weekly token allowance. Use it for inbox triage, calendar management, shopping, bookings, bill payment and form filling.
+- **Rely on the sentinel gatekeeper:** Muse runs in its own secure VM and a sentinel gatekeeper approves outbound actions, which helps prevent mistakes like sending the wrong email or making the wrong purchase.
+- **Pay only if you need Wonder:** The more powerful Wonder models (released October 12) require payment; he is on the $20 per month Power plan, has used 2% of it, and would move to the $100 per month plan if needed. Business users may find leverage outweighs cost, while personal users can stay on free Spark.
+- **Check access limits first:** Muse was available only in the US and Canada for ages 18+, and the desktop app is Mac-only, which limits Windows users.
+- **Weigh the privacy tradeoff:** Entrusting business and personal life to Meta, which already holds a lot of your data, is a real concern. Active memory across sessions is announced but unproven on whether it remembers and retrieves the right things.
+
+**3. Hark: personal admin and life logistics**
+- **Use it for proactive to-dos:** Hark's Home screen surfaces actionable to-dos from your communications, including ones you would not think of, and remembers stated preferences to bring them up at the right time.
+- **Watch it work:** You can observe Hark navigate, resize its view and inspect its plan, for example asking it to check Google Flights for the cheapest flight to Las Vegas tomorrow. It can run up to six browsers at once and build mini apps.
+- **Treat the free tier as a trial:** Free caps run out fast, so use them to test full functionality, then decide; he exhausted tokens on email triage and upgraded to $20 per month, with $100 per month as the next step. For a long-term free assistant, pick Muse instead.
+- **Expect new-app friction:** It launched October 6, has typical bugs, and can be slow as demand outpaces compute. It markets itself as privacy-first: no ads, no selling data, encrypted vault, no training on user data by default.
+
+**4. OpenAI Dots: highest quality, slowest**
+- **Choose it when output quality matters:** Dots (powered by GPT-6 Astra) has the strongest model of the four and is the most accurate agent he has used, best for coding, knowledge work, team features, company management and high-stakes work. Accept that it is the slowest.
+- **Pair it with Codex to get unblocked:** With Codex, Dots can navigate your own computer as you, which helps when the cloud browser is blocked from a site such as Amazon or when needed files live on your machine.
+- **Use the ecosystem:** It has 4,000 plugins including Codex, Slack, Microsoft Teams and voice, and can act like a chief of staff or COO across OpenAI products. It fits best if you already live in ChatGPT or Codex.
+- **Know the constraints:** Access needed ChatGPT Pro at $100 per month or Business Premium at about $100 per seat (not Free, Go or Plus), though Dot conversations do not count against usage limits. You get only one primary dot, cannot inspect or delete its memory, and voice adds a fake ring delay and leaves no transcript.
+
+**5. Grockbot: a team of specialist bots**
+- **Build a roster of specialists:** Grockbot lets multiple bots, each with its own instructions, skills and cloud computer, hand off work, teach each other workflows, and be obtained from other people. Use it when speed matters most.
+- **Use scheduled routines:** It handles scheduled routines well (all four do reasonably), and its persistent cloud computer keeps work running.
+- **Plan around weaknesses:** It is weak at proactive suggestions, still in beta, and often stopped by bot detection and CAPTCHAs. Access requires a paid plan on Cursor, X or xAI.
+- **Try other models:** It now supports other models such as Anthropic's Opus 5.5; test the pairing yourself since the model-harness fit is unproven.
+
+**6. Assign each agent a job**
+- **Monitor communications with Dots:** Every 15 minutes it checks five email inboxes, three Slack workspaces, iMessage and WhatsApp. Instead of just notifying, it uses context on the sender, subject and related files to explain the next step, prepare files and ask whether to send a drafted reply.
+- **Run personal life on Hark:** Use it for flights, trips, planning and quick websites, like a fast site for parents on his flag-football team. Its less verbose, cleaner interface lowers cognitive load.
+- **Run companies on Grockbot:** Build an org chart per company with a specialist bot for each functional area, relevant context, and a reporting structure, then use it for strategy and analysis. Think of it as a Slack or Teams workspace of coworkers you can message at 2:00 in the morning.
+- **Keep testing Muse:** He uses it least, but plans to try Wonder for business and personal tasks to see if it earns a daily role. Rank tools by fit with your life, not absolute quality.
+- **Grant access cautiously:** Giving an agent your personal information is an individual decision; err on the side of caution with every one of these tools.
+
+**Try this first:** Pick one recurring chore (inbox triage or a trip plan), run it through the free Muse Spark tier or Hark's free trial, and judge whether the result is worth paying for.
+
+**Caveat:** Prices, plan limits, model names and privacy claims are the presenter's unverified observations, so confirm them on each product's site before granting access to your accounts or committing to a plan.
+
 ## Derived summary
 # Study Notes: Four AI Personal Assistants
 
@@ -204,14 +249,6 @@ AI personal assistants, AI agents, OpenAI Dots, Hark, Meta Muse, Grockbot, agent
 - **[00:25:59]** He says this ranking reflects fit with his own life rather than an absolute judgment of which tool is better.
 - **[00:26:06]** He calls all four products excellent.
 - **[00:26:13]** His final view is that powerful personal agents can remove monotonous tasks and allow users to focus more on creative and distinctly human work.
-
-## Practical applications
-- Suggestion: Map tasks by required capability before selecting a tool: personal logistics and low-cognitive-load interaction align with the presenter's Hark use; connected communication workflows align with his Dots use; multi-specialist company analysis aligns with his Grockbot setup.
-- Suggestion: Treat access permissions as a deliberate design decision. The presenter recommends caution before connecting email, messages, files, and business context to any assistant.
-- Suggestion: For any recurring communication-monitoring workflow, define the sources, check interval, importance criteria, required context, and whether the assistant may only draft or may also send messages.
-- Suggestion: When evaluating an assistant, test both the underlying model and the agent harness: assess whether its task design, memory behavior, integrations, and computer-use method fit the work being delegated.
-- Suggestion: Compare free tiers against expected interruption tolerance. The presenter characterizes Muse as better suited to sustained free use, while characterizing Hark's free tier chiefly as a full-featured evaluation period.
-- Suggestion: For high-consequence outputs, use a review checkpoint even when an agent can take outbound actions, especially for email, purchases, bills, and forms. This reflects the source's discussion of outbound-action safeguards and agent mistakes.
 
 ## Evidence anchors
 - [00:00:00.080] So every 15 minutes, it goes and looks

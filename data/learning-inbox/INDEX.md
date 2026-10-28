@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-27 from 37 saved records.
+Generated 2026-10-28 from 37 saved records.
 
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved

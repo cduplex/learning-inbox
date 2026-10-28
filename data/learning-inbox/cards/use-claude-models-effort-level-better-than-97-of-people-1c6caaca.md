@@ -9,6 +9,54 @@
 ## Tags
 Claude, AI models, model selection, effort levels, compute cost, parameters, transformers, automation, AI planning, distillation, Jevons paradox, video notes
 
+## Learning guide
+**The arc**
+Claude is not one AI but a lineup of differently sized models, and getting good results depends on choosing the right model and the right effort level. The central idea: the model is who you hire, and effort is how many hours you approve. The video moves from how model size and compute work, to which model fits which task, to how effort settings behave, and ends with a two-question diagnostic plus a forecast that these choices will soon be automated.
+
+**1. Understand what you are choosing**
+- **Picture model size as an office building:** Haiku, Sonnet, Opus and Fable run from smallest to largest, like a 10-person office up to a skyscraper. Every sentence passes through the building and each "person" (a parameter) adds a note, so bigger models know more and catch more. The names hint at size: a haiku is three lines, a sonnet 14 lines, an opus a whole book, and Fable a world of stories.
+- **Know what parameters are:** Each parameter is a knob tuned during training, for example nudging the model toward the right word in "the cat sat on the blank" whenever it guesses wrong. This repeats trillions of times, and bigger models simply have more knobs.
+- **Think in compute, not tokens:** The same text costs roughly the same number of tokens on every model, but bigger models cost more compute per token. Use the formula compute used = tokens × model, and treat usage limits as compute budgets; Haiku is cited as about 40× cheaper than Opus and 100× cheaper than Fable.
+
+**2. Match the model to the task**
+- **Use Haiku for fast, clearly defined work:** It is the sharp, cheap intern but lacks depth for judgment-heavy tasks. You often will not pick it directly, because larger models delegate sub-agent tasks to it.
+- **Use Sonnet only for well-scoped work:** It is a contractor that needs a blueprint, strong at everyday tasks, bug fixing and polished documents, slides and spreadsheets. Since Opus got better and cheaper, Sonnet is a "middle child" rather than the default.
+- **Default to Opus:** Opus is the expert for complex work needing careful judgment and the Claude Code default on paid plans. Opus 5.5 is described as 30% faster and 40% cheaper, a Goldilocks zone between Haiku and Fable, so for most people the newest default model is the right pick without overthinking.
+- **Reserve Fable for long, high-stakes chains:** Use it for multi-step work where early decisions affect later ones, since a small error at step two can wreck step 40. Examples: full complex-system design, a large codebase migration, a robust competitor analysis, a company roadmap, or a multi-quarter budget model.
+- **Do not run Fable all the time:** It is slower, eats more usage, and may route sensitive requests to Opus. Opus matches it on many tasks; Fable wins on the longest, hardest runs where stamina (staying correct while working autonomously) matters most.
+- **Sort tasks as open-ended or routine:** Bias open-ended, unconstrained work toward bigger models and constrained, routine work toward smaller ones.
+- **Know release types:** A point release (5.4 to 5.5) is the same base model with more post-training, like restaffing a building. A generational jump (4.5 to 5.5) is a new base model trained from scratch, like a new building; upgrades usually make models faster, smarter and cheaper.
+
+**3. Plan with the big model, execute with a smaller one**
+- **Split architect from contractor:** Let Opus decide what to build and Sonnet build it. For robust planning, plan with Fable and downgrade to Opus or Sonnet for execution, like using a senior employee for high-leverage thinking and a junior one for legwork.
+- **Write clear plans:** Clear instructions mean fewer retries, fewer wrong turns and fewer tokens spent guessing your intent, whatever model you use.
+- **Find the minimum viable model for routines:** For Claude routine automations, use a matching prompt to find the cheapest model that still completes the job. Treat this as an optimization, not a necessity.
+
+**4. Tune effort before switching models**
+- **Reach for effort first:** Effort is often a better lever than changing models. It does not change the model, only how much work it may do; low-effort Opus is five minutes with an expert, high-effort Sonnet is a capable generalist with a whole afternoon.
+- **Leave Medium on for everyday tasks:** Medium is the default and fine most of the time.
+- **Use High where mistakes hide:** Bugs, edge cases, and work you do not want to double-check.
+- **Use Max sparingly:** It lets Claude run a genuinely hard task end-to-end, but returns diminish and it can overthink.
+- **Treat Ultra code as a separate mode:** It sits on the effort bar but splits a big job across parallel agents that check each other. Use it for auditing a whole codebase or deep research, and expect heavy usage.
+
+**5. Avoid effort misconceptions**
+- **Max does not upgrade the model:** Max-effort Sonnet is still Sonnet, the same junior employee given more time.
+- **Low effort is not dumb:** It knows the same things but commits sooner and may ask you for context instead of investigating.
+- **Effort is a ceiling, not a floor:** "Spend up to 2 hours" allows finishing in 20 minutes, but someone given 5 hours tends to take longer than someone told 30 minutes. Higher effort also makes Claude answer your open questions itself (say 10 of them) instead of asking you.
+
+**6. Diagnose failures with two questions**
+- **Wrong despite full context? Raise the model:** If Claude had everything it needed and still got it wrong, it did not know enough.
+- **Skipped a file, skipped a test, or stopped halfway? Raise effort:** It did not try hard enough.
+
+**7. Look ahead**
+- **Expect automatic selection:** Manual model and effort picking is like driving stick; by 2027 tools are predicted to merge both into one choice, then just ask how conservative or aggressive token spending should be.
+- **Expect upgrades to flow downward:** Through distillation, big models teach smaller ones by answering huge numbers of questions the small model learns to imitate.
+- **Budget for more use, not lower bills:** By the Jevons paradox (steam engines raised coal use, cheaper cloud raised total spend), cheaper AI tends to get used for more tasks. Token limits stay a constraint however well you choose.
+
+**Try this first:** Set Opus at Medium effort as your default, and the next time a result disappoints, ask the two diagnostic questions before changing anything.
+
+**Caveat:** The model names, version numbers, price ratios and speed figures are the presenter's claims; check Anthropic's current documentation before basing cost decisions on them.
+
 ## Derived summary
 # Study Notes
 
@@ -211,14 +259,6 @@ Claude, AI models, model selection, effort levels, compute cost, parameters, tra
 - **[00:19:13]** The source’s central operational distinction is between model capability (“who you hire”) and effort allowance (“hours approved”).
 - **[00:19:17]** The source’s troubleshooting rule is to increase model capability for knowledge/capability shortfalls and increase effort for incomplete execution.
 - **[00:19:25]** The source cautions that plan token limits remain relevant even after optimizing model and effort choices.
-
-## Practical applications
-- Suggestion: Verify all named models, versions, pricing ratios, defaults, and product capabilities against current first-party documentation; the source’s claims are not independently verified.
-- Suggestion: Separate task selection into two decisions: choose capability for task complexity and choose effort for permitted execution depth, latency, and usage.
-- Suggestion: Use the source’s failure test as a triage heuristic: if the system had adequate inputs but lacked capability, evaluate a stronger model; if it skipped required work, evaluate higher effort.
-- Suggestion: Before escalating a model or effort setting, improve the brief with task objective, relevant context, constraints, files, tests, and required output format.
-- Suggestion: For recurring workflows, benchmark a minimum viable model against defined quality criteria and real usage costs.
-- Suggestion: Reserve high-effort or multi-agent approaches for tasks whose error risk and multi-step dependencies justify the additional usage and elapsed time.
 
 ## Evidence anchors
 - [00:00:03.640] people get wrong. Claude isn't one AI,

@@ -9,6 +9,60 @@
 ## Tags
 AI-assisted software engineering, code review, agent workflows, CI/CD, risk-based approvals, feature flags, rollback, merge queues, software delivery, Anthropic, Claude Code
 
+## Learning guide
+**The arc**
+When agents write most of the code, the bottleneck shifts from generating code to reviewing it: Anthropic reports changes landing per day rising from about 2,500 in May to over 30,000 in September, which makes line-by-line human review impossible. The central idea is that review is not removed but moved: machines do most of the reading, and the process is optimized for human attention, fast reversibility, small blast radius and recovery. The video walks through six layers of checks backed by rollbacks, shows a real failure mode where AI review loops forever, and ends with a practical recap for your own team.
+
+**1. Reframe what review is for**
+- **Ask what could go wrong:** Replace "did a human review this?" with "what could go wrong with this change, and which check, automated or human, should catch it?" This keeps the two original purposes of review in view: catching problems before shipping and spreading codebase knowledge across the team.
+- **Make review continuous:** Treat checking like spell-check that runs while you write, from the first prompt through merge, rather than a single pre-merge event. Developers move to a higher-value point in the process instead of reading every line.
+- **Aim for one human at most:** Target most PRs merging with at most one human in the loop, and that human can be the author.
+- **Track human cost:** Measure human approvals per PR, PR comments, and how long a PR waits for a person, as a supplement to or replacement for DORA metrics.
+- **Watch reverts and incidents:** Use revert and incident rates as guardrails. If they rise, you did not save human work, you just pushed it downstream into customer breakage and later fixes.
+
+**2. Layer 1: Verify before a PR exists**
+- **Demand evidence, not claims:** Have the agent run tests, build, take screenshots and run end-to-end and browser tests so it shows proof of completion instead of asserting it.
+- **Review the diff with a fresh subagent:** Spin up a subagent with a clean context window to review the diff. Boris Cherny estimates verification makes results two to three times better.
+- **Fix recurring findings at the source:** Put stack, conventions and goals in a short `CLAUDE.md` or `AGENTS.md`, and add an owner-written `review.md` stating what reviewers should prioritize.
+- **Cap nitpicks:** Limit low-value AI findings, because false positives overwhelm reviewers and often target pre-existing code that merely appears in the PR rather than the actual change.
+
+**3. Layers 2 to 4: Automated review and hard gates**
+- **Run AI review against intent:** Review the diff against the full repository and the PR's stated intent before any person looks.
+- **Use voting to filter findings:** Let several agents hunt bugs in parallel, have a separate group vote, and post a finding only when enough agents agree it is real.
+- **Make security a hard gate:** Run security review separately and block merge while any bug-review or security-review finding is still open.
+- **Keep conventional blockers:** Linting, type checks, tests on every platform and build tests still block merge.
+- **Ask two questions in the PR template:** Require authors to state how they tested the change and how it can be undone, so verification and reversibility become explicit review inputs.
+
+**4. Layer 5: Scale human approval by risk**
+- **Tier by blast radius:** Low-risk docs, copy or additive feature-flagged changes need no human once automated and security checks pass; ordinary product work needs one person; high-risk code needs two.
+- **Classify the change, not the author:** One classifier picks the tier and another checks whether a human is still required. CI workflow-file changes always need a person.
+- **Limit light paths to trusted authors:** Only trusted authors, mostly from the owning team, get lighter approval.
+- **Never count agent approval as human:** Automated review can clear a low-risk change but can never fill a required human slot.
+- **Keep the prompter accountable:** Whoever prompted an agent-written change owns it and counts as reviewer, no matter how many agents were orchestrated.
+- **Approve one commit only:** Approval covers a specific commit; if an agent pushes a new commit, require approval again.
+
+**5. Layer 6 and recovery: Contain failures**
+- **Use a merge queue:** Rerun all checks against main with the changes applied, so individually passing PRs cannot combine into a broken main.
+- **Release in stages behind flags:** Ship new behavior to the internal team first, then to a wider "latest" channel of about 1,000 or more people and customers, then to stable only if earlier stages go well.
+- **Optimize for fast rollback:** Use feature flags to disable behavior without a deploy, run a weekly on-call rotation, and in incident reviews ask which layer should have caught the issue.
+- **Prefer faster detection over slowing down:** Slowing down lowers error rate mainly by doing less. Consider adding the missing "circuit breaker" that tightens or halts the system when agent work starts getting reverted often, like stopping a bottling line at the first defect.
+
+**6. Stop AI review loops and evaluate the reviewer**
+- **Know the trap:** One PR went through more than 50 overnight rounds of AI review and fixes; `git blame` showed about 59% of findings were code present since the first pass. A human dismisses a nitpick in seconds, but an agent fixes it, commits and triggers another review.
+- **Cap review rounds:** After three rounds, have the reviewer tell the author to step back and rethink the overall approach.
+- **Narrow later passes:** In later rounds review only the exact new diff, flag a whole bug class instead of one line, and never repeat a finding.
+- **Turn incidents into evals:** Collect PRs that caused incidents, have knowledgeable engineers validate the set, and run the reviewer against it daily to see if it is improving or worsening.
+- **Treat the factory as a living system:** Expect to design, build and keep learning to operate your agent pipeline rather than setting it once.
+
+**7. Tools for the review layer**
+- **Claude Code Review:** The public version of Layer 2, available at enterprise level: parallel agents inspect the diff, a verification step filters false positives, findings are severity-ranked with inline comments and a check run. Pick quick, standard or deep mode (deeper costs more); it never approves or blocks a PR.
+- **Local pre-PR pass:** Run a lighter local review in Claude Code, Cursor or similar before opening a PR, and keep security review as its own layer.
+- **Decide auto-merge by context:** Whether a fully green low-risk PR merges with no human depends on your codebase and its possible blast radius.
+
+**Try this first:** Add a `review.md` to one repository listing what reviewers should prioritize, turn on an AI reviewer there, and tune it for a couple of weeks while tracking reverts.
+
+**Caveat:** The throughput, quality and speed figures are Anthropic's own unverified reports, and Anthropic has huge inference capacity and sells inference, so treat its workflow as directional rather than a direct fit for your team.
+
 ## Derived summary
 ## [00:00:00] Reported acceleration and the review bottleneck
 
@@ -102,16 +156,6 @@ AI-assisted software engineering, code review, agent workflows, CI/CD, risk-base
 - [00:15:56] **Recap:** the presenter recommends giving agents executable checks, adding a `review.md`, deploying and tuning an AI reviewer on one repository for a couple of weeks, and classifying risk by the change's blast radius rather than by author identity.
 - [00:16:15] **Recap:** never allow an agent's approval to replace a human's, and monitor reverts and failures as outcome signals.
 - [00:16:23] Whether a fully green low-risk PR should merge without human approval is presented as context-dependent, particularly on the codebase and possible blast radius.
-
-## Practical applications
-- Suggestion: Define review goals in terms of failure modes to catch, then assign each failure mode to automated verification, AI review, security review, or human approval.
-- Suggestion: Add a concise repository-level `review.md` that identifies critical invariants, code-owner concerns, and high-value review priorities, while capping low-value nitpicks.
-- Suggestion: Pilot AI PR review on one low-risk repository and track human approval count, reviewer wait time, reverts, incidents, and repeated false positives before expanding use.
-- Suggestion: Create change-based risk tiers, with stricter human approval for high-blast-radius changes and mandatory human review for CI workflow modifications.
-- Suggestion: Require each PR to document how it was tested and how it can be rolled back, then use feature flags and staged channels where the deployment model supports them.
-- Suggestion: Prevent review loops by setting a maximum number of automated review rounds, reviewing only newly introduced diffs on later rounds, and deduplicating previously reported findings.
-- Suggestion: Build a regression evaluation set from confirmed incident-causing PRs and periodically test reviewer behavior against that set.
-- Suggestion: Establish a circuit-breaker policy, such as escalating to human review or pausing an agent workflow when reversion or incident signals exceed a defined threshold.
 
 ## Evidence anchors
 - [00:00:00.080] So claw code now writes about 90% of its

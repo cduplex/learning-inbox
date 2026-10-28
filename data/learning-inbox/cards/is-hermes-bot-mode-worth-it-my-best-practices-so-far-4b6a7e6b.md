@@ -9,6 +9,62 @@
 ## Tags
 Hermes, multi-agent systems, agent orchestration, bot mode, research workflow, tool permissions, agent memory, human-in-the-loop, LLM wiki, local models
 
+## Learning guide
+**The arc**
+Callum (Wanderloots) tests whether Hermes bot mode, where specialist agents talk to each other instead of you shuttling work between chats, actually improves a workflow. The central idea is that narrowly scoped bots, each with only the model, tools, skills and memory its job needs, can coordinate as a team with the human gating key decisions. He builds an orchestrator, a researcher and a librarian, runs a research experiment in a group chat, and concludes bot mode has potential but needs iterative refinement, since one strong agent might match the team for this flow.
+
+**1. Design the team before building it**
+- **Think in specialists:** Treat each bot as a specialist with its own workstation: a profile holding instructions, model, tools, skills and memory. Distribute work to agents that each do one job well rather than one universal bot with everything, because excess capabilities cause extra tool calls, longer runs, more tokens and more quota spent.
+- **Keep the roster small:** More bots are not better. Give each a clear job, responsibilities and relationship to the team; the demo uses an orchestrator that coordinates, a researcher that investigates, and a librarian that organizes approved knowledge, with the human deciding when to proceed.
+- **Know what a bot is:** A bot is just a Hermes profile with a dedicated, persistent bot chat. Unlike ordinary profiles you switch between manually, bots can be mentioned from other profiles (for example `@librarian`) and placed in group chats.
+
+**2. Create bots and write their souls**
+- **Set names carefully:** The display name and the `@` mention name are configured separately; the second is what other bots and you use to tag it. Avatars are cosmetic.
+- **Clone a working config:** Clone the default configuration (profile is configuration, provider is the connected model) and pick bundled skills rather than starting empty. Bots can live on different devices, such as laptop and desktop, and still pass information.
+- **Rewrite the generated soul:** If left blank, Hermes generates `soul.md` from name, title and description, and the auto version may overreach (the orchestrator claimed it could research, duplicating the researcher). Edit `soul.md` to set firm boundaries.
+- **Give the orchestrator a protocol:** Require it to state outcome, acceptance criteria, owner, deliverable and stop condition; delegate research; review for relevance, completeness, citations, uncertainty and gaps; request at most one focused revision; and hand work to the librarian only with user approval. Explicitly tell it not to research itself and not to write to the LLM wiki.
+- **Give the researcher a protocol:** Investigate current-reality questions using current and original sources, produce cited briefings, report uncertainty, counterevidence and gaps, save output under `workspace/research`, return work to the orchestrator rather than the librarian, and never write to the wiki.
+- **Restart and confirm:** After saving `soul.md`, restart the gateway and ask the bot to restate its role, including delegation, approval gating and waiting before librarian use.
+- **Use the bot chat as a forever chat:** In bot mode `/new` or reset compacts the canonical chat instead of creating a new one; use the sessions tab for separate dedicated work with that profile.
+
+**3. Assign each bot a brain**
+- **Match model to role:** In per-bot settings (provider, model, limits, default reasoning), give the orchestrator a higher model and the researcher and librarian lower ones. He dropped the researcher from "5.6 soul" to "Terra" as the former was overkill.
+- **Consider local models:** Hermes can assign local models per task, and its configurator checks your device specs and suggests models and file variants that fit your GPU.
+
+**4. Trim capabilities to the job**
+- **Separate soul, skill, tool:** The soul defines role and team fit, a skill is a reusable method loaded lazily when needed, tools are directly available actions like reading files or using a browser, and MCP (Model Context Protocol) connects external tools.
+- **Disable skills that belong elsewhere:** Turn off the researcher's LLM wiki skill since that is the librarian's job, but keep grounded citations for footnote-like source tracking.
+- **Cut slow, loop-prone tools:** In an earlier test the researcher tried sub-agent delegation six times and looped for an extra 20 minutes; some tools take 10 to 20 minutes. Disable the researcher's task delegation, code execution, session search and cron jobs, keeping vision terminal, skills discovery, file work, web search and browser automation.
+- **Strip the orchestrator of research tools:** Remove web access, sub-agent delegation, browser clicking and computer use, but keep past-conversation search, so it delegates instead of researching.
+- **Read usage counters skeptically:** Counters show what bots tried under broad defaults, not that each call was necessary.
+
+**5. Set memory and operations**
+- **Use local memory per bot:** Persistent memory and user profile map to `memory.md` and `user.md`, where the bot records learnings and its understanding of you.
+- **Let only one bot write shared memory:** Give the external memory engine (Hindsight) only to the orchestrator, because multiple writers create conflicting entries and the researcher does not need everyone's memories.
+- **Isolate execution in Docker:** Run terminal backends in Docker so each agent's code or browser work is isolated and your computer is protected.
+- **Share a workspace:** A shared workspace (root or limited) lets bots exchange files while mentioning each other.
+- **Tune warm bots and timeouts:** Raising "keep bots warm" from three to five costs RAM but greatly improved responsiveness. Raise the 10-minute idle timeout for long group chats or research so bots do not go idle mid-task.
+
+**6. Control communication and loops**
+- **Use direct messages for one-offs:** Bots can DM each other for single tasks and updates, but repeated exchanges can loop for hours and drain a cloud quota.
+- **Rely on group turn limits:** Group rooms require human input after a set number of turns to stop infinite loops. A room shares conversation only, not memory, tools or permissions. Kanban is a heavier alternative for ownership, revisions and approvals.
+- **Smoke test the room:** Create a group (his was "research team limited tools") and ask each bot a simple question, like a favorite color, to confirm the orchestrator tracks and summarizes all replies.
+
+**7. Run the workflow with approval gates**
+- **Constrain the request:** He asked for a "state-of-the-art 2026" report on multi-agent teams with max 10 sources, under 500 words and tracked citations; the source cap prevents hour-long runs.
+- **Follow the pipeline:** User, then orchestrator, then researcher, then orchestrator review, then at most one revision, then user approval, then LLM wiki ingestion.
+- **Have the orchestrator verify files:** It should read the output to check constraints like word count, catching cases like a 2,000-line document. Its review flagged vendor-only sources and no 2026 study, and requested one revision using the remaining source slots.
+- **Push through turn caps manually:** When the room hits its message cap, explicitly tell the bot to continue or end it; direct messaging may suit revision loops better.
+- **Gate the librarian:** On approval, the orchestrator moves the report into the library raw inbox and asks the librarian to run the LLM wiki review skill; the librarian proposes a note (here "multi-agent workflows") for you to approve, reject, revise or defer, yielding a linked Obsidian note.
+
+**8. Learn and iterate**
+- **Save session learnings:** Ask all bots to update their memories after a run (or use `refine`). The orchestrator recorded where raw reports go before handoff, removing a future instruction.
+- **Recalibrate repeatedly:** Refine instructions, tool access, skills and memories, assign repeatable tasks to specialists, and retest until results meet your standard, possibly with local models doing bulk work under a stronger cloud orchestrator.
+
+**Try this first:** Create one orchestrator bot, edit its `soul.md` to forbid it from researching or writing to the wiki, restart the gateway, and ask it to restate its role.
+
+**Caveat:** The speed gains, model configurator and local-model cost savings are from one presenter's setup, and he admits one strong agent may match the team, so measure before committing to a multi-bot setup.
+
 ## Derived summary
 ## [00:00:00] Purpose and framing
 - [00:00:00] Callum, also known as Waterloots, introduces a test of Hermes "bot mode," a feature in which specialist agents can communicate and coordinate work rather than requiring the user to manually pass work among separate chats.
@@ -118,14 +174,6 @@ Hermes, multi-agent systems, agent orchestration, bot mode, research workflow, t
 
 ### Aside: promotion [00:02:11, 00:34:40]
 - [00:02:11] The presenter mentions a free Patreon setup article and later invites support through YouTube or Patreon memberships; these promotional details are not part of the educational workflow.
-
-## Practical applications
-- Suggestion: Define distinct roles for a multi-agent workflow, such as coordinator, researcher, and knowledge curator, with explicit handoff and approval conditions.
-- Suggestion: Limit each agent's tools, skills, external-memory access, and model tier to its role; review tool-use logs for unnecessary calls or loops.
-- Suggestion: Use a group-room turn cap when human review is desirable, and use direct bot-to-bot messaging for bounded one-off work where a group cap could interrupt revision.
-- Suggestion: Require the coordinator to state outcome, acceptance criteria, owner, deliverable, and stop condition before delegating a task.
-- Suggestion: Use a shared workspace with designated folders for research outputs and require a human approval step before durable knowledge-base ingestion.
-- Suggestion: Test whether a single capable model outperforms a multi-agent design for a given repeatable task before investing in further team refinement.
 
 ## Evidence anchors
 - [00:00:00.080] I'm going to tag the orchestrator.

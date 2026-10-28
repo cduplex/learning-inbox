@@ -9,6 +9,48 @@
 ## Tags
 personal knowledge base, second brain, retrieval-augmented generation, RAG, recency weighting, context rot, BM25, plain-text search, data connectors, institutional memory, AI workflow
 
+## Learning guide
+**The arc**
+Nick Saraev starts from the gap between Vannevar Bush's 1945 vision of a machine that supplements memory and today's overhyped, marketing-heavy second-brain products. His central idea is that a useful personal knowledge base is simple: feed it fresh data, enrich that data so it is findable, and search it with plain text instead of vector databases. He moves from why retrieval still matters despite huge context windows, through a four-step build (connectors, summaries and atoms, BM25 search, maintenance), to the conclusion that RAG has been overcomplicated for years.
+
+**1. Understand why retrieval still matters**
+- **Know the core terms:** A personal knowledge base is a searchable collection of your own material that AI looks up before answering. The lookup is retrieval, and retrieval plus AI generation is RAG.
+- **Don't dump everything into context:** Models can now hold roughly 35 to 50 books (over a million tokens), but stuffing it all in is expensive, slow because the AI must examine everything, and less accurate. More text also makes any single item harder to find, which is called context rot.
+- **Weight by recency:** A model treats everything in context as equally important, so an old product price and a new one look alike and it may put the stale price in a proposal. Timestamp every incoming item, boost recent items, and lower the weight of older ones so new material wins while old material stays available.
+
+**2. Grasp the retrieval loop**
+- **Search first, then answer:** Store data outside the model, let it search, and send only the relevant results instead of all data. Plain-text search or vector embeddings both work, and advanced systems combine techniques.
+- **Automate query handling:** When you ask Claude or another model a question, run a fast inference step to pick a search term, search the knowledge base, and append the best matches to your original prompt. This removes the need to decide manually where things are stored or to rely on model memory.
+- **Feed it broadly and prune it:** His system, Engram, holds around 35,000 to 50,000 records including Git history, company-wide Claude sessions and video transcripts. Recency-weight incoming items and periodically sweep out material that no longer has value.
+
+**3. Step 1: Build source connectors**
+- **Prioritize the pipelines:** The system is only as good as its data, so consistent context pipelines are the most important step. Refresh them whenever an event produces company data.
+- **List your sources:** Start by defining sources such as email, your website, lead conversations, company Slack messages and phone call transcripts, especially VoIP calls.
+- **Write one connector per source:** Each connector is a small script that pulls only data new since its previous run. It stamps that data with the current date and time so recency weighting works later.
+- **Use read-only access:** For email, use the Gmail API with read-only permission. Never grant write access, since that gives the system too much control over your life.
+- **Backfill once, then go incremental:** His first email run pulled a full year from three accounts, and later runs took only new material. He runs it every 15 minutes; pick your cadence based on compute load.
+- **Save your AI sessions:** Claude and ChatGPT sessions are stored locally as plain text, so they are easy to index. They are normally deleted after 30 days, so preserving them lets you retrieve months-old conversations, project ideas and context you already supplied.
+- **Let an agent map the rest:** Paste the transcript of this approach into an agent and ask it to enumerate your possible sources and help build the remaining pipelines.
+
+**4. Step 2: Enrich every item with summaries and atoms**
+- **Never store raw content alone:** Keep each long item as the original plus metadata and notes about its contents, rephrased several times to capture the idea correctly. Raw text is hard to search, especially with keyword matching.
+- **Generate summaries plus likely questions:** For each item, have a cheap model write a short topic summary and the question a person would likely type to find it.
+- **Extract atoms:** Pull out exact error messages, exact fixes, working commands and the decisions explaining why someone acted as they did. This turns implicit company decisions into explicit institutional memory that people and agents can retrieve as workflows.
+- **Pick the cheapest trusted model:** Use the cheapest model from a provider you trust with your data (he uses Claude Haiku). Give it one prompt that produces metadata, short notes and atoms every time material enters the system.
+- **Search summaries, return raw:** At query time the agent searches the summaries, and a matching summary points it to the full underlying raw item.
+
+**5. Step 3: Search with plain text (BM25)**
+- **Skip vector databases and embeddings:** Use plain-text search instead. Switching from vector-database RAG cut his inference time and his vector and embedding costs by about 9/10 each.
+- **Use BM25:** BM25 is a plain-text algorithm from the 1990s that scores each document by how often the query's words appear in it. It is enough because Claude infers the remaining context; Boris Cherny, initially behind Claude Code, reported plain search beat every other approach by a large margin.
+
+**6. Step 4: Keep it fresh**
+- **Run a background watchdog:** Use a script that reruns and verifies connectors continuously. If a connector fails, new data stops arriving and the system stops tracking current information.
+- **Check for known failure modes:** Have scripts detect or fix rotated API keys, changed permissions and routes that no longer work.
+
+**Try this first:** Write a read-only Gmail API connector that pulls only email new since its last run, timestamps each item, and runs every 15 minutes.
+
+**Caveat:** The 9/10 speed and cost savings and the claim that BM25 outperforms vector approaches come from the creator's own tests and an attributed remark, so benchmark plain-text search against your own data before abandoning embeddings.
+
 ## Derived summary
 ## [00:00:00] Framing: the "second brain" idea
 - [00:00:00] Vannevar Bush is introduced as a 1945 engineer who imagined a machine to store his books, records, and communications, described as an enlarged, intimate supplement to memory.
@@ -90,13 +132,6 @@ personal knowledge base, second brain, retrieval-augmented generation, RAG, rece
 - [00:11:17] **Promotional aside:** The speaker says a copy-paste rebuild prompt is available through a second description link at Maker Zero, described as a free home for their AI, educational, informational, curriculum, and roadmap resources.
 - [00:11:41] The speaker says users must join, navigate to the community tab, and look under recently uploaded to find the resource.
 - [00:11:49] The video closes with a request to subscribe and comment with future topic ideas; the speaker says they get virtually all current video ideas from comments.
-
-## Practical applications
-- Suggestion: Use the source's workflow as a checklist for evaluating a personal or organizational knowledge base: define sources, ingest incrementally, timestamp records, create summaries and atoms, search summaries, retrieve raw records, and monitor connectors.
-- Suggestion: Where data access is needed, consider the source's least-privilege principle of read-only connector permissions rather than write access.
-- Suggestion: For time-sensitive material such as prices, policies, or project decisions, consider attaching timestamps and testing whether retrieval favors current records over stale ones.
-- Suggestion: Compare plain-text BM25 search with embedding or vector approaches on representative internal queries before assuming a more complex retrieval stack is necessary. The video reports favorable results for plain text, but those results are not independently verified.
-- Suggestion: Establish monitoring for ingestion failures such as expired or rotated API keys, permission changes, and broken routes, because the source identifies freshness as necessary for system usefulness.
 
 ## Evidence anchors
 - [00:00:00.000] In 1945, an engineer called Vannevar

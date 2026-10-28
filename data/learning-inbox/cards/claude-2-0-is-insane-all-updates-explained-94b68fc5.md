@@ -9,6 +9,57 @@
 ## Tags
 Claude Code, AI productivity, desktop app, projects, nested sessions, side chats, split view, artifacts, slash commands, mods
 
+## Learning guide
+**The arc**
+Ben starts from a choice many users face: stay in Code Work or move to the rebuilt Claude Code desktop app. His central idea is that Claude Code is the same backend with more functionality, a friendlier layout, and new features that land there first, so it is not only for coders. He walks from layout and chat organization, through projects that coordinate multiple sessions, side chats and split view, artifact tools, slash commands, and finally mods that let you build your own features.
+
+**1. Move to the Claude Code tab**
+- **Switch from Code Work:** Use the Claude Code tab even if you don't code. It works with files on your computer, has CLI access, includes more slash commands, and gets new features first.
+
+**2. Read the layout and manage context**
+- **Watch the to-do list:** When Claude makes a plan, a to-do list appears in the chat. Follow tasks being checked off to track progress.
+- **Check the environment card:** The cards beside the chat show which folder the chat runs in and whether it is local or cloud. Flip the remote-control switch to move a local chat to the cloud and continue from your phone.
+- **Compact from the context card:** The context card shows how full the chat is and what fills the context window. Use its compact shortcut so Claude summarizes the chat, freeing space to keep performance high.
+- **Review connectors and outputs:** Use these cards to see which files the chat made or used.
+
+**3. Organize your chats**
+- **Create sections:** Click the three-dot menu next to a chat, choose **move to new section**, name it, and create it. Drag and drop other chats in so old chats are easy to find by category.
+- **Keep one chat per task:** When an unrelated request comes up mid-chat, accept Claude's offer of a new thread or ask for one.
+
+**4. Run big projects with a coordinator**
+- **Use projects or nested sessions:** On Pro and Max this is Projects; on Team it shows as nested sessions. One main chat acts as an orchestrator that starts, messages, and inspects other chats and reports back, instead of you juggling five chats.
+- **Split work into task threads:** For a YouTube video, create one thread for thumbnails and titles, one for outlines, and one for visuals and editing. This avoids separate chats that don't know about each other and one giant chat that gets messy and overloads context.
+- **Iterate at both levels:** Talk to the coordinator to iterate across tasks without bloating its context, or open a thread from the dropdown under the main chat to work directly with that agent. The coordinator stays aware of progress across threads.
+- **Know the hierarchy:** Threads can create their own sub-agents, but you can only iterate directly with threads or nested sessions, not sub-agents.
+- **Start it the right way:** With Projects, start a new project and threads are created automatically. On Team, open a blank chat, ask Claude to work on a larger project, and accept or explicitly request threads.
+- **Pick based on memory and runtime:** Project threads share a memory every thread adds to and draws from, and can run in the cloud with your laptop closed. Nested sessions get a brief and prompt from the main chat and run only locally.
+
+**5. Ask and multitask without derailing**
+- **Open a side chat:** Click the three-dot menu in the upper right and select **side chat**. It opens in its own window, can read the main chat up to that point, and you can open several.
+- **Use side chats for questions:** Ask what Claude is doing, how long it will take, review work so far, or ask off-topic questions, all without adding to the main context. Side chats are saved, and they can send messages to the main chat, for example a review of its output.
+- **Use split view:** Drag a chat from the sidebar into the current chat and choose split view, or use the sidebar chat's three-dot menu, **open in**, **split view**. See and work in several chats at once.
+
+**6. Create with artifacts**
+- **Iterate on artifacts with comments:** Docs, Slides, Design, Dashboards, and Motion produce editable canvases you refine through comments. Publish them as live pages anyone with the link can open.
+- **Build live dashboards:** Connect dashboards to connectors; they fetch the latest data each time they open, so metrics stay current.
+- **Make slides:** Create animated presentations, then download as PPT or present from Claude.
+- **Plan in Docs:** Use Claude Docs like Google Docs with tabs, with your team and AI agents collaborating in real time, for example to prepare YouTube videos.
+- **Design on a canvas:** Use Claude Design like Figma for social media and website designs. Change copy, leave comments, and ask Claude to fix things.
+- **Animate with Motion:** Make motion graphics in code, which is cheaper than a video model, and iterate quickly on the canvas.
+
+**7. Tune and clean up with slash commands**
+- **Set an /output-style:** Ask Claude to create a style, add it as an output style, then invoke it with `/output-style`. Ben's team uses one to keep answers short and simple when Claude gets too technical.
+- **Run /doctor occasionally:** It reads your `Claude.md` files (the first instructions read in every chat), skills, and settings to find outdated or conflicting instructions. Ben's run analyzed 404 files and found 312 problems, including instructions no longer needed for Opus 5.5 that wasted tokens.
+- **Prune with /skill-doctor:** Every installed skill uses context even when unused. It shows each skill's context cost and usage frequency and recommends deletions; Ben saved about 20,000 tokens.
+- **Escalate with /advisor:** Run a cheaper model like Sonnet or Haiku and have it consult Opus at key moments, so you pay for strong judgment only when needed. Example: Sonnet cleans the inbox while Opus 5.5 drafts replies to critical emails.
+
+**8. Build your own features with mods**
+- **Create a mod:** Tell Claude to build a mod and describe the behavior you want; mods change how Claude Code looks and behaves. Ben's brain-dump mod detects long voice prompts full of errors, jumps, and contradictions and turns them into a clear, structured prompt before Claude processes them.
+
+**Try this first:** Open the Claude Code tab and run `/skill-doctor`, then delete the unused skills it flags.
+
+**Caveat:** Feature availability varies by plan and rolls out gradually, so Projects, nested sessions, and cloud behavior may look different or be missing on your account.
+
 ## Derived summary
 ## Overview [00:00:00]
 - [00:00:00] The presenter says Anthropic rebuilt the Claude Code desktop app and added projects, threads, mods, side panels, multitasking, and other features.
@@ -139,15 +190,6 @@ Claude Code, AI productivity, desktop app, projects, nested sessions, side chats
 - [00:13:13] **Recap:** the features covered are the revised desktop layout and cards, chat sections, projects/nested sessions, side chats, split view, artifact-based creation tools, slash commands, and mods.
 - [00:13:13] **Promotional aside:** the presenter says a free PDF guide contains prompts and a summary of every feature, and again promotes the AI Accelerator.
 - [00:13:31] The video closes with thanks and a request for likes and subscriptions.
-
-## Practical applications
-- Suggestion: For a multi-part project, separate distinct workstreams into threads or nested sessions, while using one coordinator chat to maintain overall progress.
-- Suggestion: Use side chats for status checks, reviews, or tangential questions so the main task’s context remains focused.
-- Suggestion: Create chat sections for recurring work categories, then move older relevant chats into them for easier retrieval.
-- Suggestion: Periodically run `/doctor` and `/skill-doctor` to identify configuration conflicts and unused skills that may consume context.
-- Suggestion: Define an `/output-style` suited to the desired audience, such as concise nontechnical responses.
-- Suggestion: If using a cheaper model for routine work, consider `/advisor` at high-stakes decision points where stronger-model review may be useful.
-- Suggestion: For long voice prompts, consider a preprocessing workflow that converts the raw brain dump into a structured prompt before task execution.
 
 ## Evidence anchors
 - [00:00:00.000] And Tropic just rebuilds the Claude code

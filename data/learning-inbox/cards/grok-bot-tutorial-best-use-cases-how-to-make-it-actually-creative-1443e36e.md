@@ -9,6 +9,58 @@
 ## Tags
 AI agents, workflow automation, agent orchestration, knowledge graphs, research synthesis, competitor analysis, content drafting, Jira, email digest, permissions and security
 
+## Learning guide
+**The arc**
+The video starts from a simple question: how can you automate real work with multiple AI agents without a complicated technical setup? The central idea is to build specialized, connected Grogbot agents, then pair them with Infernotus knowledge graphs so you surface gaps and new connections instead of just collecting digests. It moves from the overall agent system, through building and refining a research bot, into graph-based analysis of research, competitors, Jira tickets, and finally your own bot network.
+
+**1. Design your agent system**
+- **Use a chief of staff bot:** Create one central orchestrator bot connected to all your specialized bots. It sees the full bot structure, helps connect bots, and picks the right bot for a given task.
+- **Split agents by job:** Give each task its own bot, for example content production, competitor analysis, research digests, email checking. Keep research-digest bots separate from content-creation bots so content bots keep their own context and logic.
+- **Link agents and work from any device:** Agents can talk to each other and keep running without your computer or phone on. Start a task on mobile and pick up the finished result later.
+
+**2. Build and refine a research bot**
+- **Create the bot:** Click "new bot", give it a name, icon, and color. Grogbot infers the intended task from the name, then asks what work it should do.
+- **Write a specific recurring prompt:** State the topic and cadence, for example a daily digest of discoveries, ideas, and publications on using fractals to understand physiology, delivered at 11:00 in the morning.
+- **Request an immediate first run:** Ask for the first digest right away so you can inspect delivery quality before it goes on schedule.
+- **Fix the format for selection:** If you get one long message listing papers, ask for one message per paper with images. Then you can "like" the papers you care about.
+- **Turn picks into articles:** After liking papers, ask Grogbot to write an article per paper that explains it, adds images from the paper, and generates illustrative images.
+
+**3. Publish safely with a human in the loop**
+- **Send output to WordPress as drafts:** Pass research output to a content agent that creates WordPress drafts, never live posts. Track discoveries this way so nothing is missed, and add reminders for publishing.
+- **Use the browser when no connector exists:** With no WordPress connector, let Grogbot open its own browser and log in through an account to create the draft.
+- **Limit permissions:** Create a separate WordPress user with limited permissions so the bot cannot delete posts. Treat permission level and security handling as key considerations for any such tool.
+- **Edit before publishing:** Rewrite drafts so the final post emphasizes findings you consider relevant and reflects your own work.
+- **Draft social replies, then approve:** Connect your X account by selecting it in Grogbot, have an agent extract interesting posts on your topics, and either reply yourself or edit Grogbot's drafted replies before posting.
+
+**4. Automate everyday monitoring**
+- **Run an email digest:** Have an agent summarize important material from your Gmail every two hours, which tames an inbox full of subscriptions.
+- **Search your inbox for opportunities:** Point another bot at the same email account to hunt for something specific, like interesting Berlin apartments to invest in.
+
+**5. Add the graph layer for insight**
+- **Connect Infernotus via MCP:** Select the app in Grogbot or ask Grogbot directly, then follow its guidance to enter your Infernotus API key.
+- **Load information and find gaps:** Infernotus shows information as a knowledge graph, revealing clusters of ideas and missing links between them.
+- **Turn gaps into questions:** Click a highlighted gap to generate a research question or idea that bridges two clusters. Add the best ones into your blog post.
+- **Run the daily pipeline:** Request a digest, build a graph in Infernotus, save important ideas, extract gaps, then create content only if the results are useful. Reuse it for other domains such as network dynamics or a publishing house.
+
+**6. Map competitors and market gaps**
+- **Build a competitor list with Grogbot:** Give context and answer its questions so it produces a table of competitors with initial insights, saved as a CSV.
+- **Graph the competitors:** Ask Infernotus to link tools that are related or share features. Read the clusters (for example graph tools, ontology mapping, thematic analysis, citation networks) to see influence and your own position.
+- **Generate product ideas from gaps:** Look for gaps between clusters, such as thematic analysis and ontology mapping, and have Grogbot propose products combining those features. Treat them as possibilities to validate, and use the map to guide feature focus, collaborations, or compatibility.
+
+**7. Analyze projects in Jira**
+- **Summarize the sprint:** Connect Grogbot to Jira or another issue tracker to summarize major themes and current-sprint priorities.
+- **Find gaps in tickets:** Build a graph from ticket descriptions and ask Infernotus for gaps. In the example, unconnected analytics and email-sending modules suggested analytics on user responses to emails, a feature for a future sprint.
+- **Aim for balanced structure:** Target distinct clusters that are partially separate yet globally connected, so information flows while separate islands of meaning survive.
+
+**8. Map your own bot network**
+- **Graph your bots:** Make a categorized diagram of your bots and ask Infernotus to graph how they connect and how important each is.
+- **Test by removal:** Remove the chief of staff bot from the graph to see which bots become important next, revealing bridge bots like a research bot linking content, website, and competitor work.
+- **Add missing links:** As bots multiply, use the map to spot missing direct connections, for example feeding NUS Labs research findings into the website content bot's content plan.
+
+**Try this first:** Click "new bot", name it after one research topic, ask for a daily digest with one message per paper plus images, and request the first digest immediately to check quality.
+
+**Caveat:** The creator appears to make Infernotus (they analyze its competitors and run its website content bot) and offers help connecting it, so the graph-based half of this workflow depends on their own product.
+
 ## Derived summary
 ## Source attribution and scope
 - **[00:00:00]** These notes summarize the presenter’s demonstration and opinions about a tool called “Grogbot” and a related product, Infernotus. Product capabilities, quality assessments, affiliations, and results are **presenter claims not independently verified**.
@@ -120,14 +172,6 @@ AI agents, workflow automation, agent orchestration, knowledge graphs, research 
 - **[00:22:09]** The presenter mentions Hermes as an earlier open-source alternative but says they find it harder to set up and personally trust it less with permissions. This is an individual opinion, not a comparative security assessment.
 - **[00:22:30]** The presenter identifies permission level and security handling as important considerations for such tools.
 - **[00:22:39]** They invite discussion of workflows and offer help connecting Infernotus to Grogbot.
-
-## Practical applications
-- Suggestion: Use a human-review checkpoint before publishing AI-generated research or social content, mirroring the presenter’s draft-then-edit workflow.
-- Suggestion: Apply least-privilege access when an agent needs a browser-based workflow, such as a separate account that cannot delete published material.
-- Suggestion: Separate research-collection agents from content-creation agents when distinct context and editorial logic are useful.
-- Suggestion: Map a multi-agent system periodically to identify single points of coordination, missing handoffs, and potentially valuable connections between workflows.
-- Suggestion: For project tickets, inspect whether related modules are described independently and use identified gaps as prompts for backlog or sprint-planning discussion.
-- Suggestion: Treat graph-generated research questions and market-gap ideas as hypotheses requiring validation, rather than as established findings.
 
 ## Evidence anchors
 - [00:00:15.120] Grogbot is, it's a tool that helps you

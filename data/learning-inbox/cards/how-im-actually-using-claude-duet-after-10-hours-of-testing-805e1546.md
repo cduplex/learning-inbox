@@ -9,6 +9,58 @@
 ## Tags
 Claude Duet, AI agents, artifact editing, voice interface, task management, channels, Claude Code, product review, early access
 
+## Learning guide
+**The arc**
+Riley Brown spent about 10 hours testing Claude Duet, a standalone Anthropic iOS and web app powered by Opus 5.5, to see how well it handles business content, apps and presentations. The central idea is to talk to one main agent that delegates work into channels and task threads, then create and revise artifacts like slide decks by comment or by voice. The guide moves from setup and organization, through artifact creation, task tracking and parallel work, to routines, voice and approvals, and ends with the limits worth planning around.
+
+**1. Get in and set up a lean structure**
+- **Know the format:** Duet is a separate iOS app and web app, not a chat inside another product. Work syncs in real time between them, so you can start on your phone and finish editing on the web.
+- **Request early access:** Duet is in early access. Messaging Richard Kim on X worked for Riley, though it is not guaranteed.
+- **Keep channels few:** Channels work like Slack channels for organizing work. Riley made about 10, deleted them for clutter, and kept only **content**, **finances** and **artifacts**.
+- **Talk to the main agent:** Speak or type in the main chat and let it delegate, so content-related work lands in the content channel automatically. Create new channels through the channel control only when needed.
+- **Learn the layout:** The bottom navigation has chat, tasks (split into **active** and **up next**) and the **Make** tab, which holds created assets such as slide decks. A connections area shows connected services and context.
+
+**2. Create and edit artifacts**
+- **Generate decks and designs:** Ask for slide decks or Figma-style designs in plain language. A first deck took about 10 minutes before returning a ready-for-review link.
+- **Feed it your context:** Ask the agent to study your past material, as in Riley's Q4-predictions deck: grid format, nine predictions, a "where we are now" section, and predictions inferred from his previous videos. The result matched his style because Duet had context across his videos and notes.
+- **Edit with comments:** Use the comment tool directly on an artifact, for example asking to add an image to a specific slide, crop an unwanted edge or add two bullet points. The comment goes to Duet automatically and edits come back fast.
+- **Make quick fixes yourself:** Edit the artifact manually when a change is small, instead of routing everything through Duet.
+- **Use dictation for requests:** Dictate instructions like adding a bonus slide to the end of the deck you last worked on in the content channel, then open the task to check the result.
+
+**3. Revise decks by voice on the move**
+- **Narrate changes while walking:** Take a walk, open the deck from the Make tab or its artifact card, then exit the artifact and activate the separate voice control. This is Riley's favorite way to build deliverables.
+- **Batch many changes in one prompt:** Walk through the deck and speak every change, then close recording and submit. His example asked for a line break after "need", larger text above a bottom timeline, an elegant gray graphic toward the middle, a new bullet, and a centered standalone slide after slide 19.
+- **Draft first, narrate second:** Create a first version of the deck, then narrate desired changes through it so Opus 5.5 applies the full request at once.
+
+**4. Track tasks without getting lost**
+- **Understand the hierarchy:** Main chat, then channel chats, then a separate task thread for each task, with the document inside its task thread. All changes to a document go in that document's task chat.
+- **Read the status labels:** Tasks show **working** or **ready for review** and appear under their channel, such as content or finance.
+- **Watch the work steps:** Open a task thread to see what it is doing, for example studying the deck format, reviewing past videos, researching, writing predictions and building the deck. The main chat also posts updates when the thread is closed.
+- **Tell the two links apart:** The artifact card opens the produced asset; the underlined task-thread link opens the task conversation.
+- **Default to the main chat:** Stay in the main chat unless you are editing an artifact, to limit the disorientation of three chat layers.
+
+**5. Run work in parallel**
+- **Spin off tasks and keep going:** Hand off a task, then continue unrelated work. Riley's example: analyze trending Twitter topics, use a Composio-connected Grockbot skill to scrape discussion of a cybersecurity issue, and put findings in an editable document.
+- **Use Claude Projects for local work:** Duet can only create Claude Code sessions in the cloud and can only read and summarize an existing local session if the computer is on. To start a local session from your phone, such as making a downloadable PDF resource on a website, use Claude Projects, which controls Claude Code on your computer.
+
+**6. Resurface forgotten work with routines**
+- **Create an artifacts channel with a recap routine:** Channels can hold routines. Set an "artifact recap" routine running daily from 9:00 a.m. to 5:00 p.m. that reminds you, for example, that you made a slide deck yesterday and asks whether to continue.
+- **Why it matters:** AI tasks can take 15 to 40 minutes, so running several at once makes it easy to lose track of unfinished deliverables.
+
+**7. Use voice and approvals wisely**
+- **Use real-time voice for quick actions:** Tap the in-app voice button for instant start, such as asking for a short summary or emailing a breakdown to a colleague. Verify the action happened, since Riley could not confirm his email was sent.
+- **Have emails read back first:** Ask the voice agent to read an email aloud before you approve sending it.
+- **Expect approvals:** Duet asks approval before sending messages and before deletions, such as removing a video from a Notion database. Approvals are most valuable for payments, signatures and deletions.
+
+**8. Plan around the limits**
+- **Voice is early-stage:** It sounds less human than OpenAI Dots, has no mute control, and is not aware of task progress in real time, so check task threads yourself.
+- **No model or effort picker:** Opus 5.5 is the fixed default; you cannot choose maximum or medium thinking.
+- **No desktop app and no local session creation:** Keep local-file workflows like video editing on Claude Projects or your computer for now.
+
+**Try this first:** Set up just three channels (content, finances, artifacts), ask the main chat for a slide deck built from your own material, then open it on your phone and narrate a batch of revisions by voice.
+
+**Caveat:** The product details, model name, access route and comparisons come from one reviewer's early-access testing and are not independently verified, so confirm what Duet actually offers before relying on it.
+
 ## Derived summary
 ## Source attribution
 - This is a reviewer’s account after about **10 hours** using a purported Anthropic product called Claude Duet for business content, app creation, and presentations. Product details, capabilities, comparisons, and performance judgments below are the reviewer’s claims and are **not independently verified**. [00:00:13]
@@ -189,14 +241,6 @@ Claude Duet, AI agents, artifact editing, voice interface, task management, chan
 ## Final recap [00:24:16]
 - [00:24:16] The reviewer’s overall position is that Duet has a fast standalone iOS/web interface, channel-based organization, asset generation and editing, task threads, voice-based revision, scheduled artifact reminders, and parallel-task coordination.
 - [00:24:16] Their principal caveats are early-access status, confusing multi-level chat organization, weaker voice experience and task-progress awareness relative to Dots, no model or effort picker, and inability to create local Claude Code sessions.
-
-## Practical applications
-- Suggestion: If evaluating a similar agent product, test the full work loop: create an artifact, request inline edits, continue from mobile, and verify that changes synchronize in the web interface.
-- Suggestion: Use a small number of purpose-specific channels to limit clutter, such as content, finance, and artifact review.
-- Suggestion: For long-running agent work, establish a scheduled recap routine that resurfaces unfinished artifacts and active tasks.
-- Suggestion: Before relying on voice for consequential communications, verify whether the action was completed and retain approval steps for sending messages, payments, signatures, and deletions.
-- Suggestion: Map where work is created and edited across main chat, channels, task threads, artifacts, cloud sessions, and local sessions before adopting the workflow for team-critical work.
-- Suggestion: If local files or local development workflows are essential, validate local-session creation and write access separately rather than assuming cloud-agent capabilities extend to the local computer.
 
 ## Evidence anchors
 - [00:00:03.840] brand new standalone app called Duet,

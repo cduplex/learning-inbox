@@ -9,6 +9,43 @@
 ## Tags
 reverse engineering, AI agents, software development, product requirements, feature analysis, testing, Claude Code, workflow design
 
+## Learning guide
+**The arc**
+Nate Herk starts from the viral GitHub repo Reverse Engineer Anything (REA) and asks what it really adds, since reverse engineering is not new. His central idea is that AI executes well when given a clear vision, and an existing example of the result you want acts as a highly specific PRD you never had to write. He moves from everyday examples (video editing, reports, apps) to REA's five-step workflow, then to legal and model limits, and ends with a general principle for any workflow.
+
+**1. Show the output instead of describing it**
+- **Feed real examples, not a generic request:** A generic goal produces a generic result, so give the agent strong examples of what you want and let it infer the recipe. For a Friday report, provide five good Friday reports; for an editing skill, he supplied about 30 of his best-performing Instagram Reels.
+- **Ask for frame-by-frame analysis:** Have the model break down what happens under the hood (B-roll, font colors, shimmers, animations, overall vibe) before building anything. He gave Opus a downloaded motion edit by Jordan Watkins and asked for frame-by-frame analysis plus a reusable editing skill.
+- **Turn the analysis into a reusable skill:** Ask the agent to package what it learned as a skill you can run again. The result may still trail the original in polish (motion and sound design), but it clearly improves once the AI has a concrete creative reference.
+- **Use a reference app as your PRD:** Pointing at an existing product gives the agent detailed specs without you writing every requirement. Compare "make me a cake" with a target that specifies taste, density, frosting type and number of layers.
+
+**2. Clone behavior, and scope it tightly**
+- **Copy functionality, not presentation:** Take inspiration from elements, animations or behaviors, then build your own look and choices. His Loom-inspired "Herk Recorder" kept a recording countdown, a movable and resizable camera bubble and window selection, but used a different interface and stored files locally in its own folder instead of a cloud.
+- **Adapt features to your own setup:** He rebuilt Sand Castles-style functionality as a personal version that uses his own API key for analyzing Instagram and his content, and used Langfuse to inform the core features of his eval studio without making a carbon copy.
+- **Pick features, not whole products:** "Reverse engineer Loom" is too broad, so isolate specific features. Ask which Loom features are most valuable, or which Salesforce or CRM features are worth bringing into a custom app.
+- **Frame the request around one mechanism:** Ask the agent to investigate how a single thing works, for example how Loom's camera bubble works, so you can add equivalent functionality to a different app.
+- **Reverse engineer the tool itself:** He used Claude Code with REA to analyze the REA repo, which taught him how to instruct it better. Do the same with any tool you want to master.
+
+**3. Run the REA five-step workflow**
+- **Step 1, pick a feature:** Start from a specific behavior rather than pointing the agent at an entire app.
+- **Step 2, route by build:** Consider what the target app is built with and choose or adjust analysis tools accordingly. If you do not know the stack details yourself, explicitly tell the agent to consider the app's technology stack.
+- **Step 3, summary first:** Let REA analyze the app and produce a short summary of what works, how it works and what it could not determine before diving into modules and traces. The Loom analysis exceeded 1 GB, so do not rerun the full summary repeatedly; it is already saved locally in your project files.
+- **Step 4, label findings seen, inferred or unknown:** Seen means the model actually found and cited it (for example, Loom having 11 custom native add-ons); inferred means the code or data suggests it; unknown means it could not be observed. Never build on inferred points as if they were facts, because that creates messy outcomes.
+- **Step 5, rebuild and test:** This is the most important stage. Build from the findings, run test cases against real behavior and iterate, instead of shipping because the build merely looks complete.
+- **Expect slower but better results:** In his test, two coding agents got the same prompt and only one used REA; the plain agent finished first, but the REA agent produced better results because of stronger decomposition.
+
+**4. Respect the boundaries and limits**
+- **Stay legal:** Do not copy exact code or assets. Only analyze what is observable in local files or available through an API; never access private source code or hack a company's servers.
+- **Plan setup per app:** Different apps need different environments depending on where they run and their tech stack.
+- **Use a strong model for inspection:** Results depend on the model doing the analysis and coding; REA does not build things automatically. To save cost, you can try letting a stronger model investigate and a cheaper model build from the saved findings.
+
+**5. Apply it beyond software**
+- **Work backward from proven results:** Use the same approach for processes, skills and daily or business workflows. Find someone who has demonstrably done something well, figure out why it worked, and adapt that mechanism to your own context.
+
+**Try this first:** Pick one recurring output you produce (like a Friday report), gather five of your best past examples, and ask your agent to analyze what makes them work and turn that into a reusable skill.
+
+**Caveat:** The claim that REA beats a plain agent comes from a single informal test by the creator, so compare results on your own task before relying on it.
+
 ## Derived summary
 ## [00:00:00] Thesis: reverse engineering as an AI-building workflow
 - [00:00:00] The speaker says the GitHub repository **Reverse Engineer Anything (REA)** is rapidly gaining attention; a quoted remark that “software is done” is characterized as partly joking.
@@ -97,12 +134,6 @@ reverse engineering, AI agents, software development, product requirements, feat
 - [00:14:03] Recap: reverse engineering is not new; the claimed benefit is supplying a much more specific PRD by using an existing role model instead of writing every requirement manually.
 - [00:14:22] The speaker broadens the idea beyond software to processes, skills, and business or daily workflows.
 - [00:14:37] Final practical principle: identify someone who has demonstrably done something well, determine why it worked, and consider how the mechanism applies to one’s own context and workflows.
-
-## Practical applications
-- Suggestion: For a custom tool, select one observable behavior from a reference product, define the target behavior precisely, and avoid trying to reproduce the whole product at once.
-- Suggestion: Preserve a compact analysis summary and explicitly separate observed evidence, inferences, and unknowns before implementation decisions.
-- Suggestion: Use an iterative validation loop with test cases for each recreated feature, rather than accepting an initial build as complete.
-- Suggestion: Treat reference products as functional and design inspiration only; avoid copying protected code or assets and restrict investigation to legitimately accessible material.
 
 ## Evidence anchors
 - [00:00:12.639] the idea of reverse engineer Anything is

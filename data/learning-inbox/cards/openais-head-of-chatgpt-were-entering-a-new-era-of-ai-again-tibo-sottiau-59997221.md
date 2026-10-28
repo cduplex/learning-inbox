@@ -9,6 +9,55 @@
 ## Tags
 AI agents, agentic workflows, human-computer interaction, multimodal AI, voice interfaces, AI product design, plugins, developer ecosystem, AI safety, hiring, organizational culture, productivity
 
+## Learning guide
+**The arc**
+Tibo Sottiaux starts from the view that most builders are underestimating how fast AI is improving. His central idea is to design as if systems will be roughly 10 times better within a year, with agents doing most internet actions and the app itself fading into a simple, always-available intelligence. The conversation moves from how he works with agents today, to product simplicity and the plugin ecosystem, to guardrails and human attention, and ends with hiring, team culture and a push to eliminate configuration complexity.
+
+**1. Plan for much faster capability**
+- **Assume 10x in a year:** When deciding what to build now, imagine models roughly 10 times better within one year. This assumption changes product design, because cheaper, faster models and seamless modalities are coming faster than most expect.
+- **Build for agent traffic:** Expect most internet actions to be taken by agents, so design your product to handle a much higher level of scale. Notion built an MCP, became available to many agents, and then faced heavy traffic, system strain and new economics to figure out.
+- **Expose agent interfaces early:** The real choice is whether to open your product to agents now or later, and agent usage is inevitable. Build toward an agent-used future rather than postponing it.
+- **Invest in delightful human experiences too:** Multimodal experiences for humans are underinvested. Leave room for voice, sketching and shared surfaces alongside agent access.
+
+**2. Work with agents day to day**
+- **Delegate analysis code:** Let an agent like Codex write the code for understanding trends, the business, the next feature and how past launches are performing. Keep manual coding for occasional practice, like weekend LeetCode.
+- **Scale agent count to the task:** Use larger teams of specialized agents when exploring a frontier, then consolidate into one larger agent when a stronger model can hold context and learn. A single very fast agent often keeps you in flow better than many parallel ones.
+- **Start with one primary agent:** Begin with one agent you text, configure and connect to apps so it learns your preferences deeply. Add more agents with specific roles later, such as one dedicated to monitoring Twitter.
+- **Prefer learning over hand-built loops:** Do not treat manually configured agent loops as the lasting model. Aim for an agent that understands goals and preferences, works 24/7 and learns from feedback.
+- **Lean on voice:** Dictation and calling your agent can cover a large part of your work and restore a creative flow state. Fast, voice-controllable systems feel much better than expected.
+
+**3. Simplify the product**
+- **Remove model pickers and settings:** Model pickers, reasoning-effort controls and mode choices cause fatigue; users should not need a PhD in model pickers. Let users simply talk to the system and configure only the channels they communicate through.
+- **Merge overlapping modes:** ChatGPT and work mode are being merged because users valued work capability but sometimes preferred chat for speed. Reduce complexity by folding capabilities into one place.
+- **Design for presence, not attachment:** Aim for an intelligence reachable from any client or screen that appears when needed and recedes otherwise. Example: it takes notes in a meeting, continues over email and answers by text.
+- **Support shared surfaces:** Let people brainstorm by speaking naturally and making rough sketches on a shared whiteboard with humans and agents. The goal is AI that hears ideas, sees a paper sketch, builds in the background and adapts as ideas change.
+
+**4. Win through the ecosystem**
+- **Build a good plugin:** Plugin discovery runs through conversational recommendations tuned on retention, success and quality signals. Weak plugins stop being recommended, so focus on consistent use and retention, not keyword or AEO tactics.
+- **Use Sign in with ChatGPT:** It launched with 16 partners, and partners share economics when subscribers spend allocated usage through a plugin or sign in within the partner product. Popular, high-usage plugins get a revenue share.
+- **Listen to your community:** Real use cases emerge only after launch, so talk with users and build with a community. About half an hour a day on Twitter is enough to stay close.
+
+**5. Guard agents with real access**
+- **Give context-aware alerts:** An agent warned Tibo 5 minutes before a live demo that ChatGPT production was down, linking that the event mattered, the demo was imminent and the outage was relevant. Feed agents enough context to judge what is urgent.
+- **Fence specialist agents:** Give agents only some production access, with extra guardrails, extra monitoring and separate hardware such as Mac minis. Do not let an agent fix production when it is not yet capable; send humans in.
+- **Spend compute on monitors:** Split compute between the working agent and monitors that catch overly risky actions, avoid needless interruptions and step in on prompt injection. Invest in safety ahead of capability, more than seems necessary.
+- **Hold back what is not ready:** Keep a high quality bar by stopping work before release or giving it more time, and stagger launches.
+
+**6. Protect human attention**
+- **Use AI to cut noise:** Resist pressure to run 30 agents at once and ship more because others do. Use AI to quiet competing low-value items so you can focus where you choose.
+- **Rest to be productive:** A fully disconnected week unlocks more creative thinking. Push toward fewer meetings and less work, since better rest can raise output.
+- **Counter loneliness:** Heavy delegation to agents can become solitary. Design work so AI sits in physical space while people talk to each other naturally.
+
+**7. Hire and grow people**
+- **Hire for taste over typing:** Fast typing matters less; great taste, user-centered thinking, connection to the audience and knowing what good looks like matter more. Ex-founders and PM-style deciders thrive.
+- **Learn fast and collaborate:** Ahmed Ibrahim joined as a new graduate and now runs the compute fleet, through kindness, collaboration, focus on important problems over status and using AI to learn extremely fast.
+- **Value newcomers:** Younger people adopt AI fully because they are not attached to old ways of working.
+- **Allow bottom-up hacking with ownership:** The decisions API started with a Slack channel and about four people hacking over a weekend, then drew company-wide contributors. Give autonomy, require ownership of consequences, fix problems quickly and favor less complex solutions.
+
+**Try this first:** Pick one product decision you are making this week and rewrite it assuming models are 10 times better and agents are your main users, then list what interface you would expose to agents now.
+
+**Caveat:** The user counts, plugin revenue share and safety assessments are the speaker's own unverified statements about OpenAI's platform, so confirm the terms before betting distribution plans on them.
+
 ## Derived summary
 ## Study Notes
 
@@ -245,16 +294,6 @@ AI agents, agentic workflows, human-computer interaction, multimodal AI, voice i
 - [00:36:36] They say they personally experience fatigue from model pickers, reasoning-effort controls, choices between multi-agent and ultra modes, and uncertainty about what each setting does.
 - [00:36:44] They joke that users need a PhD in model pickers, and state a goal of eliminating that complexity as quickly as possible.
 - [00:37:00] **Closing aside:** The podcast ends with a standard subscription, rating, review, and website call to action.
-
-## Practical applications
-- Suggestion: When evaluating an AI product roadmap, test the interviewee’s planning heuristic by asking how the design changes if capability, cost, latency, and multimodality improve by roughly 10× over the next year.
-- Suggestion: Prefer task-oriented interfaces over exposing users to model selection and workflow configuration, but validate whether automatic choices preserve sufficient user control and predictability.
-- Suggestion: For persistent agents, map the minimum necessary permissions, separate specialist roles, use additional monitoring for higher-risk functions, and keep sensitive operational access guarded.
-- Suggestion: For an agent-accessible API or MCP, model agent-driven traffic spikes, rate limits, reliability requirements, authentication, and unit economics before enabling broad discovery.
-- Suggestion: If building a plugin ecosystem, measure retention, repeated successful use, and quality rather than optimizing only for initial discovery.
-- Suggestion: Use AI to reduce attention load rather than only to increase throughput, for example by auditing meetings, delegation opportunities, interruptions, and rest patterns.
-- Suggestion: In hiring and development, assess taste, user empathy, collaboration, ownership, ability to learn quickly, and comfort working across formerly separate roles.
-- Suggestion: Maintain a release process that permits bottom-up experimentation but includes quality gates, staged launches, incident learning, and the ability to hold back incomplete work.
 
 ## Evidence anchors
 - [00:00:00.000] Often when I look at what people are

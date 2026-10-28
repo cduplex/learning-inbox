@@ -9,6 +9,67 @@
 ## Tags
 AI agents, automation, delegation, business operations, workflow design, permissions, email management, multi-agent systems, Claude Code, Codex, usage limits
 
+## Learning guide
+**The arc**
+The starting question is how to get an always-on AI assistant to actually run parts of a business without risk or wasted usage. The central idea is to build a team of Grockbots where each bot has one job, starting with a chief of staff and expanding permissions only as trust is earned. The content climbs seven levels, from a first bot to connected apps, approval rules, skills, routines, multi-bot teams and human collaboration, then adds a Claude Code/Codex terminal workaround, usage tips, limitations and a first-week rollout plan.
+
+**1. Set up and create your first bot**
+- **Install desktop, then phone:** Start with the desktop app, then add the phone app and keep both in sync. This lets bots on cloud computers keep working while your laptop is closed and you can check in from anywhere.
+- **Check your plan before switching:** The cheapest plan with Grockbot is the X subscription at $30 per month, and existing Cursor or Super Grock subscribers can keep those plans. Switching to the new plan cannot be reversed, so decide deliberately.
+- **Build a team, not one bot:** Give each bot one narrow job, such as bookkeeping, Instagram or personal assistant work. Like hiring distinct people instead of one person to run everything, narrow jobs get executed better.
+- **Make a chief of staff first:** Its job is to know the business, hand work to other bots later, and filter what needs your attention. Prompt it with your customers, products, working preferences and sticking points.
+- **End the prompt with "ask me five questions":** This makes the bot interview you and pull out the context it needs for the role.
+
+**2. Connect apps with tight boundaries**
+- **Start with email and calendar only:** In "connect apps" click Connect, log in and finish, and limit week one to these two. You can add multiple Gmail accounts to cover business and household email.
+- **Allow drafts, block sending:** In each app's permissions list, enable Gmail draft creation but disable sending while you learn. With sending on and no contrary instruction, the bot may send email proactively.
+- **Expand trust like a new hire:** Grant broader permissions only after the bot proves itself. Never connect anything you would not give a new contractor in week one; the creator does not connect their bank.
+- **Never paste passwords in chat:** Take over the bot screen or use the secure form for passwords and card details.
+- **Remember bots share one computer:** If one bot is logged into email, every bot can reach it. Names and roles do not isolate access.
+
+**3. Set approval rules before autonomy**
+- **Write ask-first rules:** Go to Settings > General > Auto Review and write plain-English rules: ask before sending, posting, deleting or buying anything. These bots are built to ask less than Claude Code or Codex, so you must configure approval-first behavior yourself.
+- **Choose Allow Once early:** Requests offer Allow Once, Always Allow or Deny. Always ask at first and move to Always Allow only for tasks with proven outputs.
+- **Answer approvals within 10 minutes:** Unanswered approvals for routines or other bots expire and the job does not run. If overnight work is missing, check for expired approvals.
+
+**4. Turn repeated work into skills**
+- **Save successful runs:** After a bot completes a task well, tell it "Save this as a skill" so you never re-explain it. Good candidates are replying to brand deals, onboarding a client and naming files.
+- **Record with "teach it a task":** Open the bot's computer, choose teach it a task, do the work (up to 10 minutes) and stop; it writes the skill. Recording, for example of email filtering, captures steps you would forget to describe.
+- **Keep skills small:** Skills are shared across all bots. Split a newsletter into research, drafting, formatting and reviewing instead of one "write my newsletter" skill, so you only fix the stage that breaks.
+
+**5. Automate with routines**
+- **Schedule recurring jobs:** Example: every Monday, research AI news and trends on X and Reddit and drop ideas into Slack for review and filming.
+- **Delegate setup to the chief of staff:** Tell it what needs handling and let it build routines and bots. Example: check email and calendar daily, flag only what needs you, learn your style from sent email, draft in it, save that as a skill, never send, and hand labeled brand deals to a bot named Jerry to check legitimacy and audience fit.
+- **Trigger on events:** Routines can start from a Slack message or from email to a bot address tagged with the bot name plus "receipt". Forward receipts there and have the bot log them in a spreadsheet; messages from the bot's own address wait for approval.
+
+**6. Grow a managed multi-bot team**
+- **Use hierarchy, not group chatter:** Every inter-bot message costs usage and "stay quiet" is only a hint; one user's five bots chatted over 7 hours. Have specialists (like a school concierge and onboarding bot) report to an operations lead, which brings you only yes/no decisions.
+- **@mention one bot per task:** Group chats hold two to six bots; mentioning everyone makes all of them try the job. Approval and login requests appear only in each bot's individual chat.
+- **Star a main bot and hide the rest:** The starred bot monitors others and offers to take work off you. Hidden bots keep running routines, which clears the sidebar.
+- **Start a service-business team:** Chief of staff (delegates, daily summary), inbox manager (sorts, drafts, labels, prioritizes), money bot (tracks invoices, drafts polite overdue reminders, QuickBooks connector), client-care bot (welcome pack on signing, chases missing forms). Keep an optional home manager for school notices, groceries, birthdays and gifts outside the business group chat.
+- **Define each bot in three lines:** What it owns, what it may never do, and who it reports to. Create these through conversation with the chief of staff.
+
+**7. Collaborate and produce outputs**
+- **Publish team bots:** Each teammate gets a private chat, also in Slack, so a VA can ask the client-care bot about missing forms without seeing your other chats.
+- **Build live pages:** Bots make PowerPoint or Google Slides decks and pages fed by connected tools, such as a Monday view of clients, unpaid invoices, new clients and missing forms.
+- **Share clean templates:** Templates copy setup, not logins or history, but strip passwords and private details first.
+
+**8. Add Claude Code or Codex via the terminal**
+- **Let the bot install it:** Instruct: open the terminal, install Claude Code or Codex, begin login, stop when my login is needed and notify me. Then take over the screen, sign in, click authorize, and grant only required file access.
+- **Keep your HQ on GitHub:** A repository makes files and skills reachable, so from your phone you can have Claude Code draft a newsletter or build a landing page. This also lets you pick models inside Claude Code.
+- **Know the costs and risks:** It needs a paid Claude plan and consumes both Claude and bot usage. All bots can reach it, so keep ask-first rules, and if an upgrade removes it, ask the bot to reinstall.
+
+**9. Stretch usage and work around limits**
+- **Prefer connected apps over browsing:** Clicking around websites, inter-bot messages and endless chats drain the weekly pool. Connected apps are far more efficient.
+- **Run routines only as often as needed:** Triage email twice daily, not every five minutes, and use weekly or monthly schedules where enough.
+- **Make bots log their work:** You cannot inspect bot memory, so require logs in Google Sheets or Notion.
+- **Clean up deliberately:** Deleting a bot does not clear material on the computer. Check Cursor privacy settings for training; in Australia @-tagging does not work yet.
+- **Document your process first:** Bots can only follow what you can explain. Small ad hoc tasks, like finding purchases in email and filling return forms on a walk, are where they shine.
+
+**Try this first:** On day 1, create a chief-of-staff bot with your business context and ask it to interview you with five questions; on day 2 connect email (drafts only) and calendar, day 3 teach it a task, and by week's end add a Monday briefing routine.
+
+**Caveat:** Pricing, the irreversible plan switch, usage limits and feature behavior are the creator's own unverified claims, so confirm them in the product before paying or switching plans.
+
 ## Derived summary
 ## Source framing and claimed use [00:00:00]
 - [00:00:00] The presenter says their “Grockbot team” has been running parts of their business for more than a month.
@@ -132,16 +193,6 @@ AI agents, automation, delegation, business operations, workflow design, permiss
 - [00:25:01] By week’s end: add the first routine, with a Monday briefing suggested as the starting point.
 - [00:25:05] Add specialists one at a time and repeatedly have the chief-of-staff bot interview the user about their work to develop the team.
 - [00:25:21] **Aside:** The closing directs viewers to another video and asks them to like and subscribe.
-
-## Practical applications
-- Suggestion: Document one repetitive workflow as small, observable steps before delegating it to any AI system, since the source says delegation depends on being able to communicate the process.
-- Suggestion: Start with calendar and email access only, set email to draft-only, and use explicit approval rules for sending, posting, deleting, and purchases.
-- Suggestion: Use a least-privilege access review: avoid connecting financial accounts or any system you would not give to a new contractor during their first week.
-- Suggestion: Create narrowly scoped reusable skills, for example research, drafting, formatting, and review, rather than one large end-to-end skill.
-- Suggestion: Introduce automation gradually: begin with one low-risk weekly briefing routine, then add specialists one at a time after reviewing outputs.
-- Suggestion: For multi-bot workflows, establish ownership, prohibited actions, reporting lines, and one designated coordinator to reduce unnecessary inter-bot activity.
-- Suggestion: Maintain an external audit trail, such as a spreadsheet or Notion log, for completed work and decisions when platform memory cannot be inspected.
-- Suggestion: If evaluating terminal-based integrations with third-party coding tools, account for shared-computer access, approval controls, paid-plan requirements, double usage consumption, and the possibility that installations may be replaced.
 
 ## Evidence anchors
 - [00:00:00.240] This is my Grockbot team. They have been

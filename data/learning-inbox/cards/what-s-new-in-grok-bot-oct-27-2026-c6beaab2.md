@@ -9,6 +9,36 @@
 ## Tags
 Grok Bot, product updates, AI agents, password management, Apple integrations, video generation, workflow
 
+## Learning guide
+**The arc**
+This Oct 27, 2026 Grok Bot update roundup from Matt Palmer covers a busy week of new features: shareable Pages, a password vault, Apple integrations, video generation and a set of smaller workflow fixes. More Apple integrations and shared-team functionality are coming, with no dates given.
+
+**1. Worth trying**
+- **Build a Page from your data:** Ask Grok Bot to analyze data, visualize a trend or explain a concept, and it can produce a Page that represents the data visually or tells a story. Keep it private or share it with your team, your company or the world. Matt used Pages to visualize his X posting activity, find his best time to post and map his training routine; a Q3 sales breakdown is the business-style equivalent.
+- **Store sensitive details in the Vault:** The new vault holds passwords plus addresses, contact information and Social Security numbers. You enter the details once and the bot fills them into web pages, with the data encrypted and kept out of the bot's view. Be careful about what you store anywhere.
+- **Connect 1Password:** If you already use 1Password, use the improved integration, built together with the 1Password team after it added better agent support.
+- **Automate Apple Home and daily life:** Grok Bot now connects to Apple Home, reminders, location, contacts, alarms and calendar. Example: have it check every day at 5 PM whether lights are on and turn them off if they are on Apple HomeKit, or ask for nearby restaurants and let it use your location.
+- **Generate videos by message:** Message the bot asking for a video and it creates one with the Imagine series of models.
+- **Manage X from the bot:** Beyond earlier X Chat integrations, ask it to help manage X Spaces and create lists.
+
+**2. Less friction**
+- **Let sub-agents handle media:** The bot can dispatch smaller workers to generate images and video while it keeps working on your main task.
+- **Pin items in the bot library:** Tap the bot and open the right-hand menu to see all media it has shared, then pin items for quick access or reuse.
+- **Forward emails without losing layout:** Email forwarding now preserves formatting.
+- **Expect fewer approval cards:** The bot is more selective about approvals, so sensitive actions still need review but routine ones no longer interrupt you.
+- **Rely on quieter notifications:** When you are at your desk and the bot needs to ask something, it delays the mobile notification a few minutes to cut noise.
+- **Watch for reconnect cards:** The simpler right pane and improved reconnect cards show when you need to sign back into an app.
+- **Convert Word files to Google Docs:** Send a DOCX file to Grok Bot and it can create the Google Docs equivalent in your Google account.
+
+**3. Small tricks**
+- **Quote in chat:** Type a greater-than symbol (>) to start a block quote, Markdown style.
+- **See all shortcuts:** Press Command-slash in the bot app to list the available shortcuts.
+- **Use phone shortcuts:** Map the iPhone action button to the bot, or remap the default Android assistant to it. The mobile apps also got a new typeface and design polish.
+
+**Try this first:** Ask Grok Bot to visualize something you track, such as your X posting activity, as a Page and find your best time to post.
+
+**Caveat:** The claims that Vault data is encrypted and never seen by the bot come from the product team and are not independently verified, so think twice before storing Social Security numbers or other high-risk data there.
+
 ## Derived summary
 ## 00:00:12 Pages for visualizing and sharing information
 - [00:00:13] Matt introduces Pages in Grok Bot. He says requests for data analysis, trend visualization or help understanding concepts can produce a page. [p0011–p0017]
@@ -51,11 +81,6 @@ Grok Bot, product updates, AI agents, password management, Apple integrations, v
 ## 00:07:13 Recap and outlook
 - [00:07:13] Matt closes by characterizing the release as another busy week of Grok Bot updates. [p0260–p0264]
 - [00:07:21] **Forward-looking claim:** He says more Apple integrations and shared-team functionality are coming, without giving dates or implementation details. [p0265–p0268]
-
-## Practical applications
-- Suggestion: Try a Page to visualize posting activity, a training routine or Q3 sales, and choose whether to share it or keep it private. [p0014–p0017, p0024–p0036]
-- Suggestion: Pin useful bot-shared media in the library for later reuse. [p0198–p0207]
-- Suggestion: Use command-slash to inspect the app's available shortcuts. [p0233–p0236]
 
 ## Evidence anchors
 - [00:00:13.545] Well, off the bat, we now

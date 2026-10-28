@@ -9,6 +9,54 @@
 ## Tags
 AI code review, Claude Code, software engineering, security review, risk-based approval, automation, incident response
 
+## Learning guide
+**The arc**
+Owain Lewis starts from a scale problem: Anthropic reportedly went from 2,500 to more than 30,000 merged changes per day in four months, with AI writing 90% of Claude Code's own codebase, so human review becomes the slowest step. His central idea is to stop asking whether a human read the code and instead ask what could go wrong and which layer, automated check or human, is best placed to catch it. He walks through a layered pipeline: local checks, pull-request AI and security review, risk-scaled human approval, gradual release, fast rollback, and learning from incidents. He concludes that quality at scale comes from iterative verification plus keeping humans focused where risk is highest.
+
+**1. Frame the review problem**
+- **Find your bottleneck:** A process moves only as fast as its slowest part, so agents writing code in minutes gain nothing if review takes days. Expect the bottleneck to worsen if you keep the same review methods while code volume grows.
+- **Keep both jobs of review:** Review exists to catch bugs before production and to build shared understanding of the codebase. Both matter even when agents write the code, because humans and agents both make first-draft mistakes and developers still need a high-level view of what the software does.
+- **Judge changes by blast radius:** A documentation change is low risk; a database or payment infrastructure error can cause an outage or lock customers out. Concentrate limited human attention on high-impact changes instead of treating every change identically.
+- **Measure speed and quality:** Track time from opening a change to merging it, alongside revert rate or defect rate. Watch both as you change the process so faster does not mean worse.
+
+**2. Before opening a change (local layer)**
+- **Run deterministic checks first:** Run tests, build checks, linting, type checking, and language-specific formatters to catch obvious errors. Ask an agent to configure these tools for your language both locally and on GitHub, and trigger formatting and linting with a Claude Code hook or a Git pre-hook.
+- **Review with a fresh agent:** After an agent writes code, have a subagent or fresh agent with a clean context window review it, since agent first drafts contain bugs just like human ones. You can cross-check with a different agent, for example Codex reviewing Claude Code output or vice versa.
+- **Iterate locally:** Have an agent fix the findings and run review again, more than once if needed. Boris, Claude Code's creator, says local iteration makes the final result two to three times better.
+- **Write a review.md file:** Keep a `review.md` in the codebase and tell review agents to read it, so reviews target your app's real concerns. Examples: security and correct authorization for a payments app; UI and database performance for a web app.
+- **Fill review.md with specifics:** Specify how findings are presented, exclude linting, formatting and particular folders, and flag email addresses or user information in logs. Add definitions for low, medium and high risk plus recurring problems so future reviews learn from them.
+
+**3. After opening the change (pull-request layer)**
+- **Add an automated AI reviewer:** Run AI review whenever a change is pushed to a pull request, for example on GitHub. Options include CodeRabbit, Greptile, Claude Code and Codex.
+- **Run general and security review together:** In Claude Code use `/code review` for broad issues and the separate security-review command for depth. In his demo with a deliberately planted SQL vulnerability, both caught it, but security review gave more detail (9 out of 10 confidence) and also flagged an unauthenticated endpoint, loopback on a predictable port, and path traversal.
+- **Focus reviews with context:** Pass extra context to point a review at particular files, uncommitted changes, an area, or a topic such as documentation.
+- **Cover the security targets:** Have security review check for SQL injection, cross-site scripting, authentication and authorization flaws, insecure data handling, missing validation, and vulnerable dependencies. Automate it so it is never forgotten, running it on every change or at least periodically.
+- **Check against acceptance criteria:** Point the review at acceptance checks and test cases from the original plan. The core question is whether the code does what it is meant to do and meets the requirements.
+
+**4. Make the process a repeatable factory**
+- **Encode the sequence:** Forgetfulness and fatigue break ad hoc prompting, so run every task through the same steps. The goal is repeatability and predictability, not many installed skills.
+- **Split roles into agents:** Use separate agents for triage, implementation, code review, security review, UX review (including browser testing of web apps), and risk classification. The classifier sets the ticket's risk level and adds a GitHub issue label.
+- **Trigger with one command:** Chain the subagents so one command takes a task through planning, building, testing and reviewing. His Software Factory example takes ticket `NEO-345` from triage to implementation to review, with a review command combining general and security review.
+- **Triage into a spec:** Have an agent turn a vague problem description into a detailed specification with labels. Review the spec yourself before the agent builds anything.
+
+**5. Approve by risk**
+- **Scale human approval:** Let agents auto-merge small, trivial changes like docs; give medium-risk changes such as a large feature one human reviewer; give database or infrastructure changes two reviewers.
+- **Own the result:** The person responsible for a change stays accountable for its quality even when agents write the code.
+
+**6. Release, rollback and learning**
+- **Roll out gradually:** Release to internal teams first to gather feedback before public release.
+- **Plan for fast detection and rollback:** Memory leaks and performance issues are hard to spot by reading code and surface only in production. Assume review is fallible and make bad releases quickly reversible.
+- **Review incidents weekly:** Hold on-call and incident reviews, looking at recent changes and problem areas to refine the process.
+- **Feed escapes back to reviewers:** Turn bugs that slipped past review into evaluations or reviewer context. A database change that passed review but broke production becomes a test or a `review.md` note for future agents.
+
+**7. Keep humans understanding the code**
+- **Keep humans in the loop for risky work:** Humans have context agents lack, and the two catch different things. Auto-merge only change types you are comfortable with.
+- **Generate an HTML explainer:** Ask Claude for an HTML explanation with a diagram of the change, its purpose, impact on architecture, and potential risk. Use it for large changes, context switching, or returning to work later.
+
+**Try this first:** Create a `review.md` in your repo with your app's top risks and low, medium and high risk definitions, then have a fresh agent read it and review your next change before you open it.
+
+**Caveat:** The Anthropic scale figures and the two to three times improvement from local iteration are reported by the speaker and not independently verified.
+
 ## Derived summary
 ## 00:00:00 | Scale and the review bottleneck
 
@@ -140,12 +188,6 @@ AI code review, Claude Code, software engineering, security review, risk-based a
 - [00:24:06] His main tradeoff is to reserve human judgment for more important, higher-risk changes instead of spending the same attention on routine changes.
 - [00:24:22] After merging, teams should learn from failures and refine the review process.
 - [00:24:33] His final thesis is that quality at scale comes from iterative verification across automated checks, AI review, human review where needed, monitoring, and measurement.
-
-## Practical applications
-- Suggestion: Define project-specific review priorities and recurring failure patterns in a review.md file, and have a fresh reviewer consult it. [p0247, p0248, p0249, p0725, p0726, p0727, p0728, p0729, p0730]
-- Suggestion: Establish risk categories and allocate human approval effort according to the potential impact of each change. [p0177, p0178, p0179, p0180, p0181, p0182]
-- Suggestion: Track opening-to-merge time alongside revert or defect rates when evaluating review-process changes. [p0144, p0145, p0146, p0147, p0148, p0149]
-- Suggestion: Include acceptance criteria in reviews and use incidents that escaped review as feedback or evaluation cases for later reviewers. [p0506, p0507, p0508, p0509, p0510, p0632, p0633, p0634, p0635]
 
 ## Evidence anchors
 - [00:00:04.880] months, the anthropic team went from

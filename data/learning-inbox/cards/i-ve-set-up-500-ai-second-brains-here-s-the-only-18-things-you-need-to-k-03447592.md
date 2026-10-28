@@ -9,6 +9,46 @@
 ## Tags
 AI second brain, knowledge management, AI agents, Markdown, team collaboration, context management, automation
 
+## Learning guide
+**The arc**
+An AI second brain is a local folder of text files that gives chats, skills, agents and AI tools current context about you and your business, but most setups fail through setup overwhelm, stale information or poor team adoption. The central idea is to start with a small set of core files, give the AI a clear map to route through them, and keep them fresh with scheduled updates and cleanups. The guide then moves from setup to structure, maintenance, everyday use through dashboards and skills, and finally rolling one shared brain out to a team with an owner, permissions and a business-first rule.
+
+**1. Start small and keep it local**
+- **Do a 30-minute brain dump:** Open Claude with a voice-dictation tool and speak freely about your identity, business, customers, goals, strategy, writing preferences and team. A 30-minute dump can deliver around 80% of the value because a few core files are relevant to almost every task. Have the AI turn the unstructured material into 5 to 10 clean files such as strategy, ideal customer profile, brand voice and offer documents.
+- **Point every chat at the same folder:** Give Claude access to an empty folder for setup, then select that same folder in later chats. The AI can then retrieve context and save new information back into it.
+- **Use local files, not built-in memory or connectors:** Built-in memory holds only a few facts and is tied to one provider, while connectors to tools like Notion or Google Drive are slower, less accurate, more expensive and more token-intensive. A local folder stays on your computer and works with any AI tool. For example, a client subfolder supplies proposal context directly instead of searching a CRM, Drive, email and meeting transcripts.
+- **Add a visual layer:** As Markdown files multiply they get hard to find and check, so open the folder in Obsidian (free) to browse files and see a graph of their connections. This helps you manage files without changing how the AI reads the folder.
+
+**2. Structure and routing**
+- **Create a root `agents.md` routing file:** Without a map, the AI searches broadly, wastes tokens or grabs the wrong material. Write a routing table listing each folder, what it contains, when to use it and where to save new information, for example: for sales-call prep, read client notes in sales and the offer in business. Keep it a map, not a manual, under 200 lines, and ask the AI to generate it from your folder.
+- **Rename `claude.md` instead of keeping both:** `agents.md` is provider-independent and read at session start. If an existing `claude.md` is present, Claude reads it and skips `agents.md`, so rename it.
+- **Use one main folder:** Put businesses, clients and departments as subfolders under one root, and let the routing file direct the AI. Multiple brains mean more to maintain and choose between; only split for completely separate businesses with no overlap, or to separate personal from business.
+- **Keep the structure stable:** Exact folder names matter less than consistency. Whenever you move or add folders, update the routing file; for example, splitting clients into active and past without updating the map leaves new notes going to the old location.
+- **Add an index in each growing subfolder:** When a subfolder reaches dozens or hundreds of files, add a small index listing each file and what it covers so the model reads the index first and then drills into relevant pages. Update indexes as the folder grows.
+
+**3. Maintenance: keep context useful and current**
+- **Save insights, not raw data:** The brain is a filtered layer over raw data, not a dump of every spreadsheet or export. Have the AI combine sources and save the takeaways; for example, analyze hundreds of support calls, community questions and tickets and save the resulting mistakes and tips in one Markdown file instead of rerunning five connectors and hundreds of tool calls. Treat it as an addition to connectors, not a replacement.
+- **Capture knowledge from people's heads:** Record strategy, decisions, preferences, reasons for a price increase and lessons from a failed launch. This context exists nowhere else.
+- **Schedule a daily update:** Set a daily task that checks key sources like meeting transcripts, CRM, project-management software, email and Slack, then saves insights about what is new or changed. Prioritize meeting transcripts because decisions often appear only there, and have the task update or delete older files that new information makes outdated.
+- **Run a health check every week or two:** Over time maps and indexes drift from reality and duplicates, contradictions and unlinked notes pile up. Schedule a deep clean that updates the root map and indexes, checks every folder is mapped and routing works, keeps `agents.md` under 200 lines, fixes broken links, duplicates and contradictions, shortens overly long files and clarifies filenames. Let it fix small issues immediately and ask before larger changes.
+
+**4. Put the knowledge to work**
+- **Build dashboards:** Ask the AI for a dashboard, specify what it should show and schedule a morning refresh. Use a general overview (today's priorities, this week's decisions, team assignments, upcoming meetings with prep notes), a department view (sales: prepared calls, deal status, due follow-ups), or a problem view (why client onboarding is slower this quarter, built from meeting notes, project files and decisions). Favor simple, decision-useful information over graphs of connections.
+- **Point skills to shared reference files:** Ten copies of a strategy document across ten skills means ten updates and stale copies. Have skills reference one file in the brain, such as a brand voice guide shared by LinkedIn, newsletter and email skills, or an offers-and-pricing doc used for proposals, call prep and outreach. Keep the skills themselves in your AI account, and when building or updating one, specify its references point to the brain files.
+
+**5. Advanced operation and team rollout**
+- **Update while the laptop is closed:** Scheduled tasks on local files run only while the laptop is open and the Claude app is running. Copy the daily task's prompt into a Claude Code cloud routine and set its schedule, but the brain must then be reachable in the cloud through a connector (an Obsidian-based route is possible but more technical).
+- **Sync one brain across the team:** Everyone needs the same files with changes synced, while avoiding simultaneous-edit conflicts, overwrites and missing permissions. Local app access is more efficient than connector-only access.
+- **Roll out in stages:** Use the brain yourself for a couple of weeks, then add one team member, then one department, then the whole company. This fixes problems while small and gives each new user a working system.
+- **Name one owner:** Shared responsibility means nobody maintains it. The owner runs weekly cleanup, approves folder-structure and `agents.md` changes, troubleshoots and manages access.
+- **Control access:** Restrict leadership notes, financials, client files and HR information with edit, view-only or no-access settings per folder or file. For example, make the context folder and `agents.md` view-only for everyone and the finance folder visible only to the co-founder.
+- **Create team dashboards:** Have the owner build department dashboards: sales (pipeline, prepared calls, follow-ups), marketing (content performance, customer insights, competitors), operations (projects, deadlines, recent decisions). Share via a Claude artifact link or a hosted URL such as Vercel.
+- **Add a business-first rule:** Individual agents tend to agree with whoever uses them. Add an `agents.md` instruction telling the AI to act in the business's best interest based on its goals and strategy and to say clearly when a request or output conflicts with them, so every team agent shares the same rule.
+
+**Try this first:** Create an empty folder, open Claude with voice dictation, talk for 30 minutes about your business, customers, goals, strategy and writing style, and have it produce 5 to 10 core files in that folder.
+
+**Caveat:** The presenter sells Balda and an AI accelerator; the cloud-connector, team sync, permission and upcoming dashboard features are described through Balda, and its performance claims are not independently verified.
+
 ## Derived summary
 ## 00:00 Introduction: What an AI second brain is
 - [00:00] The presenter describes an AI second brain as context that helps chats, skills, agents, and AI tools understand a person and their business. The presenter’s performance, product, and experience claims throughout these notes are not independently verified.
@@ -162,12 +202,6 @@ AI second brain, knowledge management, AI agents, Markdown, team collaboration, 
 ## 00:29:08 Closing recap and promotional aside
 - [00:29:08] The presenter’s final example ties the shared rule to a common source of business goals and strategy.
 - [00:29:08] The closing promotes the accelerator and Balda and points viewers to further setup material. [00:29:27]
-
-## Practical applications
-- Suggestion: Draft a small set of core context files from a voice brain dump, then organize them under one stable folder with a routing file and subfolder indexes.
-- Suggestion: Design a maintenance workflow that separates daily extraction of new insights from a weekly or fortnightly review of indexes, duplicates, links, and contradictions.
-- Suggestion: Pilot a shared brain with one user and then a small team, assigning an owner and defining view, edit, and no-access permissions before broader rollout.
-- Suggestion: Prototype a decision-focused dashboard for one department, using shared reference files rather than duplicating them across skills.
 
 ## Evidence anchors
 - [00:00:00.000] An AI second brain has become the

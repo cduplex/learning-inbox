@@ -9,6 +9,62 @@
 ## Tags
 AI coding agents, Claude Code, Codex, agent orchestration, long-horizon tasks, software engineering, verification, developer workflows, infrastructure as code, Terraform, gcloud, task management
 
+## Learning guide
+**The arc**
+Patrick Ellis starts from the observation that most engineers use Claude Code and Codex in ways that waste leverage, while labs are building toward agents that run for hours. His central idea is that the bottleneck is no longer the model but the orchestration layer around it: context, tools, workflows and verification. He walks through each pillar, shows how they enable fewer interruptions and teams of agents, illustrates it with an analytics dashboard build, and closes by arguing that this layer compounds as models improve.
+
+**1. Reframe the job: orchestrate, don't prompt**
+- **Onboard the model like a new hire:** Treat the model as a capable college student new to your team, project and manager. Anticipate onboarding questions and supply resources, code-quality expectations, tool access and project context up front. A task stalls when the model lacks task clarity, tool access or knowledge of the right solution.
+- **Stress-test each new model with your most ambitious project:** Feed it something like a meeting transcript, mocks and assets plus your internal wiki and tooling, and ask for sophisticated PRDs. This shows how well it can plan, which current models do very well.
+- **Match the model to the input you can give:** Claude Code is scrappy and searches messy codebases with Bash and tools to find context. Codex is systematic and precise but needs a complete plan in advance to perform well.
+
+**2. Pillar one: Context**
+- **Write down everything the agent can't infer:** Include company and product info, app goals and scope, design language, performance requirements and adjacent codebases. For multi-repo systems add microservices, third-party APIs, docs and Slack history.
+- **Give a clear picture of the finished state:** Agents need strong kickoff context plus concrete examples of done so they know what must change. For the dashboard, Patrick combined rough sketches, several product-meeting transcripts and CEO notes into a PRD-style brief alongside an HTML mock from Claude Design.
+- **Build a design system as visual context:** Use Claude Design to define iconography, white space, typography and color palettes, generate samples, and convert results to design files. Claude Design, GPT Image 2 in ChatGPT, your own designs or other mockups all work as high-quality visual input.
+
+**3. Pillar two: Workflows and SOPs**
+- **Force agents through structured steps:** An SOP packages considerations, judgment, taste and earned knowledge so the model weighs multiple perspectives instead of giving an unstructured answer. Package engineering reviews, design reviews, end-to-end PR review, security reviews and Sentry bug triage this way.
+- **Use gstack's review commands:** Start with `/office-hours` to capture company, product and objectives, then run the plan CEO review (features, customer validation, scope), engineering review (architecture, the one Patrick uses most), and plan design review for UI-heavy work covering edge cases, polish and small interactions.
+- **Let question sets interview you:** gstack asks a series of questions with a recommended answer; accept it or write your own (Patrick accepts about half). Aim for the model to reach about 80% through structured thinking, then add your expertise.
+- **Plan for DevEx:** Developer-experience planning also stands in for the agent's experience, so keep systems as simple as possible.
+
+**4. Separate planning, execution and adversarial review**
+- **Review with a second model:** Call CLI Codex from Claude Code (or Claude Code from Codex) for a full adversarial review. Different training and post-training give different blind spots, which helps most for architecture, debates and code review.
+- **Chain reviews into one command:** Patrick's custom `review-and-push` skill takes an ID like `PR 1000`, runs pre-flight checks (correct branch, PR found, basic checks), invokes gstack's `/ship` to make a mergeable PR, then runs a full gstack review and a Codex challenge. It adds CodeRabbit, linters and automated tests for as many error-detection vectors as possible.
+- **Close the loop on comments and CI:** The workflow fetches GitHub comments from people and bots like CodeRabbit, triages them, applies fixes, pushes and watches CI/CD. It finishes with a report of what changed so you stay informed.
+
+**5. Pillar three: Verification**
+- **Compare screenshots to mocks:** For UI, take Playwright screenshots of the output and compare them against spec mocks so the model spots overlaps and critiques its design. Pair this with style guides and original mocks.
+- **Plug in every deterministic CLI check:** Static analysis, linters, formatters and unit tests such as ESLint audit code for defined properties. Any existing deterministic developer tooling unlocks longer runs.
+- **Move toward test-driven development:** Models write tests well, so lean on near-TDD, especially for backend verification.
+- **Detect dead code explicitly:** Models won't reliably remove abandoned code or unused variables unless a tool flags them.
+
+**6. Pillar four: Tools and infrastructure access**
+- **Expose the `gh` CLI:** Agents can use GitHub, inspect old PRs and gather history.
+- **Automate bug fixing:** Patrick's `sentry-fixes` finds Sentry bugs, triages and fixes them, gets a second-opinion review, then watches CI/CD through merge and passing checks.
+- **Give read-only `gcloud` access:** Agents gather logs, infra config, server specs, failed-deployment info, telemetry and performance data for rollouts and production triage.
+- **Use Terraform as infra documentation:** Infrastructure as code tells agents the current state and tracks what changed, why and when. Platform CLIs (Supabase, GCP, AWS) can diff live cloud state against Terraform config.
+- **Lock down permissions:** Let agents collect information and help with deployment steps like environment variables, but never change core infrastructure without human review.
+
+**7. Cut interruptions and scale to teams of agents**
+- **Target 5 questions instead of 100:** Spend the first 10% on planning, context, verification and test resources so agents run while you're away and you can supervise eight agents without context-switching overload. Work should return only after QA.
+- **Never click through prompts blindly:** Inattentive approvals can let through something like an `rm -rf` on a whole repo.
+- **Spin up a manager agent:** With robust context and a locked-down SOP, ask Claude Code to create and manage a team of agents producing, say, five or 20 PRs, with a manager absorbing day-to-day questions. Run reviews concurrently and let agents nest sub-agents.
+- **Hand off between tools:** Patrick ran Codex overnight for six hours on core work, brought the PRs into Claude Code for gstack design and engineering review, then used Codex in a fresh session as adversarial reviewer.
+- **Use guardrails to unlock proactive work:** Rich requirements and context let agents spot an issue-tracker bug, write a test, fix the regression, run QA and open a PR likely to merge.
+
+**8. Keep long tasks on track**
+- **Use a real task system, not a Markdown file:** Models skip through Markdown task lists near the context limit. Beads (by Steve Yegge) stores tasks as database entries with dependency graphs, forcing issue-by-issue completion and SOP adherence.
+- **Audit with the bead viewer:** Run `bv` to see tasks, hierarchy, relationships and details, and confirm agents didn't report unfinished work as done.
+
+**9. Invest for compounding**
+- **Document context into one orchestration layer:** Models will never know your company's context, tooling, verification and workflows unless you provide them, and better models amplify this investment rather than replace it. Being slightly ahead compounds over time.
+
+**Try this first:** Pick one current PR and build a single review command that runs your linters and tests, gets a cross-model review (Codex from Claude Code or vice versa), triages GitHub comments and ends with a report of what changed.
+
+**Caveat:** The leverage figures (10x to 100x, 50x), gstack's star count and claims about newer models auto-spawning specialists are the creator's own unverified assessments.
+
 ## Derived summary
 ## [00:00:00] Thesis: leverage comes from orchestration
 - [00:00:00] Patrick claims many engineers use Claude Code and Codex incorrectly and therefore lose substantial leverage.
@@ -223,15 +279,6 @@ AI coding agents, Claude Code, Codex, agent orchestration, long-horizon tasks, s
 - [00:30:07] **Promotional aside:** He says he plans to share more workflows about Claude Code, Codex, and second brains.
 - [00:30:27] **Promotional aside:** He mentions a newsletter sign-up for a video summary, linked tools, and future updates.
 - [00:30:39] **Promotional aside:** He points viewers to other videos, including one about getting better design from Claude Code or Codex.
-
-## Practical applications
-- Suggestion: Audit an existing agent workflow against the four source-described pillars: context, tools, workflows/SOPs, and verification. Record missing inputs rather than assuming a stronger model will compensate.
-- Suggestion: Create a bounded planning intake that gathers product goals, repository context, mockups, performance requirements, and acceptance criteria before launching a long-running coding task.
-- Suggestion: Add deterministic verification to agent-generated changes, such as linting, formatting, unit tests, static analysis, dead-code checks, CI/CD monitoring, and where relevant screenshot comparison against approved UI mocks.
-- Suggestion: Use an adversarial or cross-model review stage for high-impact PRs, while keeping a human-readable final change report for engineer oversight.
-- Suggestion: Grant cloud and infrastructure tools read-oriented access for context gathering where feasible, and require human review before agents modify core infrastructure.
-- Suggestion: Represent complex work as structured tasks with dependencies rather than relying only on a Markdown checklist, then review task completion against actual artifacts and tests.
-- Suggestion: When coordinating multiple agents, reduce interruptions by investing first in shared specifications, tool access, SOPs, and explicit completion criteria.
 
 ## Evidence anchors
 - [00:00:00.000] Most engineers are using Claude Code and Codex wrong, and it's costing them massive leverage.

@@ -9,6 +9,54 @@
 ## Tags
 Claude Code, Claude Tag, AI agents, software engineering, agent workflows, code review, verification, test-time compute, developer productivity, Slack
 
+## Learning guide
+**The arc**
+The Claude Code team starts from a workflow that has changed fast: a year ago they prompted, gave feedback and accepted permission prompts, and now they hand Claude whole goals. The central idea is to stop supervising individual model actions and instead set higher-level goals, supported by primitives for context, persistence, workflows, verification, review and feedback. They move from building products on shifting models, to cloud loops, fan-out workflows, review and verification, and end with how the engineer's role shifts toward system context and new ideas.
+
+**1. Delegate goals, not steps**
+- **Give goals instead of watching transcripts:** Stop closely tracking tool calls, transcripts and individual model choices, and give the model a goal to pursue. This lets you delegate far more complicated problems than early requests like implementing a class or writing a function. Accept that losing constant visibility feels scary at first, then let Claude decide what and when to communicate.
+- **Work where team context lives:** Use a Slack-native agent like Claude Tag so it can draw on product context and team decisions, which improves its decision-making. One speaker does 70 to 80% of their work there and uses the TUI or desktop app for the remaining roughly 20%, mainly to refine work or micromanage agents.
+- **Keep full detail one click away:** Treat messaging as the primary interface while full transcripts stay available through a link. You no longer need to track tool names and parameters, which frees attention for the result.
+
+**2. Build on models that change every two months**
+- **Stay at the frontier and ship for today:** Balance understanding the edge of capability with delivering value to people using current models. Model technology can shift fundamentally every two months, unlike older tech with shelf lives of years.
+- **Match features to current failure modes:** Design harness features to cover what models get wrong right now. Around Sonnet 3.5, given five tasks a model might finish three and stop, so a to-do list helped with multi-step work; a year later richer memory states made it less necessary.
+- **Stay unattached and remove old scaffolding:** Delete features once models no longer need them. As task scope grows, add different tools that keep models coherent on larger tasks.
+- **Keep a current mental model of Claude:** Track model progress closely so you can make big changes quickly, such as building a proactive agent while rewriting permissions and creating artifacts.
+- **Build composable primitives:** Create primitives like permissions and visualizations, then layer them together. The ask-user-question tool went from hard to get called well, to a callable tool, to often replaced by an HTML artifact that asks questions with diagrams and mockups.
+
+**3. Move agents to the cloud and run loops**
+- **Run agents where they survive your laptop:** Local agents stop when you shut your machine, and hosted dev boxes still need SSH to get back in. Use hosted containers like Claude Code on the web that keep running in the background.
+- **Pay the setup cost once:** Configuring a container with access to your development environment is painful but worth it; one speaker credits it with a 10x productivity gain.
+- **Set up routines:** Schedule recurring cloud processes, for example a daily job that reviews feedback, groups it by importance and fixes issues it is highly confident about.
+- **Think one level above the session:** Ask for a loop, a process above a single prompt session, that keeps fixing bugs or carrying out work beyond one conversation.
+
+**4. Shift human review upward**
+- **Let Claude handle nitpicks:** Have Claude find and autonomously fix minor issues, the small comments reviewers leave to show they read the code. This keeps reviewing from consuming your job as code volume grows.
+- **Review the big picture:** Spend your attention on why an API has its structure or why service boundaries sit where they do. Have Claude gather that context and hand it to you so you reason at a higher abstraction level.
+
+**5. Use fan-out workflows with adversarial checks**
+- **Fan out, then coalesce:** Search broadly across potential issues in parallel, then merge results, spending extra inference-time computation (test-time compute) on the problem. Start with a custom harness that directs Claude to fan out and find bugs.
+- **Validate each finding adversarially:** For every candidate bug, ask Claude to examine it from three different perspectives to decide if it is real. Only the most important issues then reach a human.
+- **Reduce for human reading:** Fan-out produces too much raw information to read, so filter it back down, like MapReduce. To gain more confidence, add more test-time compute.
+- **Apply it beyond code:** Use the same pattern for performance issues and deep research. For planning a Tahoe trip with parents, about ten searches cover bathhouses, hotels, Airbnb and places to go, then other agents sort, flag interesting results and verify them.
+- **Let Claude build the harness:** Ask Claude to choose the fan-out shape, pass each agent's output to the next stage and summarize. Combine deterministic orchestration code with agentic behavior, because a generated `for` loop applies the same technique to every item without skipping one.
+
+**6. Close the loop with feedback and verification**
+- **Make your dev loop agent-friendly:** Make the development environment easy for the agent to use so it can build and test integrated software end to end, which gets harder as systems grow interconnected.
+- **Start projects with stakeholder discovery:** For a tool needing buy-in, first ask the agent to identify people who may be interested, then have it produce mockups in Slack you can view on your phone, then implementation.
+- **Instrument, deploy and monitor:** Add many events, deploy internally and have the agent watch usage and tag you when people give feedback. Pull feedback from event stores, metrics, Slack or GitHub issues.
+- **Raise the level of your ask:** When users did not complete a funnel, the speaker stopped asking for their specific idea and asked Claude to improve the funnel and propose ideas.
+- **Require proof of work:** Have Claude test its pull requests and send screenshots of the result. For TUI changes, ask it to record itself using the TUI, then clone and try it yourself as a sanity check.
+
+**7. Free your mind to think bigger**
+- **Hand off the tedious craft:** Delegate work like performance engineering or a day spent recreating Mac OS 10.4 Aqua buttons in CSS with layered radial gradients. Put your energy into shortening the path from idea to prototype to production.
+- **Treat skill gaps as solvable:** State a goal, break it down and work with Claude toward it instead of being blocked by missing technical skills.
+
+**Try this first:** Pick one recurring chore, such as triaging feedback, and set up a daily cloud routine that groups it by importance and fixes only the issues Claude is highly confident about.
+
+**Caveat:** The creator builds Claude Code and Claude Tag, and figures like the 10x productivity gain are a speaker's personal claim, so test the workflows on your own work before relying on them.
+
 ## Derived summary
 ## [00:00:00] Framing: planning and a changed way of working
 - [00:00:00] The speakers open by saying that even thinking two months ahead feels difficult, let alone planning the next year.
@@ -111,15 +159,6 @@ Claude Code, Claude Tag, AI agents, software engineering, agent workflows, code 
 ## [00:22:11] Recap
 - [00:22:11] The speakers' central theme is a shift from supervising individual model actions to setting higher-level goals, supported by primitives for context, persistence, workflows, verification, review, and feedback.
 - [00:22:13] They argue that rapidly changing model capabilities require teams to discard obsolete scaffolding, redesign tools for larger tasks, and redirect human attention from low-level execution toward system context, validation, and new ideas.
-
-## Practical applications
-- Suggestion: For agent-assisted engineering, define success as a higher-level goal and reserve direct TUI or desktop supervision for refinement or cases needing close control.
-- Suggestion: Treat agent harness features as temporary responses to present failure modes; periodically review whether improved model capability makes a feature unnecessary.
-- Suggestion: For broad investigations, structure work as fan-out, adversarial validation of candidate findings, and a filtered human-readable synthesis.
-- Suggestion: When persistent work is needed, consider a hosted environment with explicit setup and access controls, then use routines for recurring feedback triage.
-- Suggestion: Refocus human code review on architecture, API rationale, service boundaries, and contextual judgment while automating low-value nitpicks where appropriate.
-- Suggestion: Build validation into agent workflows through tests, recorded demonstrations, screenshots, event instrumentation, internal deployment, and selective human sanity checks.
-- Suggestion: Connect feedback sources such as metrics, event stores, Slack, and issue trackers so an agent can surface relevant signals and support iterative product improvement.
 
 ## Evidence anchors
 - [00:00:00.000] Do you guys have any thoughts

@@ -9,6 +9,58 @@
 ## Tags
 software factory, Claude Code, agent orchestration, subagents, code review, Git worktrees, Markdown state, human-in-the-loop, CI/CD, developer productivity
 
+## Learning guide
+**The arc**
+The video starts from a practical question: can you build a simple but effective AI software factory inside an existing project, so a feature request becomes merged code with little human effort? The central idea is a repository-local, skill-driven team of Claude Code agents (spec writer, builder, reviewers, approver) whose state lives in Markdown files, with a human approval gate at the end. It moves from the factory concept to a single build prompt, a first live job, parallel jobs with Git worktrees, fixes for real failures, and finally future extensions and cost.
+
+**1. Understand the factory model**
+- **Think in loops:** The basic loop is trigger, agent, pull request, human merge. AI lets you automate the unstructured cognitive work, including code writing, between deterministic stages like CI/CD and GitHub Actions.
+- **Define the agent pipeline:** Use the flow feature, spec writer, builder, review agents, possible rework loop, approver, then automatic merge or human review. An Opus spec writer produces the spec, a builder implements the full feature, and separate security, UX, UI-design and code-review agents assess it.
+- **Close the review loop:** Feed review output back to the builder until the code is satisfactory. A separate Opus approval agent then decides between auto-merge to main and escalation to a human.
+
+**2. Write the build prompt and set up Claude Code**
+- **Build inside a real repo:** Add the factory to an existing, complex project rather than a clean demo repo, so it fits your actual codebase.
+- **Pick permissions and model deliberately:** The demo ran Claude Code with bypass permissions, which lets Claude do anything, so choose your own permission level. Use Opus at high effort so the agent follows the prompt's details and aims for quality.
+- **State the spec in one sentence:** Ask for a visual software factory in the repository using Claude skills, subagents and Markdown files, with Markdown controlling application state. Make Claude Code the orchestrator, using whatever model is selected, with a factory skill that starts the system.
+- **Plan for future intake:** Write the prompt so jobs can later come from external data sources or triggers, not only direct feature requests.
+- **Specify structure and examples:** Follow the agent-skill convention, add a `factory` folder in the app, and include example files showing the subagent syntax and style you want. Define commands like invoking `factory` with a feature description, plus a dashboard for visibility.
+
+**3. Review and configure the generated factory**
+- **Know what gets generated:** Expect approval, builder and reviewer subagents, an orchestrator skill, a Markdown backlog of unbuilt jobs, a dashboard, and small edits to agent and ignore files. The orchestrator skill sits in the project's Claude skills location, so Claude Code indexes it and documents patterns like `factory /feature`.
+- **Set rework limits and a branch:** The generated settings used a maximum of two rounds, a `factory` checkout/branch for the builder, and a rework method that sends failed work through again.
+- **Add repo-specific escalation rules:** Tell the approver which changes always need a human, such as billing-related changes and course-access changes.
+- **Restart to load agents:** Restart Claude Code after generation so the new agents load. Check the backlog, since it may contain unexpected starter items.
+
+**4. Run your first job**
+- **Commit before starting:** The factory requires a clean working tree, so commit and push the factory code first.
+- **Watch the phases on the dashboard:** A job gets a name, the spec writer writes a spec file, the builder writes a build file, then the system returns to main and launches all reviewers. A "needs human" phase catches stuck work or items needing review.
+- **Approve escalated work by ID:** When the approver escalates, read the escalation details and acceptance criteria on the dashboard, find the feature ID, and run `factory approve`. The builder branches off, makes several commits, and merges only after your approval.
+- **Expect loose approval input:** `factory approve` invokes the factory skill, but the approval text is free-form, not a strict schema.
+
+**5. Manage Markdown state**
+- **Keep metadata as plain text:** The dashboard reads Markdown files in the `factory` directory, which you, agents, future agents or other systems can inspect directly.
+- **Decide on committing vs backup:** Committing metadata can clutter fuzzy file search. If the directory is Git-ignored, it is transient and vanishes on a fresh clone, so set up a custom backup such as agent-managed cloud storage.
+
+**6. Run jobs in parallel**
+- **Add Git worktree support:** Without worktrees the factory handles concurrent features poorly, so ask Claude to add worktree integration; jobs then run without manual worktree switching. You can even use the factory to build this.
+- **Launch jobs in tmux panes:** Run `factory next` in separate tmux panes to pull backlog items like a blog reading-time label, a code-block copy button and a 404 page.
+- **Mix models by role:** Use a capable model like Opus for orchestration and try faster models like Sonnet at low effort elsewhere. Subagents largely set the speed, so a faster orchestrator alone may not help.
+- **Own your factory:** A small in-house factory is one your team can inspect, modify and understand, instead of depending on a large third-party skill.
+
+**7. Fix failures and tune guardrails**
+- **Loosen overly strict guardrails:** If agents keep finding reasons to request manual review (for example avoiding a blog render cache invalidation), your rules may be too strict.
+- **Allow backlog changes in the clean-tree check:** Auto-merge failed because main had to be clean and on `main`, but the backlog file always changes during operation. Exempt that specific backlog file from the condition.
+- **Commit stray changes before merging:** When one job's changes block another's merge, commit them separately, then merge the remaining work.
+
+**8. Extend the factory and weigh cost**
+- **Add external intake:** Connect GitHub Issues, which many people can submit, are tracked, and fit GitHub workflows; Slack is another trigger.
+- **Connect monitoring and metrics:** Feed production bugs and context from tools like Sentry, plus CPU and memory metrics, so the factory can undo a harmful feature after release.
+- **Judge cost against quality:** Subagents cost more because context passes between agents. Decide whether the extra tokens are worth it; the demo used a Claude plan, not API tokens.
+
+**Try this first:** In a real repo with a clean, committed working tree, paste a one-sentence prompt into Claude Code (Opus, high effort) asking for a visual software factory using Claude skills, subagents and Markdown state, then run `factory` with one small feature from your backlog.
+
+**Caveat:** The video is sponsored by Anthropic and the whole setup depends on Claude Code; the claims about quality gains and that the general prompt transfers to other projects are untested, so measure cost and results on your own repo.
+
 ## Derived summary
 ## Overview and factory model [00:00:00]
 - [00:00:00] **Sponsor aside:** Anthropic sponsored the video; the presenter says the build uses Claude Code with a mix of Opus and Sonnet, described as version 5.5 at filming.
@@ -97,15 +149,6 @@ software factory, Claude Code, agent orchestration, subagents, code review, Git 
 - [00:26:48] The practical tradeoff is whether added token cost is justified by quality. The presenter says this demonstration used their Claude plan rather than API tokens.
 - [00:27:04] Final position: despite the cost consideration, the presenter intends to build more factories and describes the approach as their preferred direction for future work.
 - [00:27:16] **Recap:** The demonstrated design is a repository-local, skill-driven agent factory with Markdown state, specialized builder and reviewer subagents, human escalation, a dashboard, optional parallel worktrees, and potential future external intake and monitoring.
-
-## Practical applications
-- Suggestion: Adapt the illustrated pipeline to a repository by defining a feature intake, spec writer, builder, specialized reviewers, rework loop, and explicit human-escalation conditions.
-- Suggestion: Keep factory state in inspectable Markdown if simplicity and agent interoperability matter; decide separately whether transient metadata should be Git-ignored or backed up.
-- Suggestion: Add Git worktrees before running multiple feature jobs concurrently, then test merge preconditions against expected factory-state changes.
-- Suggestion: Define repository-specific escalation rules for sensitive areas such as billing, access control, cache invalidation, or other consequential changes.
-- Suggestion: Evaluate model allocation experimentally: retain a capable orchestrator if judgment is important, while considering faster models for bounded subagent tasks.
-- Suggestion: Consider GitHub Issues, Slack, production-error monitoring, and infrastructure metrics as controlled future intake and post-deployment feedback sources.
-- Suggestion: Track subagent context and token costs against review quality and human-review reduction before scaling the workflow.
 
 ## Evidence anchors
 - [00:01:05.280] is what we're going to build. It's a

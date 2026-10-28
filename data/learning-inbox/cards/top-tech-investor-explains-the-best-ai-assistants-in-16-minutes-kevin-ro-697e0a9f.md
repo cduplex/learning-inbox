@@ -9,6 +9,44 @@
 ## Tags
 AI assistants, agentic AI, personal productivity, privacy, memory and context, agentic commerce, e-commerce, software automation, voice agents, ChatGPT, Muse, Instinct
 
+## Learning guide
+**The arc**
+Kevin Rose and Tim Ferriss start from how AI moved past chatbots you ask questions (like how to repair a light switch) to personal assistants that watch your accounts and act proactively. The central idea is that assistants such as Instinct, Meta's Muse and Grokbot become your single entry point to email, calendars, shopping and even creative software. They move from first-hand examples, through privacy trade-offs and what this means for memory, commerce and apps, to a simple call to start experimenting now.
+
+**1. Understand the new category**
+- **Separate chat from assistants:** Treat ChatGPT- or Claude-style chat as reactive Q&A, and the new assistants as proactive agents that watch connected information and act. This shift is why the new tools feel different even if you already use AI heavily for coding and work.
+- **Know the entrants:** Instinct works through iMessage via a phone number you text, with no extra app, similar to the WeChat model in China. Muse is Meta's version with an app and possible future phone-number support, Grokbot comes from the Grok project, and ChatGPT announced its own equivalent called Dots.
+
+**2. Connect accounts, but limit the blast radius**
+- **Expect a broad access request:** When you first text Instinct, it asks you to connect your Google account, including Gmail and Google Drive. Its usefulness comes from this access, so decide deliberately before granting it.
+- **Assess the blast radius:** Before connecting anything, ask what damage would follow if the assistant or vendor were hacked. Keep truly sensitive materials stored separately and offline, out of reach of connected accounts.
+- **Weigh vendor trust:** A large company product like Muse may be more battle-tested, scrutinized and subject to more checks and balances than a young startup like Instinct. Large firms are not always good actors either, so factor in both size and track record.
+- **Use a vault for credentials:** When the assistant cannot log into a service, supply credentials through a secure vault rather than pasting them in chat. This is how the OpenTable reservation example worked.
+
+**3. Delegate real tasks**
+- **Let it surface what you missed:** After authorization, the assistant flagged an overlooked DocuSign from several days earlier, which got completed. It learns from your responses and past actions what you care about, so keep responding to its prompts to sharpen it.
+- **Have it chain logistics across services:** For a gabapentin prescription needed before an international flight, Instinct reported the prescription was ready, calculated departure time assuming an on-time flight, and proposed picking it up first, then heading to the airport. Give it access to both calendar and email so it can connect such dots.
+- **Hand off hard bookings:** Ask it to change flights or chase a difficult restaurant reservation. In the example it found that reservations dropped every two weeks, provided the link, then booked and added it to the calendar once given OpenTable credentials.
+- **Connect assistants with friends:** Multiple Instinct users can link their assistants as friends, which then exchange calendar and logistical details to settle a dinner time and pickup arrangements.
+- **Call your agent by voice:** Launch a bot, get a phone number, and call it anytime without consuming AI credits. Use it while driving to move a meeting or follow up on an email, as in the call to the agent named Sabrina that pulled up a 12:30 to 3:30 recording slot.
+
+**4. See where this is heading**
+- **Treat memory as lock-in:** Memories can be exported, but your assistant becomes durable storage for your life story, history and interests. Choose carefully, because re-authorizing a new service every time a new model launches is a hassle you will want to avoid.
+- **Expect agents to replace destination sites:** Instead of searching Amazon, Shopify or a small store for towels, you ask ChatGPT, which can substitute a Walmart equivalent that costs $10 less. Amazon blocked Meta's agent to protect sponsored placements, while Shopify opened to agents about 24 hours later, a move framed as strategically smart.
+- **Let the AI weigh trade-offs for purchases:** Ask for a refill conversationally and have the agent compare speed versus price, such as Walmart delivery in two hours versus Amazon at $2 less the next day. The shift mirrors the move from Sears to online, which started at 10% of tool sales and within a decade took most of them.
+- **Drive software headlessly:** Blackmagic's DaVinci Resolve offers a one-click MCP server; supplying three camera shots and two audio tracks and telling ChatGPT to make the podcast produced an edited episode on screen. The same pattern applies in Photoshop and CAD, so look for MCP connections in tools you use instead of learning every menu.
+- **Watch on-device and platform players:** On-device AI like Apple Intelligence could become competitive in a year and a half to three years, and Gemini is set to power Android. ChatGPT, Anthropic and others will compete on specialized strengths, so the winners are services that cooperate with the assistant entry point.
+- **Remember early versions improve fast:** Like the first Dexcom glucose monitor, once invasive and now like a peck on the cheek, clunky early tech spreads from niche users to everyone. Do not dismiss assistants as 1-percenter tools based on today's rough edges.
+
+**5. Start experimenting**
+- **Pick the easiest entry:** Paid ChatGPT mobile users already have the feature available. Muse has topped the App Store and is easy to sign up for, so try it first; Instinct is invite-only, so find an invite through someone you know or online.
+- **Wait on Grok:** It is more technical and its models lag, so hold off unless you enjoy tinkering.
+- **Just play:** Start using one assistant on everyday tasks rather than over-researching.
+
+**Try this first:** Sign up for Muse (or open the agent feature in paid ChatGPT mobile), connect only a non-sensitive account, and ask it to surface anything you have overlooked this week.
+
+**Caveat:** Product capabilities, security models, the Instinct $10 billion valuation and market forecasts are speaker-reported and unverified, so judge privacy risk yourself before granting account access.
+
 ## Derived summary
 ## Source note
 - The speakers discuss recent AI-assistant products and make forecasts about adoption, commerce, and software interfaces. Product capabilities, availability, valuations, security claims, and market predictions are speaker-reported and not independently verified. [00:00:00]
@@ -131,13 +169,6 @@ AI assistants, agentic AI, personal productivity, privacy, memory and context, a
 - [00:15:31] The speaker says the agent can be called at any time without consuming AI credits.
 - [00:15:34] They give driving-time examples: asking the agent to move something or follow up on an email.
 - [00:15:41] Final recap: one speaker concludes it is time to try these tools, and the other agrees to participate.
-
-## Practical applications
-- Suggestion: Before connecting an assistant to email, cloud drives, calendars, or credential vaults, map the potential breach “blast radius” and keep highly sensitive materials in separate offline storage where appropriate.
-- Suggestion: Trial a personal assistant with a bounded, low-risk workflow first, such as surfacing document reminders, coordinating a calendar item, or drafting a follow-up, before granting broader permissions.
-- Suggestion: Evaluate assistants on practical criteria raised in the discussion: access controls, security model, portability of memories, interface convenience, and whether the assistant can work across the tools you already use.
-- Suggestion: For creative production, test whether an AI-to-software connection can complete a small task from plain-language instructions, while reviewing outputs before publishing or deleting source files.
-- Suggestion: For commerce or product teams, assess whether an agent can become the customer’s entry point and whether current advertising, sponsored-placement, or destination-site assumptions depend on users arriving directly.
 
 ## Evidence anchors
 - [00:00:00.080] I know people are tired of hearing about

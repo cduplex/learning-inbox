@@ -41,7 +41,7 @@ Generated 2026-10-29 from 43 saved records.
 - [I Built My Own TV Operating System With Claude Code](cards/i-built-my-own-tv-operating-system-with-claude-code-b30a0f91.md) · smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
-- [4 Claude Systems That Sell For $3000+ Right Now (With PROOF)](cards/4-claude-systems-that-sell-for-3000-right-now-with-proof-6a80adc4.md) · untagged · summary-retry-wait
+- [4 Claude Systems That Sell For $3000+ Right Now (With PROOF)](cards/4-claude-systems-that-sell-for-3000-right-now-with-proof-6a80adc4.md) · untagged · summary-exhausted
 - [I've Set Up 500+ AI Second Brains. Here's The Only 18 Things You Need to Know](cards/i-ve-set-up-500-ai-second-brains-here-s-the-only-18-things-you-need-to-k-03447592.md) · AI second brain, knowledge management, AI agents, Markdown, team collaboration, context management · saved
 - [Claude 2.0 is Insane (All Updates Explained)](cards/claude-2-0-is-insane-all-updates-explained-94b68fc5.md) · Claude Code, AI productivity, desktop app, projects, nested sessions, side chats · saved
 - [Grok Bot just built me an autonomous business...](cards/grok-bot-just-built-me-an-autonomous-business-8bba48fe.md) · AI agents, autonomous business, agentic income, micro-business, SEO, chatbot optimization · saved

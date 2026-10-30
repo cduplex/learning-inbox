@@ -9,9 +9,22 @@ Only these paths, ever:
 ```text
 data/muse-instagram/INDEX.md
 data/muse-instagram/reels/*.md
+briefs/coo/*.json
+briefs/team/*.json
 ```
 
 Nothing else in the repo gets touched. Learning Inbox owns `data/learning-inbox/**` and regenerates it automatically.
+
+## AI brief feeds
+
+Added 2026-10-30 at Chris's direction, per `feed-spec.md` in this repo. The two daily brief jobs each publish one JSON file per weekday run, in ONE commit directly to `main` containing only that job's file:
+
+```text
+briefs/coo/YYYY-MM-DD.json
+briefs/team/YYYY-MM-DD.json
+```
+
+The file schema, categories, and writing rules live in `feed-spec.md`. The feeds hold only public news. The Instagram card rules below (validation, card format, index) apply only to the `data/muse-instagram/**` paths, not to the brief feeds.
 
 ## Never commit
 

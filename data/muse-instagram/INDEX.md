@@ -26,3 +26,5 @@
 - Cards: `reels/*.md`
 - Index: `INDEX.md`
 - [Vibe coded a TV with Claude: a custom ad-free home screen](reels/2026-10-25--vibe-coded-tv-claude-custom-home-screen--1fb864530395.md) - Creator: @thebathman_ (Samraaj Bath) - Tags: claude-code, vibe-coding, smart-tv, home-automation, custom-launcher, ai-assistant - Platform: Instagram Reel - Status: processed
+- [AI slop vs. senior designer: the unslop UI trend](reels/2026-10-29--ai-slop-vs-senior-designer-unslop-trend--029cfa3b41e5.md) - Creator: @griffinwooldridge1 (Griffin Wooldridge) - Tags: ai-design, ui-design, claude-code, vibe-coding, design-trends, prompt-craft - Platform: Instagram Reel - Status: processed
+- [Beyond IQ season 2: AI versus human intelligence](reels/2026-09-21--beyond-iq-ai-versus-human-intelligence--822a08666ad4.md) - Creator: @celastrinarebecka (Celastrina) - Tags: ai-and-society, human-intelligence, cognition, thinking-partner, ai-ethics, consciousness - Platform: Instagram Reel - Status: processed

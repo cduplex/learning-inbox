@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-29 from 44 saved records.
+Generated 2026-10-30 from 44 saved records.
 
 - [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · untagged · summary-exhausted
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved

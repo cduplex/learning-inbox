@@ -1,0 +1,74 @@
+{
+  "feed": "team",
+  "date": "2026-10-30",
+  "items": [
+    {
+      "id": "2026-10-30-team-1",
+      "headline": "Most firms grant agents authority they cannot fully audit",
+      "facts": "Illumio reported on October 29 that 70 percent of companies now grant AI agents authority once reserved for human sign-off, while less than half can fully track or audit what those agents do. In the same report, 76 percent of companies had at least one AI-related security issue or warning sign in the past year, and 26 percent said an AI agent or tool had connected to systems without security approval.",
+      "relevance": "Require an inventory of every agent and its audit trail before granting new autonomous authority, and treat an unaudited agent as an unapproved connection.",
+      "category": "governance",
+      "strength": "high",
+      "evidence": "survey",
+      "published": "2026-10-29",
+      "sources": [
+        {
+          "title": "TechTarget, AI agents gaining autonomy faster than businesses can secure them",
+          "url": "https://www.techtarget.com/news/ai-agents-gaining-autonomy-faster-than-businesses-can-secure-them/873202/"
+        }
+      ],
+      "same_story_as": null
+    },
+    {
+      "id": "2026-10-30-team-2",
+      "headline": "Oracle plans short-lived identities for agents and subagents",
+      "facts": "Oracle described on October 30 work in development to give individual agents and subagent executions distinct, short-lived identities linked to the user, workload, or parent agent that created them, with audit records kept after execution ends. It also plans IAM roles that let agents assume permissions for limited periods, with subagents receiving the same or narrower permissions than their parent, plus a contextual check that can allow, block, or require human approval for an otherwise permitted action.",
+      "relevance": "Copy the subagent rule now: a delegated agent never gets broader permissions than its parent, and bind human approvals to the specific action approved.",
+      "category": "governance",
+      "strength": "medium",
+      "evidence": "news",
+      "published": "2026-10-30",
+      "sources": [
+        {
+          "title": "Superpower Daily, Oracle details work on AI-agent identities and action-specific approvals",
+          "url": "https://superpowerdaily.com/posts/oracle-details-work-on-ai-agent-identities-and-action-specific-approvals"
+        }
+      ],
+      "same_story_as": null
+    },
+    {
+      "id": "2026-10-30-team-3",
+      "headline": "Cresta opens self-service agent building with controlled releases",
+      "facts": "Cresta announced on October 29 end-to-end self-service for developers building customer-facing AI agents, with teams building through their own repo and CI/CD pipeline. Releases are controlled so teams can send a share of conversations to a new version, A/B test versions, and roll back if needed, and builder and reviewer permissions set who can build, review, test, and inspect each agent.",
+      "relevance": "Adopt the release pattern for internal agents: versioned rollouts, a share of traffic first, and separate builder and reviewer permissions.",
+      "category": "platform",
+      "strength": "medium",
+      "evidence": "vendor_claim",
+      "published": "2026-10-29",
+      "sources": [
+        {
+          "title": "CMSWire, Cresta opens its AI agent platform with end-to-end self-service for developers",
+          "url": "https://www.cmswire.com/the-wire/cresta-opens-its-ai-agent-platform-with-end-to-end-self-service-for-developers-02/"
+        }
+      ],
+      "same_story_as": null
+    },
+    {
+      "id": "2026-10-30-team-4",
+      "headline": "Customer service teams already face personal AI agents",
+      "facts": "NiCE reported on October 30 that about six in ten customer service practitioners in its survey already deal with personal AI agents contacting their organisations autonomously. The survey received 118 responses from practitioners at more than 70 NiCE customer organisations, and more than half named oversight, auditability, human-in-the-loop controls, or unified interaction logs as important for expanding automation with confidence.",
+      "relevance": "Add external personal agents to the governance scope: require identity verification, intent checks, and unified logs for agent-to-agent interactions, not only for agents the team builds.",
+      "category": "governance",
+      "strength": "medium",
+      "evidence": "survey",
+      "published": "2026-10-30",
+      "sources": [
+        {
+          "title": "KARV Tech Insider, NiCE survey: personal AI agents reach customer service teams",
+          "url": "https://karvtechinsider.com/ai/news/nice-survey-six-in-ten-customer-service-teams-already-face-interactions-from-personal-ai-agents"
+        }
+      ],
+      "same_story_as": null
+    }
+  ]
+}

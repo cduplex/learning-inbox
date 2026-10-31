@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-31 from 45 saved records.
+Generated 2026-10-31 from 46 saved records.
 
 - [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · Claude artifacts, AI-native collaboration, visual planning, workflow design, microtools, human review · saved
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
@@ -39,6 +39,7 @@ Generated 2026-10-31 from 45 saved records.
 - [A Guide to Becoming a Solopreneur w/ Claude in 2027](cards/a-guide-to-becoming-a-solopreneur-w-claude-in-2027-230d853a.md) · Claude Code, AI automation, solopreneurship, client services, B2B sales, marketing · saved
 - [Vercel's CEO Just Unveiled The Greatest AI Coding Workflow Ever](cards/vercel-s-ceo-just-unveiled-the-greatest-ai-coding-workflow-ever-81c87c97.md) · AI agents, AI-assisted software development, product management, MVP validation, requirements drift, security debt · saved
 - [How Anthropic Reviews 30,000 Claude Code Changes a Day](cards/how-anthropic-reviews-30-000-claude-code-changes-a-day-a8785397.md) · AI code review, Claude Code, software engineering, security review, risk-based approval, automation · saved
+- [Grok Bot + Claude Code, Why is Everyone Switching to This?](cards/grok-bot-claude-code-why-is-everyone-switching-to-this-b3e2f8cf.md) · untagged · extracted
 - [I Tried 100+ Github Repos for Claude. These 6 Are the Best](cards/i-tried-100-github-repos-for-claude-these-6-are-the-best-6ed4da73.md) · Claude, GitHub repositories, AI agents, automation, video editing, web development · saved
 - [I Built My Own TV Operating System With Claude Code](cards/i-built-my-own-tv-operating-system-with-claude-code-b30a0f91.md) · smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved

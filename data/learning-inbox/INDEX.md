@@ -2,7 +2,7 @@
 
 Generated 2026-10-31 from 45 saved records.
 
-- [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · untagged · summary-exhausted
+- [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · Claude artifacts, AI-native collaboration, visual planning, workflow design, microtools, human review · saved
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
 - [How to Use AI Like A Top 0.1% CEO](cards/how-to-use-ai-like-a-top-0-1-ceo-29df2191.md) · AI workflows, voice dictation, meeting automation, AI agents, visualization, prompting · saved
 - [I Tested the Viral Reverse Engineer Anything Skill. What You Need to Know.](cards/i-tested-the-viral-reverse-engineer-anything-skill-what-you-need-to-know-b344aaa8.md) · reverse engineering, AI agents, software development, product requirements, feature analysis, testing · saved
@@ -30,7 +30,7 @@ Generated 2026-10-31 from 45 saved records.
 - [The ONLY Grok Bot Tutorial You Need (Beginner to Genius)](cards/the-only-grok-bot-tutorial-you-need-beginner-to-genius-5fa1bf6a.md) · AI agents, workflow automation, app integrations, email automation, calendar automation, routines · saved
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
 - [What's new in Grok Bot - Oct 27, 2026](cards/what-s-new-in-grok-bot-oct-27-2026-c6beaab2.md) · Grok Bot, product updates, AI agents, password management, Apple integrations, video generation · saved
-- ["Jev for Images" Just Changed Visual Automations Forever](cards/jev-for-images-just-changed-visual-automations-forever-3b7fd565.md) · Jev for images, Typesafe, decision models, image classification, bounding boxes, confidence-based routing · saved
+- ["Jev for Images" Just Changed Visual Automations Forever](cards/jev-for-images-just-changed-visual-automations-forever-3b7fd565.md) · image classification, decision models, business automation, confidence-based routing, human review, image localization · saved
 - [Every Claude 2.0 Concept Explained for Non-Coders](cards/every-claude-2-0-concept-explained-for-non-coders-f57ba6fc.md) · untagged · summary-exhausted
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted software engineering, code review, agent workflows, CI/CD, risk-based approvals, feature flags · saved
 - [The NEW Way to Build a Second Brain w/ Claude (2027)](cards/the-new-way-to-build-a-second-brain-w-claude-2027-ae49dc0c.md) · personal knowledge base, second brain, retrieval-augmented generation, RAG, recency weighting, context rot · saved
@@ -43,7 +43,7 @@ Generated 2026-10-31 from 45 saved records.
 - [I Built My Own TV Operating System With Claude Code](cards/i-built-my-own-tv-operating-system-with-claude-code-b30a0f91.md) · smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
-- [4 Claude Systems That Sell For $3000+ Right Now (With PROOF)](cards/4-claude-systems-that-sell-for-3000-right-now-with-proof-6a80adc4.md) · untagged · summary-exhausted
+- [4 Claude Systems That Sell For $3000+ Right Now (With PROOF)](cards/4-claude-systems-that-sell-for-3000-right-now-with-proof-6a80adc4.md) · AI automation, Claude, business process automation, value-based selling, document generation, lead follow-up · saved
 - [I've Set Up 500+ AI Second Brains. Here's The Only 18 Things You Need to Know](cards/i-ve-set-up-500-ai-second-brains-here-s-the-only-18-things-you-need-to-k-03447592.md) · AI second brain, knowledge management, AI agents, Markdown, team collaboration, context management · saved
 - [Claude 2.0 is Insane (All Updates Explained)](cards/claude-2-0-is-insane-all-updates-explained-94b68fc5.md) · Claude Code, AI productivity, desktop app, projects, nested sessions, side chats · saved
 - [Grok Bot just built me an autonomous business...](cards/grok-bot-just-built-me-an-autonomous-business-8bba48fe.md) · AI agents, autonomous business, agentic income, micro-business, SEO, chatbot optimization · saved

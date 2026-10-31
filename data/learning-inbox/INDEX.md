@@ -30,7 +30,7 @@ Generated 2026-10-31 from 45 saved records.
 - [The ONLY Grok Bot Tutorial You Need (Beginner to Genius)](cards/the-only-grok-bot-tutorial-you-need-beginner-to-genius-5fa1bf6a.md) · AI agents, workflow automation, app integrations, email automation, calendar automation, routines · saved
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
 - [What's new in Grok Bot - Oct 27, 2026](cards/what-s-new-in-grok-bot-oct-27-2026-c6beaab2.md) · Grok Bot, product updates, AI agents, password management, Apple integrations, video generation · saved
-- ["Jev for Images" Just Changed Visual Automations Forever](cards/jev-for-images-just-changed-visual-automations-forever-3b7fd565.md) · untagged · summary-exhausted
+- ["Jev for Images" Just Changed Visual Automations Forever](cards/jev-for-images-just-changed-visual-automations-forever-3b7fd565.md) · Jev for images, Typesafe, decision models, image classification, bounding boxes, confidence-based routing · saved
 - [Every Claude 2.0 Concept Explained for Non-Coders](cards/every-claude-2-0-concept-explained-for-non-coders-f57ba6fc.md) · untagged · summary-exhausted
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted software engineering, code review, agent workflows, CI/CD, risk-based approvals, feature flags · saved
 - [The NEW Way to Build a Second Brain w/ Claude (2027)](cards/the-new-way-to-build-a-second-brain-w-claude-2027-ae49dc0c.md) · personal knowledge base, second brain, retrieval-augmented generation, RAG, recency weighting, context rot · saved

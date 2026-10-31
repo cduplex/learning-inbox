@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-31 from 44 saved records.
+Generated 2026-10-31 from 45 saved records.
 
 - [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · untagged · summary-exhausted
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
@@ -31,6 +31,7 @@ Generated 2026-10-31 from 44 saved records.
 - [Claude's New Updates Are Insane… But Grok Bot Is EVEN Bigger](cards/claude-s-new-updates-are-insane-but-grok-bot-is-even-bigger-be83ea14.md) · AI agents, Claude, Anthropic, OpenAI, Codex, ChatGPT · saved
 - [What's new in Grok Bot - Oct 27, 2026](cards/what-s-new-in-grok-bot-oct-27-2026-c6beaab2.md) · Grok Bot, product updates, AI agents, password management, Apple integrations, video generation · saved
 - ["Jev for Images" Just Changed Visual Automations Forever](cards/jev-for-images-just-changed-visual-automations-forever-3b7fd565.md) · untagged · summary-exhausted
+- [Every Claude 2.0 Concept Explained for Non-Coders](cards/every-claude-2-0-concept-explained-for-non-coders-f57ba6fc.md) · untagged · extracted
 - [Claude Codes New REVIEW.md System, What is it?](cards/claude-codes-new-review-md-system-what-is-it-0da97634.md) · AI-assisted software engineering, code review, agent workflows, CI/CD, risk-based approvals, feature flags · saved
 - [The NEW Way to Build a Second Brain w/ Claude (2027)](cards/the-new-way-to-build-a-second-brain-w-claude-2027-ae49dc0c.md) · personal knowledge base, second brain, retrieval-augmented generation, RAG, recency weighting, context rot · saved
 - [How I’m Actually Using Claude Duet (After 10 Hours of Testing)](cards/how-im-actually-using-claude-duet-after-10-hours-of-testing-805e1546.md) · Claude Duet, AI agents, artifact editing, voice interface, task management, channels · saved

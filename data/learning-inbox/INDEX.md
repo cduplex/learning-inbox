@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-10-31 from 46 saved records.
+Generated 2026-10-31 from 47 saved records.
 
 - [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · Claude artifacts, AI-native collaboration, visual planning, workflow design, microtools, human review · saved
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
@@ -15,6 +15,7 @@ Generated 2026-10-31 from 46 saved records.
 - [Use Claude Code Like a CTO](cards/use-claude-code-like-a-cto-412dce0f.md) · AI coding agents, Claude Code, Codex, agent orchestration, long-horizon tasks, software engineering · saved
 - [Grok Made Me $10K In 14 Days: How To Build A One-Person Business With Grok Bot (3 Step Framework)](cards/grok-made-me-10k-in-14-days-how-to-build-a-one-person-business-with-grok-66363414.md) · AI agents, automation, solopreneurship, multi-agent systems, workflow design, goal setting · saved
 - [Matt Pocock: The Most Valuable Skill to Learn in the Age of AI](cards/matt-pocock-the-most-valuable-skill-to-learn-in-the-age-of-ai-20cb2ca0.md) · AI agents, coding agents, software engineering, agent workflows, communication, requirements discovery · saved
+- [ChatGPT Just Changed A LOT AGAIN (Here’s What’s New)](cards/chatgpt-just-changed-a-lot-again-heres-whats-new-5a9a66f8.md) · untagged · extracted
 - [OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again) | Tibo Sottiaux](cards/openais-head-of-chatgpt-were-entering-a-new-era-of-ai-again-tibo-sottiau-59997221.md) · AI agents, agentic workflows, human-computer interaction, multimodal AI, voice interfaces, AI product design · saved
 - [Hark vs Muse vs Dots vs Grok Bot: Which AI Agent Should You Use?](cards/hark-vs-muse-vs-dots-vs-grok-bot-which-ai-agent-should-you-use-437a2adf.md) · AI personal assistants, AI agents, OpenAI Dots, Hark, Meta Muse, Grockbot · saved
 - [15 NEW Hermes Agent Skills You Need To Install Today](cards/15-new-hermes-agent-skills-you-need-to-install-today-0ec6a7fe.md) · Hermes agent, AI agents, agent skills, automation, coding, email triage · saved

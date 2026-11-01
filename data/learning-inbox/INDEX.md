@@ -1,6 +1,6 @@
 # Learning Inbox Index
 
-Generated 2026-11-01 from 48 saved records.
+Generated 2026-11-01 from 50 saved records.
 
 - [Stop Watching Tutorials - Build These 4 Claude Artifacts to 10x Output](cards/stop-watching-tutorials-build-these-4-claude-artifacts-to-10x-output-336906d2.md) · Claude artifacts, AI-native collaboration, visual planning, workflow design, microtools, human review · saved
 - [Anthropic Just Released 13 New Skills To Level Up Your Claude Setup](cards/anthropic-just-released-13-new-skills-to-level-up-your-claude-setup-720594d5.md) · Anthropic, Claude, AI skills, small business plugin, workflow automation, orchestration · saved
@@ -18,6 +18,7 @@ Generated 2026-11-01 from 48 saved records.
 - [ChatGPT Just Changed A LOT AGAIN (Here’s What’s New)](cards/chatgpt-just-changed-a-lot-again-heres-whats-new-5a9a66f8.md) · AI agents, OpenAI, Dot, Codex, iMessage, Siri · saved
 - [OpenAI’s Head of ChatGPT: We’re entering a new era of AI (again) | Tibo Sottiaux](cards/openais-head-of-chatgpt-were-entering-a-new-era-of-ai-again-tibo-sottiau-59997221.md) · AI agents, agentic workflows, human-computer interaction, multimodal AI, voice interfaces, AI product design · saved
 - [Hark vs Muse vs Dots vs Grok Bot: Which AI Agent Should You Use?](cards/hark-vs-muse-vs-dots-vs-grok-bot-which-ai-agent-should-you-use-437a2adf.md) · AI personal assistants, AI agents, OpenAI Dots, Hark, Meta Muse, Grockbot · saved
+- [Senior Engineers Are Using AI Wrong and Software Factories Are Dumb](cards/senior-engineers-are-using-ai-wrong-and-software-factories-are-dumb-bd7a4e78.md) · untagged · extracted
 - [15 NEW Hermes Agent Skills You Need To Install Today](cards/15-new-hermes-agent-skills-you-need-to-install-today-0ec6a7fe.md) · Hermes agent, AI agents, agent skills, automation, coding, email triage · saved
 - [Turn Claude Into a One Person Marketing Team in 38 Mins](cards/turn-claude-into-a-one-person-marketing-team-in-38-mins-f45a6714.md) · Claude Code, Higgsfield, AI marketing, brand context, marketing workflows, generative media · saved
 - [Update Your Browser](cards/update-your-browser-f02b3fd5.md) · source-unavailable · source-unavailable
@@ -46,6 +47,7 @@ Generated 2026-11-01 from 48 saved records.
 - [I Built My Own TV Operating System With Claude Code](cards/i-built-my-own-tv-operating-system-with-claude-code-b30a0f91.md) · smart TV, Google TV, Android TV, Claude Code, custom launcher, USB debugging · saved
 - [Use Claude Models & Effort Level Better Than 97% of People](cards/use-claude-models-effort-level-better-than-97-of-people-1c6caaca.md) · Claude, AI models, model selection, effort levels, compute cost, parameters · saved
 - [Can a Mac Mini run local AI? (shocking)](cards/can-a-mac-mini-run-local-ai-shocking-4c5305bc.md) · local AI, Mac Mini, Apple silicon, Hermes Desktop, Hermes Agent, local language models · saved
+- [Rob West's Website - The Agentic Software Factory is the Wrong Metaphor](cards/rob-west-s-website-the-agentic-software-factory-is-the-wrong-metaphor-0ff9d49c.md) · untagged · extracted
 - [4 Claude Systems That Sell For $3000+ Right Now (With PROOF)](cards/4-claude-systems-that-sell-for-3000-right-now-with-proof-6a80adc4.md) · AI automation, Claude, business process automation, value-based selling, document generation, lead follow-up · saved
 - [I've Set Up 500+ AI Second Brains. Here's The Only 18 Things You Need to Know](cards/i-ve-set-up-500-ai-second-brains-here-s-the-only-18-things-you-need-to-k-03447592.md) · AI second brain, knowledge management, AI agents, Markdown, team collaboration, context management · saved
 - [Claude 2.0 is Insane (All Updates Explained)](cards/claude-2-0-is-insane-all-updates-explained-94b68fc5.md) · Claude Code, AI productivity, desktop app, projects, nested sessions, side chats · saved
